@@ -1,0 +1,379 @@
+scripts/cpa.sh -heap 13000M -stack 50M -noout -benchmark -bmc -setprop cpa.predicate.useArraysForHeap=false -setprop cpa.predicate.memoryAllocationsAlwaysSucceed=true -setprop cpa.loopbound.maxLoopIterations=10 -setprop cpa.predicate.encodeFloatAs=INTEGER -setprop cpa.predicate.encodeBitvectorAs=INTEGER -setprop solver.solver=princess -timelimit 900s -stats -spec test/programs/benchmarks/properties/unreach-call.prp -64 test/programs/benchmarks/ldv-linux-3.16-rc1/43_2a_bitvector_linux-3.16-rc1.tar.xz-43_2a-net--unix--unix.ko-entry_point.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Running CPAchecker with Java heap of size 13000M.
+Running CPAchecker with Java stack of size 50M.
+Language C detected and set for analysis (CPAMain.detectFrontendLanguageIfNecessary, INFO)
+
+Using the following resource limits: CPU-time limit of 900s (ResourceLimitChecker.fromConfiguration, INFO)
+
+CPAchecker 2.3.1-svn-45350M / bmc (OpenJDK 64-Bit Server VM 17.0.8.1) started (CPAchecker.run, INFO)
+
+Parsing CFA from file(s) "test/programs/benchmarks/ldv-linux-3.16-rc1/43_2a_bitvector_linux-3.16-rc1.tar.xz-43_2a-net--unix--unix.ko-entry_point.cil.out.i" (CPAchecker.parse, INFO)
+
+line 5879: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "p" (& current_task)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5882: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& current_task)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5885: Dead code detected: __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& current_task)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5890: Dead code detected: switch (8UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "p" (& current_task));
+  goto ldv_3067;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& current_task));
+  goto ldv_3067;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& current_task));
+  goto ldv_3067;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& current_task));
+  goto ldv_3067;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6032: Dead code detected: [pao_ID__ == 1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6032: Dead code detected: [!(pao_ID__ == 1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6033: Dead code detected: __asm__ ("incb %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6035: Dead code detected: [pao_ID__ == -1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6035: Dead code detected: [!(pao_ID__ == -1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6036: Dead code detected: __asm__ ("decb %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6038: Dead code detected: __asm__ ("addb %1, %%gs:%P0": "+m" (__preempt_count): "qi" (val)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6042: Dead code detected: [pao_ID__ == 1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6042: Dead code detected: [!(pao_ID__ == 1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6043: Dead code detected: __asm__ ("incw %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6045: Dead code detected: [pao_ID__ == -1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6045: Dead code detected: [!(pao_ID__ == -1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6046: Dead code detected: __asm__ ("decw %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6048: Dead code detected: __asm__ ("addw %1, %%gs:%P0": "+m" (__preempt_count): "ri" (val)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6062: Dead code detected: [pao_ID__ == 1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6062: Dead code detected: [!(pao_ID__ == 1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6063: Dead code detected: __asm__ ("incq %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6065: Dead code detected: [pao_ID__ == -1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6065: Dead code detected: [!(pao_ID__ == -1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6066: Dead code detected: __asm__ ("decq %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6068: Dead code detected: __asm__ ("addq %1, %%gs:%P0": "+m" (__preempt_count): "re" (val)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6071: Dead code detected: switch (4UL) {
+  case 1UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incb %%gs:%P0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decb %%gs:%P0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addb %1, %%gs:%P0": "+m" (__preempt_count): "qi" (val));
+  }
+  goto ldv_6061;
+  case 2UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incw %%gs:%P0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decw %%gs:%P0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addw %1, %%gs:%P0": "+m" (__preempt_count): "ri" (val));
+  }
+  goto ldv_6061;
+  case 4UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incl %%gs:%P0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decl %%gs:%P0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addl %1, %%gs:%P0": "+m" (__preempt_count): "ri" (val));
+  }
+  goto ldv_6061;
+  case 8UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incq %%gs:%P0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decq %%gs:%P0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addq %1, %%gs:%P0": "+m" (__preempt_count): "re" (val));
+  }
+  goto ldv_6061;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6085: Dead code detected: [pao_ID__ == 1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6085: Dead code detected: [!(pao_ID__ == 1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6086: Dead code detected: __asm__ ("incb %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6088: Dead code detected: [pao_ID__ == -1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6088: Dead code detected: [!(pao_ID__ == -1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6089: Dead code detected: __asm__ ("decb %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6091: Dead code detected: __asm__ ("addb %1, %%gs:%P0": "+m" (__preempt_count): "qi" (- val)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6095: Dead code detected: [pao_ID__ == 1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6095: Dead code detected: [!(pao_ID__ == 1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6096: Dead code detected: __asm__ ("incw %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6098: Dead code detected: [pao_ID__ == -1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6098: Dead code detected: [!(pao_ID__ == -1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6099: Dead code detected: __asm__ ("decw %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6101: Dead code detected: __asm__ ("addw %1, %%gs:%P0": "+m" (__preempt_count): "ri" (- val)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6115: Dead code detected: [pao_ID__ == 1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6115: Dead code detected: [!(pao_ID__ == 1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6116: Dead code detected: __asm__ ("incq %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6118: Dead code detected: [pao_ID__ == -1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6118: Dead code detected: [!(pao_ID__ == -1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6119: Dead code detected: __asm__ ("decq %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6121: Dead code detected: __asm__ ("addq %1, %%gs:%P0": "+m" (__preempt_count): "re" (- val)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6124: Dead code detected: switch (4UL) {
+  case 1UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incb %%gs:%P0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decb %%gs:%P0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addb %1, %%gs:%P0": "+m" (__preempt_count): "qi" (- val));
+  }
+  goto ldv_6073;
+  case 2UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incw %%gs:%P0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decw %%gs:%P0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addw %1, %%gs:%P0": "+m" (__preempt_count): "ri" (- val));
+  }
+  goto ldv_6073;
+  case 4UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incl %%gs:%P0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decl %%gs:%P0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addl %1, %%gs:%P0": "+m" (__preempt_count): "ri" (- val));
+  }
+  goto ldv_6073;
+  case 8UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incq %%gs:%P0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decq %%gs:%P0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addq %1, %%gs:%P0": "+m" (__preempt_count): "re" (- val));
+  }
+  goto ldv_6073;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+Undefined function ldv_assume found, first called in line 6417 (CheckBindingVisitor.visit, WARNING)
+
+lines 7339-7340: Dead code detected: __asm__ volatile ("xchgb %b0, %1\n": "+q" (__ret), "+m" (sk->sk_err): : "memory",
+                       "cc"); (CFACreationUtils.addEdgeToCFA, INFO)
+
+lines 7343-7344: Dead code detected: __asm__ volatile ("xchgw %w0, %1\n": "+r" (__ret), "+m" (sk->sk_err): : "memory",
+                       "cc"); (CFACreationUtils.addEdgeToCFA, INFO)
+
+lines 7351-7352: Dead code detected: __asm__ volatile ("xchgq %q0, %1\n": "+r" (__ret), "+m" (sk->sk_err): : "memory",
+                       "cc"); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7354: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ volatile ("xchgb %b0, %1\n": "+q" (__ret), "+m" (sk->sk_err): : "memory",
+                       "cc");
+  goto ldv_44981;
+  case 2UL:
+  __asm__ volatile ("xchgw %w0, %1\n": "+r" (__ret), "+m" (sk->sk_err): : "memory",
+                       "cc");
+  goto ldv_44981;
+  case 4UL:
+  __asm__ volatile ("xchgl %0, %1\n": "+r" (__ret), "+m" (sk->sk_err): : "memory",
+                       "cc");
+  goto ldv_44981;
+  case 8UL:
+  __asm__ volatile ("xchgq %q0, %1\n": "+r" (__ret), "+m" (sk->sk_err): : "memory",
+                       "cc");
+  goto ldv_44981;
+  default:
+  __xchg_wrong_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 10108: Dead code detected: __asm__ volatile ("call __put_user_1": "=a" (__ret_pu): "0" (__pu_val), "c" ((int *)arg): "ebx"); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 10111: Dead code detected: __asm__ volatile ("call __put_user_2": "=a" (__ret_pu): "0" (__pu_val), "c" ((int *)arg): "ebx"); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 10117: Dead code detected: __asm__ volatile ("call __put_user_8": "=a" (__ret_pu): "0" (__pu_val), "c" ((int *)arg): "ebx"); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 10119: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ volatile ("call __put_user_1": "=a" (__ret_pu): "0" (__pu_val), "c" ((int *)arg): "ebx");
+  goto ldv_45984;
+  case 2UL:
+  __asm__ volatile ("call __put_user_2": "=a" (__ret_pu): "0" (__pu_val), "c" ((int *)arg): "ebx");
+  goto ldv_45984;
+  case 4UL:
+  __asm__ volatile ("call __put_user_4": "=a" (__ret_pu): "0" (__pu_val), "c" ((int *)arg): "ebx");
+  goto ldv_45984;
+  case 8UL:
+  __asm__ volatile ("call __put_user_8": "=a" (__ret_pu): "0" (__pu_val), "c" ((int *)arg): "ebx");
+  goto ldv_45984;
+  default:
+  __asm__ volatile ("call __put_user_X": "=a" (__ret_pu): "0" (__pu_val), "c" ((int *)arg): "ebx");
+  goto ldv_45984;
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+lines 10135-10136: Dead code detected: __asm__ volatile ("call __put_user_1": "=a" (__ret_pu___0): "0" (__pu_val___0),
+                         "c" ((int *)arg): "ebx"); (CFACreationUtils.addEdgeToCFA, INFO)
+
+lines 10139-10140: Dead code detected: __asm__ volatile ("call __put_user_2": "=a" (__ret_pu___0): "0" (__pu_val___0),
+                         "c" ((int *)arg): "ebx"); (CFACreationUtils.addEdgeToCFA, INFO)
+
+lines 10147-10148: Dead code detected: __asm__ volatile ("call __put_user_8": "=a" (__ret_pu___0): "0" (__pu_val___0),
+                         "c" ((int *)arg): "ebx"); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 10150: Dead code detected: switch (4UL) {
+    case 1UL:
+    __asm__ volatile ("call __put_user_1": "=a" (__ret_pu___0): "0" (__pu_val___0),
+                         "c" ((int *)arg): "ebx");
+    goto ldv_45995;
+    case 2UL:
+    __asm__ volatile ("call __put_user_2": "=a" (__ret_pu___0): "0" (__pu_val___0),
+                         "c" ((int *)arg): "ebx");
+    goto ldv_45995;
+    case 4UL:
+    __asm__ volatile ("call __put_user_4": "=a" (__ret_pu___0): "0" (__pu_val___0),
+                         "c" ((int *)arg): "ebx");
+    goto ldv_45995;
+    case 8UL:
+    __asm__ volatile ("call __put_user_8": "=a" (__ret_pu___0): "0" (__pu_val___0),
+                         "c" ((int *)arg): "ebx");
+    goto ldv_45995;
+    default:
+    __asm__ volatile ("call __put_user_X": "=a" (__ret_pu___0): "0" (__pu_val___0),
+                         "c" ((int *)arg): "ebx");
+    goto ldv_45995;
+    } (CFACreationUtils.addEdgeToCFA, INFO)
+
+lines 11829-11830: Dead code detected: __asm__ volatile (".pushsection .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.popsection\n671:\n\tlock; xaddb %b0, %1\n": "+q" (__ret),
+                       "+m" (v->counter): : "memory", "cc"); (CFACreationUtils.addEdgeToCFA, INFO)
+
+lines 11833-11834: Dead code detected: __asm__ volatile (".pushsection .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.popsection\n671:\n\tlock; xaddw %w0, %1\n": "+r" (__ret),
+                       "+m" (v->counter): : "memory", "cc"); (CFACreationUtils.addEdgeToCFA, INFO)
+
+lines 11837-11838: Dead code detected: __asm__ volatile (".pushsection .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.popsection\n671:\n\tlock; xaddl %0, %1\n": "+r" (__ret),
+                       "+m" (v->counter): : "memory", "cc"); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11844: Dead code detected: switch (8UL) {
+  case 1UL:
+  __asm__ volatile (".pushsection .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.popsection\n671:\n\tlock; xaddb %b0, %1\n": "+q" (__ret),
+                       "+m" (v->counter): : "memory", "cc");
+  goto ldv_5728;
+  case 2UL:
+  __asm__ volatile (".pushsection .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.popsection\n671:\n\tlock; xaddw %w0, %1\n": "+r" (__ret),
+                       "+m" (v->counter): : "memory", "cc");
+  goto ldv_5728;
+  case 4UL:
+  __asm__ volatile (".pushsection .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.popsection\n671:\n\tlock; xaddl %0, %1\n": "+r" (__ret),
+                       "+m" (v->counter): : "memory", "cc");
+  goto ldv_5728;
+  case 8UL:
+  __asm__ volatile (".pushsection .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.popsection\n671:\n\tlock; xaddq %q0, %1\n": "+r" (__ret),
+                       "+m" (v->counter): : "memory", "cc");
+  goto ldv_5728;
+  default:
+  __xadd_wrong_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+Inline assembler ignored, analysis is probably unsound! (CFABuilder.createCFA, WARNING)
+
+line 6970: Function pointer *(p->_qproc) with type void (*)(struct file *, wait_queue_head_t *, struct poll_table_struct *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (PredicateCPA:FormulaManagerView.<init>, WARNING)
+
+Using predicate analysis with Princess 2023-04-07. (PredicateCPA:PredicateCPA.<init>, INFO)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (AssumptionStorageCPA:FormulaManagerView.<init>, WARNING)
+
+Starting analysis ... (CPAchecker.runAlgorithm, INFO)
+
+Recursion detected, aborting. To ignore recursion, add -skipRecursion to the command line. (TargetLocationProvider:CallstackCPA:CallstackTransferRelation.getAbstractSuccessorsForEdge, INFO)
+
+Recursion detected. Defaulting to selecting all locations as potential target locations. (TargetLocationProvider:TargetLocationProviderImpl.tryGetAutomatonTargetLocations, INFO)
+
+Creating formula for program (AbstractBMCAlgorithm.run, INFO)
+
+Exception in thread "main" org.sosy_lab.java_smt.basicimpl.GeneratorException: Modular Congruence is not available in SMTLIB2. 
+	at org.sosy_lab.java_smt.basicimpl.AbstractNumeralFormulaManager.modularCongruence(AbstractNumeralFormulaManager.java:361)
+	at org.sosy_lab.java_smt.solvers.princess.PrincessIntegerFormulaManager.modularCongruence(PrincessIntegerFormulaManager.java:22)
+	at org.sosy_lab.cpachecker.util.predicates.smt.IntegerFormulaManagerView.modularCongruence(IntegerFormulaManagerView.java:35)
+	at org.sosy_lab.cpachecker.util.predicates.smt.FormulaManagerView.makeModularCongruence(FormulaManagerView.java:688)
+	at org.sosy_lab.cpachecker.util.predicates.smt.FormulaManagerView.makeModularCongruence(FormulaManagerView.java:670)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.PointerTargetSetManager.makeBaseAddressConstraints(PointerTargetSetManager.java:653)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.PointerTargetSetBuilder$RealPointerTargetSetBuilder.addNextBaseAddressConstraints(PointerTargetSetBuilder.java:286)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.CToFormulaConverterWithPointerAliasing.declareSharedBase(CToFormulaConverterWithPointerAliasing.java:437)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.CToFormulaConverterWithPointerAliasing.makeDeclaration(CToFormulaConverterWithPointerAliasing.java:1001)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.ctoformula.CtoFormulaConverter.createFormulaForEdge(CtoFormulaConverter.java:1231)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.ctoformula.CtoFormulaConverter.makeAnd(CtoFormulaConverter.java:1049)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.PathFormulaManagerImpl.makeAnd(PathFormulaManagerImpl.java:246)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.PathFormulaManagerImpl.makeAnd(PathFormulaManagerImpl.java:300)
+	at org.sosy_lab.cpachecker.cpa.predicate.PredicateTransferRelation.convertEdgeToPathFormula(PredicateTransferRelation.java:203)
+	at org.sosy_lab.cpachecker.cpa.predicate.PredicateTransferRelation.getAbstractSuccessorsForEdge(PredicateTransferRelation.java:113)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.callTransferRelation(CompositeTransferRelation.java:297)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessorForSimpleEdge(CompositeTransferRelation.java:264)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessorForEdge(CompositeTransferRelation.java:196)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessors(CompositeTransferRelation.java:88)
+	at org.sosy_lab.cpachecker.cpa.arg.ARGTransferRelation.getAbstractSuccessors(ARGTransferRelation.java:45)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.handleState(CPAAlgorithm.java:334)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.run0(CPAAlgorithm.java:289)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.run(CPAAlgorithm.java:260)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.BMCHelper.unroll(BMCHelper.java:192)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.AbstractBMCAlgorithm.run(AbstractBMCAlgorithm.java:427)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.BMCAlgorithm.run(BMCAlgorithm.java:130)
+	at org.sosy_lab.cpachecker.core.CPAchecker.runAlgorithm(CPAchecker.java:507)
+	at org.sosy_lab.cpachecker.core.CPAchecker.run(CPAchecker.java:369)
+	at org.sosy_lab.cpachecker.cmdline.CPAMain.main(CPAMain.java:170)

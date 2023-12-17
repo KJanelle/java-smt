@@ -1,0 +1,127 @@
+scripts/cpa.sh -heap 13000M -stack 50M -noout -benchmark -bmc -setprop cpa.predicate.useArraysForHeap=false -setprop cpa.predicate.memoryAllocationsAlwaysSucceed=true -setprop cpa.loopbound.maxLoopIterations=10 -setprop cpa.predicate.encodeFloatAs=INTEGER -setprop cpa.predicate.encodeBitvectorAs=INTEGER -setprop solver.solver=princess_binary -setprop proveroptions.option=use_binary -timelimit 900s -stats -spec test/programs/benchmarks/properties/unreach-call.prp -32 test/programs/benchmarks/product-lines/email_spec3_product35.cil.c
+
+
+--------------------------------------------------------------------------------
+
+
+Running CPAchecker with Java heap of size 13000M.
+Running CPAchecker with Java stack of size 50M.
+Language C detected and set for analysis (CPAMain.detectFrontendLanguageIfNecessary, INFO)
+
+Using the following resource limits: CPU-time limit of 900s (ResourceLimitChecker.fromConfiguration, INFO)
+
+CPAchecker 2.3.1-svn-45350M / bmc (OpenJDK 64-Bit Server VM 17.0.8.1) started (CPAchecker.run, INFO)
+
+Parsing CFA from file(s) "test/programs/benchmarks/product-lines/email_spec3_product35.cil.c" (CPAchecker.parse, INFO)
+
+line 657: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 689: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 698: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 707: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 732: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 935: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 964: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1012: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1059: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1104: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1182: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1251: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1385: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1468: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1515: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1562: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1607: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1670: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1777: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1831: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1903: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1950: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1995: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2016: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2053: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2090: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2129: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2168: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2205: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2242: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2279: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2316: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2353: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2460: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2480: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2489: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2504: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2824: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2870: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2882: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2905: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2922: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2661: Function pointer *__cil_tmp10 with type int (*)(int, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (PredicateCPA:FormulaManagerView.<init>, WARNING)
+
+Using predicate analysis with Princess 2023-04-07. (PredicateCPA:PredicateCPA.<init>, INFO)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (AssumptionStorageCPA:FormulaManagerView.<init>, WARNING)
+
+The following configuration options were specified but are not used:
+ proveroptions.option 
+ (CPAchecker.printConfigurationWarnings, WARNING)
+
+Starting analysis ... (CPAchecker.runAlgorithm, INFO)
+
+Creating formula for program (AbstractBMCAlgorithm.run, INFO)
+
+Starting satisfiability check... (AbstractBMCAlgorithm.boundedModelCheck, INFO)
+
+Shutdown requested (The CPU-time limit of 900s has elapsed.), waiting for termination. (ForceTerminationOnShutdown$1.shutdownRequested, WARNING)
+
+Shutdown was requested but CPAchecker is still running after 10s, forcing immediate termination now. (ForceTerminationOnShutdown.run, WARNING)
+
+For your information: CPAchecker is currently hanging at
+ app//ap.parser.IBinFormula.equals(IFormula.scala:204)
+app//ap.parser.IBinFormula.equals(IFormula.sca... <REMAINING ARGUMENT OMITTED BECAUSE 26827 CHARACTERS LONG> 
+ (ForceTerminationOnShutdown.run, INFO)
+

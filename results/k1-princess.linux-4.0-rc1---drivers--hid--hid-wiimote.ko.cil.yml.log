@@ -1,0 +1,404 @@
+scripts/cpa.sh -heap 13000M -stack 50M -noout -benchmark -bmc -setprop cpa.predicate.useArraysForHeap=false -setprop cpa.predicate.memoryAllocationsAlwaysSucceed=true -setprop cpa.loopbound.maxLoopIterations=1 -setprop cpa.predicate.encodeFloatAs=INTEGER -setprop cpa.predicate.encodeBitvectorAs=INTEGER -setprop solver.solver=princess -timelimit 900s -stats -spec test/programs/benchmarks/properties/unreach-call.prp -64 test/programs/benchmarks/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--hid--hid-wiimote.ko.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Running CPAchecker with Java heap of size 13000M.
+Running CPAchecker with Java stack of size 50M.
+Language C detected and set for analysis (CPAMain.detectFrontendLanguageIfNecessary, INFO)
+
+Using the following resource limits: CPU-time limit of 900s (ResourceLimitChecker.fromConfiguration, INFO)
+
+CPAchecker 2.3.1-svn-45350M / bmc (OpenJDK 64-Bit Server VM 17.0.8.1) started (CPAchecker.run, INFO)
+
+Parsing CFA from file(s) "test/programs/benchmarks/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--hid--hid-wiimote.ko.cil.i" (CPAchecker.parse, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+line 8023: Dead code detected: return (arg0); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8035: Dead code detected: return (arg0); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8468: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8512: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 10829: Dead code detected: return (arg0); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 10848: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 10893: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 10912: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 10946: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 10987: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11020: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11041: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11079: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11317: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11332: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11347: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11362: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11436: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11453: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+line 15471: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 15516: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 15535: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 15569: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 15614: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 15646: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 15795: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 15840: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 15872: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16013: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16058: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16090: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16229: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16274: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16306: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16447: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16492: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16524: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16665: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16710: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16742: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16891: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16936: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16968: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 17109: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 17154: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 17186: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 17327: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 17372: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 17404: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 17553: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 17598: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 17630: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 17771: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 17816: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 17848: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 17997: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 18042: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 18074: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 18207: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 18252: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 18284: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 18433: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 18478: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 18510: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 18651: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 18696: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 18728: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 18867: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 18912: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 18944: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 19085: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 19130: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 19162: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 19303: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 19348: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 19380: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 19529: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 19574: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 19606: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 19747: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 19792: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 19824: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 19965: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 20010: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 20042: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 20191: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 20236: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 20268: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 20409: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 20454: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 20486: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 20635: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 20680: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 20712: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 20845: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 20890: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 20922: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 21071: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 21116: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 21148: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 21289: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 21334: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 21366: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 21507: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 21552: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 21584: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 21725: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 21770: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 21802: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 21943: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 21988: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 22020: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 22161: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 22206: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 22238: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 22379: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 22424: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 22456: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 22597: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 22642: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 22674: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 22815: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 22860: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 22892: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 23033: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 23078: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 23110: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 23251: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 23296: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 23328: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 23469: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 23514: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 23546: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 23687: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 23732: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 23764: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 23905: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 23950: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 23982: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 24123: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 24168: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 24200: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 24341: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 24386: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 24418: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 24559: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 24604: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 24636: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 24785: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 24830: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 24862: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 24995: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 25804: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 25835: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 25906: Dead code detected: goto ldv_call_0; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 25907: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 25947: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 25978: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26063: Dead code detected: goto ldv_call_1; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26064: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+Inline assembler ignored, analysis is probably unsound! (CFABuilder.createCFA, WARNING)
+
+line 4600: Function pointer *(hdev->ll_driver->open) with type int (*)(struct hid_device *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 4626: Function pointer *(hdev->ll_driver->output_report) with type int (*)(struct hid_device *, __u8 *, size_t ) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 4566: Function pointer *(hdev->ll_driver->start) with type int (*)(struct hid_device *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (PredicateCPA:FormulaManagerView.<init>, WARNING)
+
+Using predicate analysis with Princess 2023-04-07. (PredicateCPA:PredicateCPA.<init>, INFO)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (AssumptionStorageCPA:FormulaManagerView.<init>, WARNING)
+
+Starting analysis ... (CPAchecker.runAlgorithm, INFO)
+
+line 8396: Ignoring call via function pointer ldv_dummy_resourceless_instance_callback_3_9::arg0 for which no suitable target was found in line: (*arg0)(arg1, arg2, arg3, arg4); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 8372: Ignoring call via function pointer ldv_dummy_resourceless_instance_callback_2_9::arg0 for which no suitable target was found in line: (*arg0)(arg1, arg2, arg3, arg4); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 8486: Ignoring call via function pointer ldv_file_operations_instance_release_1_2::arg0 for which no suitable target was found in line: (*arg0)(arg1, arg2); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 8498: Ignoring call via function pointer ldv_file_operations_instance_write_1_4::arg0 for which no suitable target was found in line: (*arg0)(arg1, arg2, arg3, arg4); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+Recursion detected, aborting. To ignore recursion, add -skipRecursion to the command line. (TargetLocationProvider:CallstackCPA:CallstackTransferRelation.getAbstractSuccessorsForEdge, INFO)
+
+Recursion detected. Defaulting to selecting all locations as potential target locations. (TargetLocationProvider:TargetLocationProviderImpl.tryGetAutomatonTargetLocations, INFO)
+
+Creating formula for program (AbstractBMCAlgorithm.run, INFO)
+
+Exception in thread "main" org.sosy_lab.java_smt.basicimpl.GeneratorException: Modular Congruence is not available in SMTLIB2. 
+	at org.sosy_lab.java_smt.basicimpl.AbstractNumeralFormulaManager.modularCongruence(AbstractNumeralFormulaManager.java:361)
+	at org.sosy_lab.java_smt.solvers.princess.PrincessIntegerFormulaManager.modularCongruence(PrincessIntegerFormulaManager.java:22)
+	at org.sosy_lab.cpachecker.util.predicates.smt.IntegerFormulaManagerView.modularCongruence(IntegerFormulaManagerView.java:35)
+	at org.sosy_lab.cpachecker.util.predicates.smt.FormulaManagerView.makeModularCongruence(FormulaManagerView.java:688)
+	at org.sosy_lab.cpachecker.util.predicates.smt.FormulaManagerView.makeModularCongruence(FormulaManagerView.java:670)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.PointerTargetSetManager.makeBaseAddressConstraints(PointerTargetSetManager.java:653)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.PointerTargetSetBuilder$RealPointerTargetSetBuilder.addNextBaseAddressConstraints(PointerTargetSetBuilder.java:286)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.CToFormulaConverterWithPointerAliasing.declareSharedBase(CToFormulaConverterWithPointerAliasing.java:437)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.CToFormulaConverterWithPointerAliasing.makeDeclaration(CToFormulaConverterWithPointerAliasing.java:1001)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.ctoformula.CtoFormulaConverter.createFormulaForEdge(CtoFormulaConverter.java:1231)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.ctoformula.CtoFormulaConverter.makeAnd(CtoFormulaConverter.java:1049)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.PathFormulaManagerImpl.makeAnd(PathFormulaManagerImpl.java:246)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.PathFormulaManagerImpl.makeAnd(PathFormulaManagerImpl.java:300)
+	at org.sosy_lab.cpachecker.cpa.predicate.PredicateTransferRelation.convertEdgeToPathFormula(PredicateTransferRelation.java:203)
+	at org.sosy_lab.cpachecker.cpa.predicate.PredicateTransferRelation.getAbstractSuccessorsForEdge(PredicateTransferRelation.java:113)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.callTransferRelation(CompositeTransferRelation.java:297)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessorForSimpleEdge(CompositeTransferRelation.java:264)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessorForEdge(CompositeTransferRelation.java:196)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessors(CompositeTransferRelation.java:88)
+	at org.sosy_lab.cpachecker.cpa.arg.ARGTransferRelation.getAbstractSuccessors(ARGTransferRelation.java:45)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.handleState(CPAAlgorithm.java:334)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.run0(CPAAlgorithm.java:289)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.run(CPAAlgorithm.java:260)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.BMCHelper.unroll(BMCHelper.java:192)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.AbstractBMCAlgorithm.run(AbstractBMCAlgorithm.java:427)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.BMCAlgorithm.run(BMCAlgorithm.java:130)
+	at org.sosy_lab.cpachecker.core.CPAchecker.runAlgorithm(CPAchecker.java:507)
+	at org.sosy_lab.cpachecker.core.CPAchecker.run(CPAchecker.java:369)
+	at org.sosy_lab.cpachecker.cmdline.CPAMain.main(CPAMain.java:170)

@@ -1,0 +1,233 @@
+scripts/cpa.sh -heap 13000M -stack 50M -noout -benchmark -bmc -setprop cpa.predicate.useArraysForHeap=false -setprop cpa.predicate.memoryAllocationsAlwaysSucceed=true -setprop cpa.loopbound.maxLoopIterations=10 -setprop cpa.predicate.encodeFloatAs=INTEGER -setprop cpa.predicate.encodeBitvectorAs=INTEGER -setprop solver.solver=princess_binary -setprop proveroptions.option=use_binary -timelimit 900s -stats -spec test/programs/benchmarks/properties/unreach-call.prp -32 test/programs/benchmarks/product-lines/elevator_spec9_product09.cil.c
+
+
+--------------------------------------------------------------------------------
+
+
+Running CPAchecker with Java heap of size 13000M.
+Running CPAchecker with Java stack of size 50M.
+Language C detected and set for analysis (CPAMain.detectFrontendLanguageIfNecessary, INFO)
+
+Using the following resource limits: CPU-time limit of 900s (ResourceLimitChecker.fromConfiguration, INFO)
+
+CPAchecker 2.3.1-svn-45350M / bmc (OpenJDK 64-Bit Server VM 17.0.8.1) started (CPAchecker.run, INFO)
+
+Parsing CFA from file(s) "test/programs/benchmarks/product-lines/elevator_spec9_product09.cil.c" (CPAchecker.parse, INFO)
+
+line 180: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 416: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 727: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1089: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1168: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1322: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1331: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1365: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1374: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1414: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1494: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1507: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1859: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1893: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1949: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1963: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2536: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2856: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2902: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 3103: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 3142: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 3181: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 3284: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 3307: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2693: Function pointer *__cil_tmp10 with type int (*)(int, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (PredicateCPA:FormulaManagerView.<init>, WARNING)
+
+Using predicate analysis with Princess 2023-04-07. (PredicateCPA:PredicateCPA.<init>, INFO)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (AssumptionStorageCPA:FormulaManagerView.<init>, WARNING)
+
+The following configuration options were specified but are not used:
+ proveroptions.option 
+ (CPAchecker.printConfigurationWarnings, WARNING)
+
+Starting analysis ... (CPAchecker.runAlgorithm, INFO)
+
+Creating formula for program (AbstractBMCAlgorithm.run, INFO)
+
+Starting satisfiability check... (AbstractBMCAlgorithm.boundedModelCheck, INFO)
+
+Starting assertions check... (AbstractBMCAlgorithm.checkBoundingAssertions, INFO)
+
+Stopping analysis ... (CPAchecker.runAlgorithm, INFO)
+
+
+PredicateCPA statistics
+-----------------------
+Number of abstractions:            0 (0% of all post computations)
+Number of strengthen sat checks:   0
+Number of coverage checks:         0
+  BDD entailment checks:           0
+Number of SMT sat checks:          0
+  trivial:                         0
+  cached:                          0
+
+Max ABE block size:                       0
+Avg ABE block size:                                0.00 (sum: 0, count: 0, min: 0, max: 0)
+Number of predicates discovered:          0
+
+Time for post operator:                                0.405s
+  Time for path formula creation:                      0.400s
+Time for strengthen operator:                          0.018s
+Time for prec operator:                                0.008s
+Time for coverage checks:                              0.000s
+Total time for SMT solver (w/o itp):     0.000s
+
+Total number of created targets for pointer analysis: 0
+
+
+
+KeyValue statistics
+-------------------
+Init. function predicates:                         0
+Init. global predicates:                           0
+Init. location predicates:                         0
+
+Invariant Generation statistics
+-------------------------------
+
+Bounds CPA statistics
+---------------------
+Bound k:                                           10
+Maximum loop iteration reached:                    5
+
+
+ValueAnalysisCPA statistics
+---------------------------
+Number of variables per state:                     60.77 (sum: 99364, count: 1635, min: 0, max: 73)
+Number of global variables per state:              53.78 (sum: 87926, count: 1635, min: 0, max: 56)
+Number of assumptions:                                 1732
+Number of deterministic assumptions:                      0
+Level of Determinism:                              0%
+
+ValueAnalysisPrecisionAdjustment statistics
+-------------------------------------------
+Number of abstraction computations:                    1634
+Total time for liveness abstraction:                   0.000s
+Total time for abstraction computation:                0.049s
+Total time for path thresholds:                        0.000s
+
+ConstraintsStrengthenOperator statistics
+----------------------------------------
+Total time for strengthening by ConstraintsCPA:     0.000s
+Replaced symbolic expressions: 0
+
+AutomatonAnalysis (SVCOMP) statistics
+-------------------------------------
+Number of states:                                  1
+Total time for successor computation:                  0.004s
+Automaton transfers with branching:                0
+Automaton transfer successors:                     1.00 (sum: 1634, count: 1634, min: 1, max: 1) [1 x 1634]
+Number of states with assumption transitions:      0
+
+CPA algorithm statistics
+------------------------
+Number of iterations:            1635
+Max size of waitlist:            1
+Average size of waitlist:        1
+LoopstackSortedWaitlist:                           0.00 (sum: 0, count: 1635, min: 0, max: 0)
+ReversePostorderSortedWaitlist:                    0.00 (sum: 0, count: 1635, min: 0, max: 0)
+LoopIterationSortedWaitlist:                       0.00 (sum: 0, count: 1635, min: 0, max: 0)
+CallstackSortedWaitlist:                           0.00 (sum: 0, count: 1, min: 0, max: 0)
+Number of computed successors:   1634
+Max successors for one state:    1
+Number of times merged:          0
+Number of times stopped:         0
+Number of times breaked:         0
+
+Total time for CPA algorithm:         0.838s (Max:     0.838s)
+  Time for choose from waitlist:      0.020s
+  Time for precision adjustment:      0.131s
+  Time for transfer relation:         0.606s
+  Time for stop operator:             0.006s
+  Time for adding to reached set:     0.028s
+
+BMC algorithm statistics
+------------------------
+Time for BMC formula creation:                       0.840s
+Time for final sat check:                            0.210s
+Time for bounding assertions check:                  0.007s
+
+CPAchecker general statistics
+-----------------------------
+Number of program locations:                       2207
+Number of CFA edges (per node):                        2671 (count: 2207, min: 0, max: 21, avg: 1.21)
+Number of relevant variables:                      310
+Number of functions:                               71
+Number of loops (and loop nodes):                         9 (sum: 175, min: 11, max: 37, avg: 19.44)
+Size of reached set:             1635
+  Number of reached locations:   707 (32%)
+    Avg states per location:     2
+    Max states per location:     28 (at node N49)
+  Number of reached functions:   39 (55%)
+  Number of partitions:          1635
+    Avg size of partitions:      1
+    Max size of partitions:      1
+  Number of target states:       0
+
+Time for analysis setup:          2.804s
+  Time for loading CPAs:          1.288s
+  Time for loading parser:        0.255s
+  Time for CFA construction:      1.156s
+    Time for parsing file(s):     0.453s
+    Time for AST to CFA:          0.379s
+    Time for CFA sanity check:    0.000s
+    Time for post-processing:     0.243s
+    Time for loop structure:      0.015s
+    Time for AST structure:       0.000s
+      Time for function pointers resolving:            0.007s
+        Function calls via function pointers:             1 (count: 1, min: 1, max: 1, avg: 1.00)
+        Instrumented function pointer calls:              0 (count: 1, min: 0, max: 0, avg: 0.00)
+        Function calls with function pointer arguments:        0 (count: 1, min: 0, max: 0, avg: 0.00)
+        Instrumented function pointer arguments:          0 (count: 1, min: 0, max: 0, avg: 0.00)
+      Time for classifying variables:                  0.170s
+        Time for collecting variables:                 0.105s
+        Time for solving dependencies:                 0.003s
+        Time for building hierarchy:                   0.000s
+        Time for building classification:              0.062s
+        Time for exporting data:                       0.000s
+Time for Analysis:                1.461s
+CPU time for analysis:            2.900s
+Time for analyzing result:        0.001s
+Total time for CPAchecker:        4.265s
+Total CPU time for CPAchecker:    8.270s
+Time for statistics:              0.069s
+
+Time for Garbage Collector:       0.091s (in 11 runs)
+Garbage Collector(s) used:    G1 Old Generation, G1 Young Generation
+
+Verification result: TRUE. No property violation found by chosen configuration.
+More details about the verification run can be found in the directory "./output".

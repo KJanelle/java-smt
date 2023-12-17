@@ -1,0 +1,349 @@
+scripts/cpa.sh -heap 13000M -stack 50M -noout -benchmark -bmc -setprop cpa.predicate.useArraysForHeap=false -setprop cpa.predicate.memoryAllocationsAlwaysSucceed=true -setprop cpa.loopbound.maxLoopIterations=1 -setprop cpa.predicate.encodeFloatAs=INTEGER -setprop cpa.predicate.encodeBitvectorAs=INTEGER -setprop solver.solver=princess_binary -setprop proveroptions.option=use_binary -timelimit 900s -stats -spec test/programs/benchmarks/properties/unreach-call.prp -64 test/programs/benchmarks/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-43_2a-drivers--usb--host--xhci-hcd.ko-entry_point.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Running CPAchecker with Java heap of size 13000M.
+Running CPAchecker with Java stack of size 50M.
+Language C detected and set for analysis (CPAMain.detectFrontendLanguageIfNecessary, INFO)
+
+Using the following resource limits: CPU-time limit of 900s (ResourceLimitChecker.fromConfiguration, INFO)
+
+CPAchecker 2.3.1-svn-45350M / bmc (OpenJDK 64-Bit Server VM 17.0.8.1) started (CPAchecker.run, INFO)
+
+Parsing CFA from file(s) "test/programs/benchmarks/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-43_2a-drivers--usb--host--xhci-hcd.ko-entry_point.cil.out.i" (CPAchecker.parse, INFO)
+
+line 5361: Dead code detected: __asm__ ("movb %%gs:%1,%0": "=q" (pfo_ret__): "m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5364: Dead code detected: __asm__ ("movw %%gs:%1,%0": "=r" (pfo_ret__): "m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5370: Dead code detected: __asm__ ("movq %%gs:%1,%0": "=r" (pfo_ret__): "m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5372: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%1,%0": "=q" (pfo_ret__): "m" (__preempt_count));
+  goto ldv_6106;
+  case 2UL:
+  __asm__ ("movw %%gs:%1,%0": "=r" (pfo_ret__): "m" (__preempt_count));
+  goto ldv_6106;
+  case 4UL:
+  __asm__ ("movl %%gs:%1,%0": "=r" (pfo_ret__): "m" (__preempt_count));
+  goto ldv_6106;
+  case 8UL:
+  __asm__ ("movq %%gs:%1,%0": "=r" (pfo_ret__): "m" (__preempt_count));
+  goto ldv_6106;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5386: Dead code detected: [pao_ID__ == 1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5386: Dead code detected: [!(pao_ID__ == 1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5387: Dead code detected: __asm__ ("incb %%gs:%0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5389: Dead code detected: [pao_ID__ == -1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5389: Dead code detected: [!(pao_ID__ == -1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5390: Dead code detected: __asm__ ("decb %%gs:%0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5392: Dead code detected: __asm__ ("addb %1, %%gs:%0": "+m" (__preempt_count): "qi" (val)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5396: Dead code detected: [pao_ID__ == 1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5396: Dead code detected: [!(pao_ID__ == 1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5397: Dead code detected: __asm__ ("incw %%gs:%0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5399: Dead code detected: [pao_ID__ == -1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5399: Dead code detected: [!(pao_ID__ == -1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5400: Dead code detected: __asm__ ("decw %%gs:%0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5402: Dead code detected: __asm__ ("addw %1, %%gs:%0": "+m" (__preempt_count): "ri" (val)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5416: Dead code detected: [pao_ID__ == 1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5416: Dead code detected: [!(pao_ID__ == 1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5417: Dead code detected: __asm__ ("incq %%gs:%0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5419: Dead code detected: [pao_ID__ == -1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5419: Dead code detected: [!(pao_ID__ == -1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5420: Dead code detected: __asm__ ("decq %%gs:%0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5422: Dead code detected: __asm__ ("addq %1, %%gs:%0": "+m" (__preempt_count): "re" (val)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5425: Dead code detected: switch (4UL) {
+  case 1UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incb %%gs:%0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decb %%gs:%0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addb %1, %%gs:%0": "+m" (__preempt_count): "qi" (val));
+  }
+  goto ldv_6163;
+  case 2UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incw %%gs:%0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decw %%gs:%0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addw %1, %%gs:%0": "+m" (__preempt_count): "ri" (val));
+  }
+  goto ldv_6163;
+  case 4UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incl %%gs:%0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decl %%gs:%0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addl %1, %%gs:%0": "+m" (__preempt_count): "ri" (val));
+  }
+  goto ldv_6163;
+  case 8UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incq %%gs:%0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decq %%gs:%0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addq %1, %%gs:%0": "+m" (__preempt_count): "re" (val));
+  }
+  goto ldv_6163;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5439: Dead code detected: [pao_ID__ == 1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5439: Dead code detected: [!(pao_ID__ == 1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5440: Dead code detected: __asm__ ("incb %%gs:%0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5442: Dead code detected: [pao_ID__ == -1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5442: Dead code detected: [!(pao_ID__ == -1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5443: Dead code detected: __asm__ ("decb %%gs:%0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5445: Dead code detected: __asm__ ("addb %1, %%gs:%0": "+m" (__preempt_count): "qi" (- val)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5449: Dead code detected: [pao_ID__ == 1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5449: Dead code detected: [!(pao_ID__ == 1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5450: Dead code detected: __asm__ ("incw %%gs:%0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5452: Dead code detected: [pao_ID__ == -1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5452: Dead code detected: [!(pao_ID__ == -1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5453: Dead code detected: __asm__ ("decw %%gs:%0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5455: Dead code detected: __asm__ ("addw %1, %%gs:%0": "+m" (__preempt_count): "ri" (- val)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5469: Dead code detected: [pao_ID__ == 1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5469: Dead code detected: [!(pao_ID__ == 1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5470: Dead code detected: __asm__ ("incq %%gs:%0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5472: Dead code detected: [pao_ID__ == -1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5472: Dead code detected: [!(pao_ID__ == -1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5473: Dead code detected: __asm__ ("decq %%gs:%0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5475: Dead code detected: __asm__ ("addq %1, %%gs:%0": "+m" (__preempt_count): "re" (- val)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5478: Dead code detected: switch (4UL) {
+  case 1UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incb %%gs:%0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decb %%gs:%0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addb %1, %%gs:%0": "+m" (__preempt_count): "qi" (- val));
+  }
+  goto ldv_6175;
+  case 2UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incw %%gs:%0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decw %%gs:%0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addw %1, %%gs:%0": "+m" (__preempt_count): "ri" (- val));
+  }
+  goto ldv_6175;
+  case 4UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incl %%gs:%0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decl %%gs:%0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addl %1, %%gs:%0": "+m" (__preempt_count): "ri" (- val));
+  }
+  goto ldv_6175;
+  case 8UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incq %%gs:%0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decq %%gs:%0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addq %1, %%gs:%0": "+m" (__preempt_count): "re" (- val));
+  }
+  goto ldv_6175;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 23464: Dead code detected: *((u8 *)__gu_p) = (unsigned char )status; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 23467: Dead code detected: put_unaligned_le16((int )((unsigned short )status), __gu_p); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 23473: Dead code detected: put_unaligned_le64((unsigned long long )status, __gu_p); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 23475: Dead code detected: switch (4UL) {
+  case 1UL:
+  *((u8 *)__gu_p) = (unsigned char )status;
+  goto ldv_30280;
+  case 2UL:
+  put_unaligned_le16((int )((unsigned short )status), __gu_p);
+  goto ldv_30280;
+  case 4UL:
+  put_unaligned_le32(status, __gu_p);
+  goto ldv_30280;
+  case 8UL:
+  put_unaligned_le64((unsigned long long )status, __gu_p);
+  goto ldv_30280;
+  default:
+  __bad_unaligned_access_size();
+  goto ldv_30280;
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+Inline assembler ignored, analysis is probably unsound! (CFABuilder.createCFA, WARNING)
+
+line 6622: Function pointer *((void (*)(void *, struct xhci_hcd *, struct xhci_container_ctx *, unsigned int))it_func) with type void (*)(void *, struct xhci_hcd *, struct xhci_container_ctx *, unsigned int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 17942: Function pointer *((void (*)(void *, void *, struct xhci_generic_trb *))it_func) with type void (*)(void *, void *, struct xhci_generic_trb *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 6177: Function pointer *((void (*)(void *, struct va_format *))it_func) with type void (*)(void *, struct va_format *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 6473: Function pointer *((void (*)(void *, struct va_format *))it_func) with type void (*)(void *, struct va_format *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 17795: Function pointer *((void (*)(void *, struct va_format *))it_func) with type void (*)(void *, struct va_format *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 6251: Function pointer *((void (*)(void *, struct va_format *))it_func) with type void (*)(void *, struct va_format *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 14041: Function pointer *((void (*)(void *, struct va_format *))it_func) with type void (*)(void *, struct va_format *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 6547: Function pointer *((void (*)(void *, struct va_format *))it_func) with type void (*)(void *, struct va_format *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 14114: Function pointer *((void (*)(void *, struct va_format *))it_func) with type void (*)(void *, struct va_format *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 6325: Function pointer *((void (*)(void *, struct va_format *))it_func) with type void (*)(void *, struct va_format *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 17649: Function pointer *((void (*)(void *, struct va_format *))it_func) with type void (*)(void *, struct va_format *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 22588: Function pointer *((void (*)(void *, struct va_format *))it_func) with type void (*)(void *, struct va_format *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 6399: Function pointer *((void (*)(void *, struct va_format *))it_func) with type void (*)(void *, struct va_format *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 17722: Function pointer *((void (*)(void *, struct va_format *))it_func) with type void (*)(void *, struct va_format *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 14188: Function pointer *((void (*)(void *, struct va_format *))it_func) with type void (*)(void *, struct va_format *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 17868: Function pointer *((void (*)(void *, struct va_format *))it_func) with type void (*)(void *, struct va_format *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 12307: Function pointer *get_quirks with type void (*)(struct device *, struct xhci_hcd *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (PredicateCPA:FormulaManagerView.<init>, WARNING)
+
+Using predicate analysis with Princess 2023-04-07. (PredicateCPA:PredicateCPA.<init>, INFO)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (AssumptionStorageCPA:FormulaManagerView.<init>, WARNING)
+
+The following configuration options were specified but are not used:
+ proveroptions.option 
+ (CPAchecker.printConfigurationWarnings, WARNING)
+
+Starting analysis ... (CPAchecker.runAlgorithm, INFO)
+
+line 17795: Ignoring call via function pointer trace_xhci_dbg_cancel_urb___0::it_func for which no suitable target was found in line: (*((void (*)(void *, struct va_format *))it_func))(__data, vaf); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 14188: Ignoring call via function pointer trace_xhci_dbg_ring_expansion::it_func for which no suitable target was found in line: (*((void (*)(void *, struct va_format *))it_func))(__data, vaf); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 17868: Ignoring call via function pointer trace_xhci_dbg_ring_expansion___0::it_func for which no suitable target was found in line: (*((void (*)(void *, struct va_format *))it_func))(__data, vaf); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 6325: Ignoring call via function pointer trace_xhci_dbg_quirks::it_func for which no suitable target was found in line: (*((void (*)(void *, struct va_format *))it_func))(__data, vaf); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 6251: Ignoring call via function pointer trace_xhci_dbg_context_change::it_func for which no suitable target was found in line: (*((void (*)(void *, struct va_format *))it_func))(__data, vaf); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 6177: Ignoring call via function pointer trace_xhci_dbg_address::it_func for which no suitable target was found in line: (*((void (*)(void *, struct va_format *))it_func))(__data, vaf); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+lines 6622-6625: Ignoring call via function pointer trace_xhci_address_ctx::it_func for which no suitable target was found in line: (*((void (*)(void *, struct xhci_hcd *, struct xhci_container_ctx *, unsigned int))it_func))(__data, xhci, ctx, ep_num); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 6547: Ignoring call via function pointer trace_xhci_dbg_init::it_func for which no suitable target was found in line: (*((void (*)(void *, struct va_format *))it_func))(__data, vaf); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 6473: Ignoring call via function pointer trace_xhci_dbg_cancel_urb::it_func for which no suitable target was found in line: (*((void (*)(void *, struct va_format *))it_func))(__data, vaf); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 22588: Ignoring call via function pointer trace_xhci_dbg_quirks___1::it_func for which no suitable target was found in line: (*((void (*)(void *, struct va_format *))it_func))(__data, vaf); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 14114: Ignoring call via function pointer trace_xhci_dbg_init___0::it_func for which no suitable target was found in line: (*((void (*)(void *, struct va_format *))it_func))(__data, vaf); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 17649: Ignoring call via function pointer trace_xhci_dbg_quirks___0::it_func for which no suitable target was found in line: (*((void (*)(void *, struct va_format *))it_func))(__data, vaf); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 17722: Ignoring call via function pointer trace_xhci_dbg_reset_ep___0::it_func for which no suitable target was found in line: (*((void (*)(void *, struct va_format *))it_func))(__data, vaf); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+lines 17942-17944: Ignoring call via function pointer trace_xhci_cmd_completion::it_func for which no suitable target was found in line: (*((void (*)(void *, void *, struct xhci_generic_trb *))it_func))(__data, trb_va, ev); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 6399: Ignoring call via function pointer trace_xhci_dbg_reset_ep::it_func for which no suitable target was found in line: (*((void (*)(void *, struct va_format *))it_func))(__data, vaf); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 14041: Ignoring call via function pointer trace_xhci_dbg_context_change___0::it_func for which no suitable target was found in line: (*((void (*)(void *, struct va_format *))it_func))(__data, vaf); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+Creating formula for program (AbstractBMCAlgorithm.run, INFO)
+
+Exception in thread "main" org.sosy_lab.java_smt.basicimpl.GeneratorException: Modular Congruence is not available in SMTLIB2. 
+	at org.sosy_lab.java_smt.basicimpl.AbstractNumeralFormulaManager.modularCongruence(AbstractNumeralFormulaManager.java:361)
+	at org.sosy_lab.java_smt.solvers.princess.PrincessIntegerFormulaManager.modularCongruence(PrincessIntegerFormulaManager.java:22)
+	at org.sosy_lab.cpachecker.util.predicates.smt.IntegerFormulaManagerView.modularCongruence(IntegerFormulaManagerView.java:35)
+	at org.sosy_lab.cpachecker.util.predicates.smt.FormulaManagerView.makeModularCongruence(FormulaManagerView.java:688)
+	at org.sosy_lab.cpachecker.util.predicates.smt.FormulaManagerView.makeModularCongruence(FormulaManagerView.java:670)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.PointerTargetSetManager.makeBaseAddressConstraints(PointerTargetSetManager.java:653)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.PointerTargetSetBuilder$RealPointerTargetSetBuilder.addNextBaseAddressConstraints(PointerTargetSetBuilder.java:286)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.CToFormulaConverterWithPointerAliasing.declareSharedBase(CToFormulaConverterWithPointerAliasing.java:442)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.CToFormulaConverterWithPointerAliasing.makeDeclaration(CToFormulaConverterWithPointerAliasing.java:1001)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.ctoformula.CtoFormulaConverter.createFormulaForEdge(CtoFormulaConverter.java:1231)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.ctoformula.CtoFormulaConverter.makeAnd(CtoFormulaConverter.java:1049)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.PathFormulaManagerImpl.makeAnd(PathFormulaManagerImpl.java:246)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.PathFormulaManagerImpl.makeAnd(PathFormulaManagerImpl.java:300)
+	at org.sosy_lab.cpachecker.cpa.predicate.PredicateTransferRelation.convertEdgeToPathFormula(PredicateTransferRelation.java:203)
+	at org.sosy_lab.cpachecker.cpa.predicate.PredicateTransferRelation.getAbstractSuccessorsForEdge(PredicateTransferRelation.java:113)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.callTransferRelation(CompositeTransferRelation.java:297)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessorForSimpleEdge(CompositeTransferRelation.java:264)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessorForEdge(CompositeTransferRelation.java:196)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessors(CompositeTransferRelation.java:88)
+	at org.sosy_lab.cpachecker.cpa.arg.ARGTransferRelation.getAbstractSuccessors(ARGTransferRelation.java:45)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.handleState(CPAAlgorithm.java:334)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.run0(CPAAlgorithm.java:289)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.run(CPAAlgorithm.java:260)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.BMCHelper.unroll(BMCHelper.java:192)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.AbstractBMCAlgorithm.run(AbstractBMCAlgorithm.java:427)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.BMCAlgorithm.run(BMCAlgorithm.java:130)
+	at org.sosy_lab.cpachecker.core.CPAchecker.runAlgorithm(CPAchecker.java:507)
+	at org.sosy_lab.cpachecker.core.CPAchecker.run(CPAchecker.java:369)
+	at org.sosy_lab.cpachecker.cmdline.CPAMain.main(CPAMain.java:170)

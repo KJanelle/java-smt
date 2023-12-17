@@ -1,0 +1,339 @@
+scripts/cpa.sh -heap 13000M -stack 50M -noout -benchmark -bmc -setprop cpa.predicate.useArraysForHeap=false -setprop cpa.predicate.memoryAllocationsAlwaysSucceed=true -setprop cpa.loopbound.maxLoopIterations=10 -setprop cpa.predicate.encodeFloatAs=INTEGER -setprop cpa.predicate.encodeBitvectorAs=INTEGER -setprop solver.solver=princess -timelimit 900s -stats -spec test/programs/benchmarks/properties/unreach-call.prp -64 test/programs/benchmarks/ldv-commit-tester/main1_drivers-media-video-tlg2300-poseidon-ko--32_7a--4a349aa-1.i
+
+
+--------------------------------------------------------------------------------
+
+
+Running CPAchecker with Java heap of size 13000M.
+Running CPAchecker with Java stack of size 50M.
+Language C detected and set for analysis (CPAMain.detectFrontendLanguageIfNecessary, INFO)
+
+Using the following resource limits: CPU-time limit of 900s (ResourceLimitChecker.fromConfiguration, INFO)
+
+CPAchecker 2.3.1-svn-45350M / bmc (OpenJDK 64-Bit Server VM 17.0.8.1) started (CPAchecker.run, INFO)
+
+Parsing CFA from file(s) "test/programs/benchmarks/ldv-commit-tester/main1_drivers-media-video-tlg2300-poseidon-ko--32_7a--4a349aa-1.i" (CPAchecker.parse, INFO)
+
+line 5252: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "p" (& current_task)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5255: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& current_task)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5258: Dead code detected: __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& current_task)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 5263: Dead code detected: switch (8UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "p" (& current_task));
+  goto ldv_1982;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& current_task));
+  goto ldv_1982;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& current_task));
+  goto ldv_1982;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "p" (& current_task));
+  goto ldv_1982;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6742: Dead code detected: tmp = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6747: Dead code detected: tmp___0 = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6752: Dead code detected: tmp___1 = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6761: Dead code detected: switch (8UL) {
+  case 1UL:
+  tmp = get_current();
+  __ptr = (u8 volatile *)(& tmp->state);
+  __asm__ volatile ("xchgb %0,%1": "=q" (__x), "+m" (*__ptr): "0" (__x): "memory");
+  goto ldv_29173;
+  case 2UL:
+  tmp___0 = get_current();
+  __ptr___0 = (u16 volatile *)(& tmp___0->state);
+  __asm__ volatile ("xchgw %0,%1": "=r" (__x), "+m" (*__ptr___0): "0" (__x): "memory");
+  goto ldv_29173;
+  case 4UL:
+  tmp___1 = get_current();
+  __ptr___1 = (u32 volatile *)(& tmp___1->state);
+  __asm__ volatile ("xchgl %0,%1": "=r" (__x), "+m" (*__ptr___1): "0" (__x): "memory");
+  goto ldv_29173;
+  case 8UL:
+  tmp___2 = get_current();
+  __ptr___2 = (u64 volatile *)(& tmp___2->state);
+  __asm__ volatile ("xchgq %0,%1": "=r" (__x), "+m" (*__ptr___2): "0" (__x): "memory");
+  goto ldv_29173;
+  default:
+  __xchg_wrong_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6832: Dead code detected: tmp = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6837: Dead code detected: tmp___0 = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6842: Dead code detected: tmp___1 = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 6851: Dead code detected: switch (8UL) {
+  case 1UL:
+  tmp = get_current();
+  __ptr = (u8 volatile *)(& tmp->state);
+  __asm__ volatile ("xchgb %0,%1": "=q" (__x), "+m" (*__ptr): "0" (__x): "memory");
+  goto ldv_29212;
+  case 2UL:
+  tmp___0 = get_current();
+  __ptr___0 = (u16 volatile *)(& tmp___0->state);
+  __asm__ volatile ("xchgw %0,%1": "=r" (__x), "+m" (*__ptr___0): "0" (__x): "memory");
+  goto ldv_29212;
+  case 4UL:
+  tmp___1 = get_current();
+  __ptr___1 = (u32 volatile *)(& tmp___1->state);
+  __asm__ volatile ("xchgl %0,%1": "=r" (__x), "+m" (*__ptr___1): "0" (__x): "memory");
+  goto ldv_29212;
+  case 8UL:
+  tmp___2 = get_current();
+  __ptr___2 = (u64 volatile *)(& tmp___2->state);
+  __asm__ volatile ("xchgq %0,%1": "=r" (__x), "+m" (*__ptr___2): "0" (__x): "memory");
+  goto ldv_29212;
+  default:
+  __xchg_wrong_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7235: Dead code detected: tmp = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7240: Dead code detected: tmp___0 = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7245: Dead code detected: tmp___1 = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7254: Dead code detected: switch (8UL) {
+  case 1UL:
+  tmp = get_current();
+  __ptr = (u8 volatile *)(& tmp->state);
+  __asm__ volatile ("xchgb %0,%1": "=q" (__x), "+m" (*__ptr): "0" (__x): "memory");
+  goto ldv_29340;
+  case 2UL:
+  tmp___0 = get_current();
+  __ptr___0 = (u16 volatile *)(& tmp___0->state);
+  __asm__ volatile ("xchgw %0,%1": "=r" (__x), "+m" (*__ptr___0): "0" (__x): "memory");
+  goto ldv_29340;
+  case 4UL:
+  tmp___1 = get_current();
+  __ptr___1 = (u32 volatile *)(& tmp___1->state);
+  __asm__ volatile ("xchgl %0,%1": "=r" (__x), "+m" (*__ptr___1): "0" (__x): "memory");
+  goto ldv_29340;
+  case 8UL:
+  tmp___2 = get_current();
+  __ptr___2 = (u64 volatile *)(& tmp___2->state);
+  __asm__ volatile ("xchgq %0,%1": "=r" (__x), "+m" (*__ptr___2): "0" (__x): "memory");
+  goto ldv_29340;
+  default:
+  __xchg_wrong_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7981: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8719: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8865: Dead code detected: tmp = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8870: Dead code detected: tmp___0 = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8875: Dead code detected: tmp___1 = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8884: Dead code detected: switch (8UL) {
+  case 1UL:
+  tmp = get_current();
+  __ptr = (u8 volatile *)(& tmp->state);
+  __asm__ volatile ("xchgb %0,%1": "=q" (__x), "+m" (*__ptr): "0" (__x): "memory");
+  goto ldv_25814;
+  case 2UL:
+  tmp___0 = get_current();
+  __ptr___0 = (u16 volatile *)(& tmp___0->state);
+  __asm__ volatile ("xchgw %0,%1": "=r" (__x), "+m" (*__ptr___0): "0" (__x): "memory");
+  goto ldv_25814;
+  case 4UL:
+  tmp___1 = get_current();
+  __ptr___1 = (u32 volatile *)(& tmp___1->state);
+  __asm__ volatile ("xchgl %0,%1": "=r" (__x), "+m" (*__ptr___1): "0" (__x): "memory");
+  goto ldv_25814;
+  case 8UL:
+  tmp___2 = get_current();
+  __ptr___2 = (u64 volatile *)(& tmp___2->state);
+  __asm__ volatile ("xchgq %0,%1": "=r" (__x), "+m" (*__ptr___2): "0" (__x): "memory");
+  goto ldv_25814;
+  default:
+  __xchg_wrong_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 9581: Dead code detected: tmp = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 9586: Dead code detected: tmp___0 = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 9591: Dead code detected: tmp___1 = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 9600: Dead code detected: switch (8UL) {
+  case 1UL:
+  tmp = get_current();
+  __ptr = (u8 volatile *)(& tmp->state);
+  __asm__ volatile ("xchgb %0,%1": "=q" (__x), "+m" (*__ptr): "0" (__x): "memory");
+  goto ldv_26025;
+  case 2UL:
+  tmp___0 = get_current();
+  __ptr___0 = (u16 volatile *)(& tmp___0->state);
+  __asm__ volatile ("xchgw %0,%1": "=r" (__x), "+m" (*__ptr___0): "0" (__x): "memory");
+  goto ldv_26025;
+  case 4UL:
+  tmp___1 = get_current();
+  __ptr___1 = (u32 volatile *)(& tmp___1->state);
+  __asm__ volatile ("xchgl %0,%1": "=r" (__x), "+m" (*__ptr___1): "0" (__x): "memory");
+  goto ldv_26025;
+  case 8UL:
+  tmp___2 = get_current();
+  __ptr___2 = (u64 volatile *)(& tmp___2->state);
+  __asm__ volatile ("xchgq %0,%1": "=r" (__x), "+m" (*__ptr___2): "0" (__x): "memory");
+  goto ldv_26025;
+  default:
+  __xchg_wrong_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 9746: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 9944: Dead code detected: tmp = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 9949: Dead code detected: tmp___0 = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 9954: Dead code detected: tmp___1 = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 9963: Dead code detected: switch (8UL) {
+  case 1UL:
+  tmp = get_current();
+  __ptr = (u8 volatile *)(& tmp->state);
+  __asm__ volatile ("xchgb %0,%1": "=q" (__x), "+m" (*__ptr): "0" (__x): "memory");
+  goto ldv_28568;
+  case 2UL:
+  tmp___0 = get_current();
+  __ptr___0 = (u16 volatile *)(& tmp___0->state);
+  __asm__ volatile ("xchgw %0,%1": "=r" (__x), "+m" (*__ptr___0): "0" (__x): "memory");
+  goto ldv_28568;
+  case 4UL:
+  tmp___1 = get_current();
+  __ptr___1 = (u32 volatile *)(& tmp___1->state);
+  __asm__ volatile ("xchgl %0,%1": "=r" (__x), "+m" (*__ptr___1): "0" (__x): "memory");
+  goto ldv_28568;
+  case 8UL:
+  tmp___2 = get_current();
+  __ptr___2 = (u64 volatile *)(& tmp___2->state);
+  __asm__ volatile ("xchgq %0,%1": "=r" (__x), "+m" (*__ptr___2): "0" (__x): "memory");
+  goto ldv_28568;
+  default:
+  __xchg_wrong_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 10153: Dead code detected: tmp = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 10158: Dead code detected: tmp___0 = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 10163: Dead code detected: tmp___1 = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 10172: Dead code detected: switch (8UL) {
+  case 1UL:
+  tmp = get_current();
+  __ptr = (u8 volatile *)(& tmp->state);
+  __asm__ volatile ("xchgb %0,%1": "=q" (__x), "+m" (*__ptr): "0" (__x): "memory");
+  goto ldv_28619;
+  case 2UL:
+  tmp___0 = get_current();
+  __ptr___0 = (u16 volatile *)(& tmp___0->state);
+  __asm__ volatile ("xchgw %0,%1": "=r" (__x), "+m" (*__ptr___0): "0" (__x): "memory");
+  goto ldv_28619;
+  case 4UL:
+  tmp___1 = get_current();
+  __ptr___1 = (u32 volatile *)(& tmp___1->state);
+  __asm__ volatile ("xchgl %0,%1": "=r" (__x), "+m" (*__ptr___1): "0" (__x): "memory");
+  goto ldv_28619;
+  case 8UL:
+  tmp___2 = get_current();
+  __ptr___2 = (u64 volatile *)(& tmp___2->state);
+  __asm__ volatile ("xchgq %0,%1": "=r" (__x), "+m" (*__ptr___2): "0" (__x): "memory");
+  goto ldv_28619;
+  default:
+  __xchg_wrong_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 10247: Dead code detected: tmp = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 10252: Dead code detected: tmp___0 = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 10257: Dead code detected: tmp___1 = get_current(); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 10266: Dead code detected: switch (8UL) {
+  case 1UL:
+  tmp = get_current();
+  __ptr = (u8 volatile *)(& tmp->state);
+  __asm__ volatile ("xchgb %0,%1": "=q" (__x), "+m" (*__ptr): "0" (__x): "memory");
+  goto ldv_28648;
+  case 2UL:
+  tmp___0 = get_current();
+  __ptr___0 = (u16 volatile *)(& tmp___0->state);
+  __asm__ volatile ("xchgw %0,%1": "=r" (__x), "+m" (*__ptr___0): "0" (__x): "memory");
+  goto ldv_28648;
+  case 4UL:
+  tmp___1 = get_current();
+  __ptr___1 = (u32 volatile *)(& tmp___1->state);
+  __asm__ volatile ("xchgl %0,%1": "=r" (__x), "+m" (*__ptr___1): "0" (__x): "memory");
+  goto ldv_28648;
+  case 8UL:
+  tmp___2 = get_current();
+  __ptr___2 = (u64 volatile *)(& tmp___2->state);
+  __asm__ volatile ("xchgq %0,%1": "=r" (__x), "+m" (*__ptr___2): "0" (__x): "memory");
+  goto ldv_28648;
+  default:
+  __xchg_wrong_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 10682: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11781: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+Inline assembler ignored, analysis is probably unsound! (CFABuilder.createCFA, WARNING)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (PredicateCPA:FormulaManagerView.<init>, WARNING)
+
+Using predicate analysis with Princess 2023-04-07. (PredicateCPA:PredicateCPA.<init>, INFO)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (AssumptionStorageCPA:FormulaManagerView.<init>, WARNING)
+
+Starting analysis ... (CPAchecker.runAlgorithm, INFO)
+
+Creating formula for program (AbstractBMCAlgorithm.run, INFO)
+
+Exception in thread "main" org.sosy_lab.java_smt.basicimpl.GeneratorException: Modular Congruence is not available in SMTLIB2. 
+	at org.sosy_lab.java_smt.basicimpl.AbstractNumeralFormulaManager.modularCongruence(AbstractNumeralFormulaManager.java:361)
+	at org.sosy_lab.java_smt.solvers.princess.PrincessIntegerFormulaManager.modularCongruence(PrincessIntegerFormulaManager.java:22)
+	at org.sosy_lab.cpachecker.util.predicates.smt.IntegerFormulaManagerView.modularCongruence(IntegerFormulaManagerView.java:35)
+	at org.sosy_lab.cpachecker.util.predicates.smt.FormulaManagerView.makeModularCongruence(FormulaManagerView.java:688)
+	at org.sosy_lab.cpachecker.util.predicates.smt.FormulaManagerView.makeModularCongruence(FormulaManagerView.java:670)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.PointerTargetSetManager.makeBaseAddressConstraints(PointerTargetSetManager.java:653)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.PointerTargetSetBuilder$RealPointerTargetSetBuilder.addNextBaseAddressConstraints(PointerTargetSetBuilder.java:286)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.CToFormulaConverterWithPointerAliasing.declareSharedBase(CToFormulaConverterWithPointerAliasing.java:437)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.CToFormulaConverterWithPointerAliasing.makeDeclaration(CToFormulaConverterWithPointerAliasing.java:1001)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.ctoformula.CtoFormulaConverter.createFormulaForEdge(CtoFormulaConverter.java:1231)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.ctoformula.CtoFormulaConverter.makeAnd(CtoFormulaConverter.java:1049)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.PathFormulaManagerImpl.makeAnd(PathFormulaManagerImpl.java:246)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.PathFormulaManagerImpl.makeAnd(PathFormulaManagerImpl.java:300)
+	at org.sosy_lab.cpachecker.cpa.predicate.PredicateTransferRelation.convertEdgeToPathFormula(PredicateTransferRelation.java:203)
+	at org.sosy_lab.cpachecker.cpa.predicate.PredicateTransferRelation.getAbstractSuccessorsForEdge(PredicateTransferRelation.java:113)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.callTransferRelation(CompositeTransferRelation.java:297)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessorForSimpleEdge(CompositeTransferRelation.java:264)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessorForEdge(CompositeTransferRelation.java:196)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessors(CompositeTransferRelation.java:88)
+	at org.sosy_lab.cpachecker.cpa.arg.ARGTransferRelation.getAbstractSuccessors(ARGTransferRelation.java:45)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.handleState(CPAAlgorithm.java:334)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.run0(CPAAlgorithm.java:289)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.run(CPAAlgorithm.java:260)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.BMCHelper.unroll(BMCHelper.java:192)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.AbstractBMCAlgorithm.run(AbstractBMCAlgorithm.java:427)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.BMCAlgorithm.run(BMCAlgorithm.java:130)
+	at org.sosy_lab.cpachecker.core.CPAchecker.runAlgorithm(CPAchecker.java:507)
+	at org.sosy_lab.cpachecker.core.CPAchecker.run(CPAchecker.java:369)
+	at org.sosy_lab.cpachecker.cmdline.CPAMain.main(CPAMain.java:170)

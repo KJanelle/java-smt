@@ -1,0 +1,201 @@
+scripts/cpa.sh -heap 13000M -stack 50M -noout -benchmark -bmc -setprop cpa.predicate.useArraysForHeap=false -setprop cpa.predicate.memoryAllocationsAlwaysSucceed=true -setprop cpa.loopbound.maxLoopIterations=10 -setprop cpa.predicate.encodeFloatAs=INTEGER -setprop cpa.predicate.encodeBitvectorAs=INTEGER -setprop solver.solver=princess -timelimit 900s -stats -spec test/programs/benchmarks/properties/unreach-call.prp -32 test/programs/benchmarks/nla-digbench-scaling/egcd2-ll_unwindbound100.c
+
+
+--------------------------------------------------------------------------------
+
+
+Running CPAchecker with Java heap of size 13000M.
+Running CPAchecker with Java stack of size 50M.
+Language C detected and set for analysis (CPAMain.detectFrontendLanguageIfNecessary, INFO)
+
+Using the following resource limits: CPU-time limit of 900s (ResourceLimitChecker.fromConfiguration, INFO)
+
+CPAchecker 2.3.1-svn-45350M / bmc (OpenJDK 64-Bit Server VM 17.0.8.1) started (CPAchecker.run, INFO)
+
+Parsing CFA from file(s) "test/programs/benchmarks/nla-digbench-scaling/egcd2-ll_unwindbound100.c" (CPAchecker.parse, INFO)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (PredicateCPA:FormulaManagerView.<init>, WARNING)
+
+Using predicate analysis with Princess 2023-04-07. (PredicateCPA:PredicateCPA.<init>, INFO)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (AssumptionStorageCPA:FormulaManagerView.<init>, WARNING)
+
+Starting analysis ... (CPAchecker.runAlgorithm, INFO)
+
+Creating formula for program (AbstractBMCAlgorithm.run, INFO)
+
+Starting satisfiability check... (AbstractBMCAlgorithm.boundedModelCheck, INFO)
+
+Error found, creating error path (AbstractBMCAlgorithm.analyzeCounterexample0, INFO)
+
+{__VERIFIER_assert::cond@42 -> 0, __VERIFIER_assert::cond@41 -> 1, __VERIFIER_assert::cond@40 -> 1, main::__CPAchecker_TMP_1@11 -> 13, main::k@13 -> 4, main::c@13 -> 0, __VERIFIER_assert::cond@39 -> 1, __VERIFIER_assert::cond@38 -> 1, __VERIFIER_assert::cond@37 -> 1, __VERIFIER_assert::cond@36 -> 1, main::__CPAchecker_TMP_1@10 -> 12, main::k@12 -> 3, main::c@12 -> 1, __VERIFIER_assert::cond@35 -> 1, __VERIFIER_assert::cond@34 -> 1, __VERIFIER_assert::cond@33 -> 1, __VERIFIER_assert::cond@32 -> 1, main::__CPAchecker_TMP_1@9 -> 11, counter@17 -> 15, main::k@11 -> 2, main::c@11 -> 2, __VERIFIER_assert::cond@31 -> 1, __VERIFIER_assert::cond@30 -> 1, __VERIFIER_assert::cond@29 -> 1, __VERIFIER_assert::cond@28 -> 1, counter@16 -> 14, main::__CPAchecker_TMP_1@8 -> 10, counter@15 -> 13, main::k@10 -> 1, main::c@10 -> 3, __VERIFIER_assert::cond@27 -> 1, __VERIFIER_assert::cond@26 -> 1, __VERIFIER_assert::cond@25 -> 1, __VERIFIER_assert::cond@24 -> 1, counter@14 -> 12, main::__CPAchecker_TMP_1@7 -> 9, counter@13 -> 11, main::k@9 -> 0, main::c@9 -> 4, __VERIFIER_assert::cond@23 -> 1, __VERIFIER_assert::cond@22 -> 1, __VERIFIER_assert::cond@21 -> 1, __VERIFIER_assert::cond@20 -> 1, counter@12 -> 10, main::__CPAchecker_TMP_1@6 -> 7, counter@11 -> 9, main::__CPAchecker_TMP_0@6 -> 14, main::k@8 -> 1, main::c@8 -> 1, __VERIFIER_assert::cond@19 -> 1, __VERIFIER_assert::cond@18 -> 1, main::s@7 -> 51, main::r@7 -> 46, main::temp@13 -> 24, main::q@7 -> 48, main::p@7 -> 35, main::temp@12 -> 22, main::b@7 -> 0, main::a@7 -> 1, __VERIFIER_assert::cond@17 -> 1, __VERIFIER_assert::cond@16 -> 1, counter@10 -> 8, main::__CPAchecker_TMP_1@5 -> 6, counter@9 -> 7, main::__CPAchecker_TMP_0@5 -> 8, main::k@7 -> 0, main::c@7 -> 5, __VERIFIER_assert::cond@15 -> 1, __VERIFIER_assert::cond@14 -> 1, main::s@6 -> 46, main::r@6 -> 24, main::temp@10 -> 21, main::q@6 -> 35, main::p@6 -> 22, main::temp@9 -> 11, main::b@6 -> 1, main::a@6 -> 4, __VERIFIER_assert::cond@13 -> 1, __VERIFIER_assert::cond@12 -> 1, counter@8 -> 6, main::__CPAchecker_TMP_1@4 -> 4, counter@7 -> 5, main::__CPAchecker_TMP_0@4 -> 5, main::k@6 -> 1, main::c@6 -> 4, __VERIFIER_assert::cond@11 -> 1, __VERIFIER_assert::cond@10 -> 1, main::s@5 -> 24, main::r@5 -> 21, main::temp@7 -> 1, main::q@5 -> 22, main::p@5 -> 11, main::temp@6 -> 0, main::b@5 -> 4, main::a@5 -> 5, __VERIFIER_assert::cond@9 -> 1, __VERIFIER_assert::cond@8 -> 1, counter@6 -> 4, main::__CPAchecker_TMP_1@3 -> 3, __VERIFIER_assert::cond@7 -> 1, __VERIFIER_assert::cond@6 -> 1, counter@5 -> 3, main::__CPAchecker_TMP_0@3 -> 2, main::k@5 -> 0, main::c@5 -> 9, main::s@4 -> 21, main::r@4 -> 1, main::temp@4 -> 0, main::q@4 -> 11, main::p@4 -> 0, main::temp@3 -> 1, main::b@4 -> 5, main::a@4 -> 9, __VERIFIER_assert::cond@5 -> 1, __VERIFIER_assert::cond@4 -> 1, counter@4 -> 2, main::__CPAchecker_TMP_1@2 -> 1, main::k@4 -> 0, main::c@4 -> 5, __VERIFIER_assert::cond@3 -> 1, __VERIFIER_assert::cond@2 -> 1, counter@3 -> 1, main::__CPAchecker_TMP_0@2 -> 0, assume_abort_if_not::cond@5 -> 1, assume_abort_if_not::cond@4 -> 1, main::yy@3 -> 0, main::xy@3 -> -1, main::k@3 -> 0, main::c@3 -> 0, main::s@3 -> 1, main::r@3 -> 0, main::q@3 -> 0, main::p@3 -> 1, main::b@3 -> 9, main::a@3 -> 5, assume_abort_if_not::cond@3 -> 1, assume_abort_if_not::cond@2 -> 1, main::y@3 -> 9, __VERIFIER_nondet_int!3@ -> 9, main::x@3 -> 5, __VERIFIER_nondet_int!2@ -> 5, counter@2 -> 0, abbrev_194_def -> true, abbrev_194 -> true, abbrev_174_def -> true, abbrev_174 -> true, abbrev_142_def -> true, abbrev_142 -> true, abbrev_112_def -> true, abbrev_112 -> true, abbrev_88_def -> true, abbrev_88 -> true, abbrev_66_def -> true, abbrev_66 -> true, abbrev_58_def -> true, abbrev_58 -> true, abbrev_48_def -> true, abbrev_48 -> true, abbrev_36_def -> true, abbrev_36 -> true, abbrev_30_def -> true, abbrev_30 -> true, abbrev_24_def -> true, abbrev_24 -> true, abbrev_18_def -> true, abbrev_18 -> true, abbrev_16_def -> true, abbrev_16 -> true, abbrev_14_def -> true, abbrev_14 -> true, Integer_*_(51, 9) -> 220, Integer_*_(48, 5) -> 219, Integer_*_(46, 9) -> -218, Integer_*_(46, 4) -> -27, Integer_*_(46, 0) -> 56, Integer_*_(35, 5) -> 164, Integer_*_(35, 4) -> -26, Integer_*_(35, -1) -> 54, Integer_*_(24, 9) -> -904, Integer_*_(24, 1) -> -25, Integer_*_(24, 0) -> 231, Integer_*_(22, 5) -> 682, Integer_*_(22, -1) -> 226, Integer_*_(22, 1) -> -24, Integer_*_(21, 9) -> -906, Integer_*_(21, 1) -> -23, Integer_*_(21, 0) -> 922, Integer_*_(11, 5) -> 2749, Integer_*_(11, -1) -> 915, Integer_*_(11, 1) -> -22, Integer_*_(9, 46) -> -52, Integer_*_(9, 24) -> 52, Integer_*_(9, 21) -> 225, Integer_*_(9, 9) -> 0, Integer_*_(9, 1) -> 914, Integer_*_(9, 0) -> 2750, Integer_*_(5, 35) -> 53, Integer_*_(5, 22) -> -48, Integer_*_(5, 11) -> -220, Integer_*_(5, 9) -> -1, Integer_*_(5, 1) -> -2745, Integer_*_(5, 0) -> -905, Integer_*_(4, 9) -> 683, Integer_*_(4, 1) -> 4, Integer_*_(3, 1) -> 3, Integer_*_(2, 1) -> 2, Integer_*_(1, 9) -> 165, Integer_*_(1, 5) -> 5, Integer_*_(1, 4) -> 4, Integer_*_(1, 1) -> 1, Integer_*_(1, 0) -> -21, Integer_*_(0, 9) -> 0, Integer_*_(0, 5) -> 0, Integer_*_(0, 4) -> 0, Integer_*_(0, -1) -> 177, Integer_*_(0, 1) -> 0, Integer_*_(0, 0) -> -10, abbrev_204_def -> false, abbrev_204 -> false, abbrev_202_def -> false, abbrev_202 -> false, abbrev_200_def -> false, abbrev_200 -> false, abbrev_198_def -> false, abbrev_198 -> false, abbrev_196_def -> false, abbrev_196 -> false, abbrev_192_def -> false, abbrev_192 -> false, abbrev_190_def -> false, abbrev_190 -> false, abbrev_188_def -> false, abbrev_188 -> false, abbrev_186_def -> false, abbrev_186 -> false, abbrev_184_def -> false, abbrev_184 -> false, abbrev_182_def -> false, abbrev_182 -> false, abbrev_180_def -> false, abbrev_180 -> false, abbrev_178_def -> false, abbrev_178 -> false, abbrev_176_def -> false, abbrev_176 -> false, abbrev_172_def -> false, abbrev_172 -> false, abbrev_170_def -> false, abbrev_170 -> false, abbrev_168_def -> false, abbrev_168 -> false, abbrev_166_def -> false, abbrev_166 -> false, abbrev_164_def -> false, abbrev_164 -> false, abbrev_162_def -> false, abbrev_162 -> false, abbrev_160_def -> false, abbrev_160 -> false, abbrev_158_def -> false, abbrev_158 -> false, abbrev_156_def -> false, abbrev_156 -> false, abbrev_154_def -> false, abbrev_154 -> false, abbrev_152_def -> false, abbrev_152 -> false, abbrev_150_def -> false, abbrev_150 -> false, abbrev_148_def -> false, abbrev_148 -> false, abbrev_146_def -> false, abbrev_146 -> false, abbrev_144_def -> false, abbrev_144 -> false, abbrev_140_def -> false, abbrev_140 -> false, abbrev_138_def -> false, abbrev_138 -> false, abbrev_136_def -> false, abbrev_136 -> false, abbrev_134_def -> false, abbrev_134 -> false, abbrev_132_def -> false, abbrev_132 -> false, abbrev_130_def -> false, abbrev_130 -> false, abbrev_128_def -> false, abbrev_128 -> false, abbrev_126_def -> false, abbrev_126 -> false, abbrev_124_def -> false, abbrev_124 -> false, abbrev_122_def -> false, abbrev_122 -> false, abbrev_120_def -> false, abbrev_120 -> false, abbrev_118_def -> false, abbrev_118 -> false, abbrev_116_def -> false, abbrev_116 -> false, abbrev_114_def -> false, abbrev_114 -> false, abbrev_110_def -> false, abbrev_110 -> false, abbrev_108_def -> false, abbrev_108 -> false, abbrev_106_def -> false, abbrev_106 -> false, abbrev_104_def -> false, abbrev_104 -> false, abbrev_102_def -> false, abbrev_102 -> false, abbrev_100_def -> false, abbrev_100 -> false, abbrev_98_def -> false, abbrev_98 -> false, abbrev_96_def -> false, abbrev_96 -> false, abbrev_94_def -> false, abbrev_94 -> false, abbrev_92_def -> false, abbrev_92 -> false, abbrev_90_def -> false, abbrev_90 -> false, abbrev_86_def -> false, abbrev_86 -> false, abbrev_84_def -> false, abbrev_84 -> false, abbrev_82_def -> false, abbrev_82 -> false, abbrev_80_def -> false, abbrev_80 -> false, abbrev_78_def -> false, abbrev_78 -> false, abbrev_76_def -> false, abbrev_76 -> false, abbrev_74_def -> false, abbrev_74 -> false, abbrev_72_def -> false, abbrev_72 -> false, abbrev_70_def -> false, abbrev_70 -> false, abbrev_68_def -> false, abbrev_68 -> false, abbrev_64_def -> false, abbrev_64 -> false, abbrev_62_def -> false, abbrev_62 -> false, abbrev_60_def -> false, abbrev_60 -> false, abbrev_56_def -> false, abbrev_56 -> false, abbrev_54_def -> false, abbrev_54 -> false, abbrev_52_def -> false, abbrev_52 -> false, abbrev_50_def -> false, abbrev_50 -> false, abbrev_46_def -> false, abbrev_46 -> false, abbrev_44_def -> false, abbrev_44 -> false, abbrev_42_def -> false, abbrev_42 -> false, abbrev_40_def -> false, abbrev_40 -> false, abbrev_38_def -> false, abbrev_38 -> false, abbrev_34_def -> false, abbrev_34 -> false, abbrev_32_def -> false, abbrev_32 -> false, abbrev_28_def -> false, abbrev_28 -> false, abbrev_26_def -> false, abbrev_26 -> false, abbrev_22_def -> false, abbrev_22 -> false, abbrev_20_def -> false, abbrev_20 -> false}
+{__VERIFIER_assert::cond@82 -> 0, main::__CPAchecker_TMP_0@46 -> 14, main::s@51 -> 63, main::r@51 -> 52, main::temp@49 -> 27, main::q@51 -> 60, main::p@51 -> 51, main::temp@48 -> 25, main::b@51 -> 0, main::a@51 -> 1, __VERIFIER_assert::cond@80 -> 1, __VERIFIER_assert::cond@78 -> 1, __VERIFIER_assert::cond@76 -> 1, __VERIFIER_assert::cond@74 -> 1, main::__CPAchecker_TMP_1@47 -> 13, main::k@53 -> 4, main::c@53 -> 0, __VERIFIER_assert::cond@72 -> 1, __VERIFIER_assert::cond@70 -> 1, __VERIFIER_assert::cond@68 -> 1, __VERIFIER_assert::cond@66 -> 1, main::__CPAchecker_TMP_1@42 -> 12, main::k@48 -> 3, main::c@48 -> 1, __VERIFIER_assert::cond@64 -> 1, __VERIFIER_assert::cond@62 -> 1, __VERIFIER_assert::cond@60 -> 1, __VERIFIER_assert::cond@58 -> 1, main::__CPAchecker_TMP_1@37 -> 11, main::k@43 -> 2, main::c@43 -> 2, __VERIFIER_assert::cond@56 -> 1, __VERIFIER_assert::cond@54 -> 1, __VERIFIER_assert::cond@52 -> 1, __VERIFIER_assert::cond@50 -> 1, main::__CPAchecker_TMP_1@32 -> 10, main::k@38 -> 1, main::c@38 -> 3, __VERIFIER_assert::cond@48 -> 1, __VERIFIER_assert::cond@46 -> 1, __VERIFIER_assert::cond@44 -> 1, main::__CPAchecker_TMP_1@27 -> 9, main::k@33 -> 0, main::c@33 -> 4, main::__CPAchecker_TMP_0@25 -> 8, main::s@30 -> 52, main::r@30 -> 27, main::temp@26 -> 18, main::q@30 -> 51, main::p@30 -> 25, main::b@30 -> 1, main::a@30 -> 4, main::__CPAchecker_TMP_1@22 -> 7, main::k@28 -> 1, main::c@28 -> 1, main::__CPAchecker_TMP_1@17 -> 6, main::k@23 -> 0, main::c@23 -> 5, main::__CPAchecker_TMP_0@16 -> 5, main::s@21 -> 27, main::r@21 -> 18, main::q@21 -> 25, main::p@21 -> 20, main::temp@14 -> 0, main::b@21 -> 4, main::a@21 -> 5, main::k@18 -> 1, main::c@18 -> 4, assume_abort_if_not::cond@8 -> 1, assume_abort_if_not::cond@6 -> 1, main::yy@5 -> 0, main::xy@5 -> 1, main::__CPAchecker_TMP_1@2 -> 1, main::x@3 -> 5, main::__CPAchecker_TMP_1@7 -> 3, main::p@12 -> 0, main::temp@15 -> 1, main::p@5 -> 1, main::__CPAchecker_TMP_1@12 -> 4, main::__CPAchecker_TMP_0@2 -> 0, main::__CPAchecker_TMP_0@7 -> 2, __VERIFIER_nondet_int!2@ -> 5, __VERIFIER_nondet_int!3@ -> 9, main::temp@25 -> 20, main::k@13 -> 0, __VERIFIER_assert::cond@24 -> 1, main::temp@4 -> 0, __VERIFIER_assert::cond@26 -> 1, main::temp@3 -> 1, __VERIFIER_assert::cond@28 -> 1, __VERIFIER_assert::cond@20 -> 1, __VERIFIER_assert::cond@22 -> 1, __VERIFIER_assert::cond@34 -> 1, __VERIFIER_assert::cond@36 -> 1, __VERIFIER_assert::cond@38 -> 1, main::q@12 -> 20, __VERIFIER_assert::cond@30 -> 1, main::a@12 -> 9, __VERIFIER_assert::cond@32 -> 1, main::r@12 -> 1, main::b@12 -> 5, __VERIFIER_assert::cond@12 -> 1, __VERIFIER_assert::cond@14 -> 1, __VERIFIER_assert::cond@16 -> 1, __VERIFIER_assert::cond@18 -> 1, __VERIFIER_assert::cond@10 -> 1, main::c@5 -> 0, assume_abort_if_not::cond@2 -> 1, assume_abort_if_not::cond@4 -> 1, main::k@8 -> 0, __VERIFIER_assert::cond@40 -> 1, __VERIFIER_assert::cond@42 -> 1, main::s@5 -> 1, main::c@8 -> 5, main::k@5 -> 0, main::s@12 -> 18, main::b@5 -> 9, main::c@13 -> 9, counter@2 -> 0, counter@3 -> 1, counter@8 -> 6, counter@9 -> 7, counter@6 -> 4, counter@7 -> 5, counter@4 -> 2, main::r@5 -> 0, counter@5 -> 3, main::a@5 -> 5, __VERIFIER_assert::cond@6 -> 1, __VERIFIER_assert::cond@4 -> 1, counter@17 -> 15, __VERIFIER_assert::cond@2 -> 1, counter@16 -> 14, counter@15 -> 13, counter@14 -> 12, counter@13 -> 11, counter@12 -> 10, counter@11 -> 9, counter@10 -> 8, __VERIFIER_assert::cond@8 -> 1, main::y@3 -> 9, main::q@5 -> 0, Integer_*_(63, 9) -> 1261, Integer_*_(60, 5) -> 1260, Integer_*_(52, 9) -> -412, Integer_*_(52, 4) -> -36, Integer_*_(52, 0) -> 424, Integer_*_(51, 5) -> 1259, Integer_*_(51, 4) -> -35, Integer_*_(51, 1) -> 413, Integer_*_(27, 9) -> -410, Integer_*_(27, 1) -> -34, Integer_*_(27, 0) -> 166, Integer_*_(25, 5) -> 274, Integer_*_(25, 1) -> -31, Integer_*_(20, 5) -> 137, Integer_*_(20, 1) -> -25, Integer_*_(18, 9) -> -66, Integer_*_(18, 1) -> -26, Integer_*_(18, 0) -> 92, Integer_*_(9, 52) -> -411, Integer_*_(9, 27) -> -134, Integer_*_(9, 18) -> -65, Integer_*_(9, 9) -> 0, Integer_*_(9, 1) -> -60, Integer_*_(9, 0) -> 64, Integer_*_(5, 51) -> 412, Integer_*_(5, 25) -> 138, Integer_*_(5, 20) -> 70, Integer_*_(5, 9) -> 1, Integer_*_(5, 1) -> -59, Integer_*_(5, 0) -> 69, Integer_*_(4, 9) -> 275, Integer_*_(4, 1) -> 4, Integer_*_(3, 1) -> 3, Integer_*_(2, 1) -> 2, Integer_*_(1, 9) -> -9, Integer_*_(1, 5) -> 5, Integer_*_(1, 4) -> 4, Integer_*_(1, 1) -> 1, Integer_*_(1, 0) -> -18, Integer_*_(0, 9) -> 0, Integer_*_(0, 5) -> 0, Integer_*_(0, 4) -> 0, Integer_*_(0, 1) -> 0, Integer_*_(0, 0) -> -19}
+[__VERIFIER_assert::cond@82: 0, main::__CPAchecker_TMP_0@46: 14, main::s@51: 63, main::r@51: 52, main::temp@49: 27, main::q@51: 60, main::p@51: 51, main::temp@48: 25, main::b@51: 0, main::a@51: 1, __VERIFIER_assert::cond@80: 1, __VERIFIER_assert::cond@78: 1, __VERIFIER_assert::cond@76: 1, __VERIFIER_assert::cond@74: 1, main::__CPAchecker_TMP_1@47: 13, main::k@53: 4, main::c@53: 0, __VERIFIER_assert::cond@72: 1, __VERIFIER_assert::cond@70: 1, __VERIFIER_assert::cond@68: 1, __VERIFIER_assert::cond@66: 1, main::__CPAchecker_TMP_1@42: 12, main::k@48: 3, main::c@48: 1, __VERIFIER_assert::cond@64: 1, __VERIFIER_assert::cond@62: 1, __VERIFIER_assert::cond@60: 1, __VERIFIER_assert::cond@58: 1, main::__CPAchecker_TMP_1@37: 11, main::k@43: 2, main::c@43: 2, __VERIFIER_assert::cond@56: 1, __VERIFIER_assert::cond@54: 1, __VERIFIER_assert::cond@52: 1, __VERIFIER_assert::cond@50: 1, main::__CPAchecker_TMP_1@32: 10, main::k@38: 1, main::c@38: 3, __VERIFIER_assert::cond@48: 1, __VERIFIER_assert::cond@46: 1, __VERIFIER_assert::cond@44: 1, main::__CPAchecker_TMP_1@27: 9, main::k@33: 0, main::c@33: 4, main::__CPAchecker_TMP_0@25: 8, main::s@30: 52, main::r@30: 27, main::temp@26: 18, main::q@30: 51, main::p@30: 25, main::b@30: 1, main::a@30: 4, main::__CPAchecker_TMP_1@22: 7, main::k@28: 1, main::c@28: 1, main::__CPAchecker_TMP_1@17: 6, main::k@23: 0, main::c@23: 5, main::__CPAchecker_TMP_0@16: 5, main::s@21: 27, main::r@21: 18, main::q@21: 25, main::p@21: 20, main::temp@14: 0, main::b@21: 4, main::a@21: 5, main::k@18: 1, main::c@18: 4, assume_abort_if_not::cond@8: 1, assume_abort_if_not::cond@6: 1, main::yy@5: 0, main::xy@5: 1, main::__CPAchecker_TMP_1@2: 1, main::x@3: 5, main::__CPAchecker_TMP_1@7: 3, main::p@12: 0, main::temp@15: 1, main::p@5: 1, main::__CPAchecker_TMP_1@12: 4, main::__CPAchecker_TMP_0@2: 0, main::__CPAchecker_TMP_0@7: 2, __VERIFIER_nondet_int!2@: 5, __VERIFIER_nondet_int!3@: 9, main::temp@25: 20, main::k@13: 0, __VERIFIER_assert::cond@24: 1, main::temp@4: 0, __VERIFIER_assert::cond@26: 1, main::temp@3: 1, __VERIFIER_assert::cond@28: 1, __VERIFIER_assert::cond@20: 1, __VERIFIER_assert::cond@22: 1, __VERIFIER_assert::cond@34: 1, __VERIFIER_assert::cond@36: 1, __VERIFIER_assert::cond@38: 1, main::q@12: 20, __VERIFIER_assert::cond@30: 1, main::a@12: 9, __VERIFIER_assert::cond@32: 1, main::r@12: 1, main::b@12: 5, __VERIFIER_assert::cond@12: 1, __VERIFIER_assert::cond@14: 1, __VERIFIER_assert::cond@16: 1, __VERIFIER_assert::cond@18: 1, __VERIFIER_assert::cond@10: 1, main::c@5: 0, assume_abort_if_not::cond@2: 1, assume_abort_if_not::cond@4: 1, main::k@8: 0, __VERIFIER_assert::cond@40: 1, __VERIFIER_assert::cond@42: 1, main::s@5: 1, main::c@8: 5, main::k@5: 0, main::s@12: 18, main::b@5: 9, main::c@13: 9, counter@2: 0, counter@3: 1, counter@8: 6, counter@9: 7, counter@6: 4, counter@7: 5, counter@4: 2, main::r@5: 0, counter@5: 3, main::a@5: 5, __VERIFIER_assert::cond@6: 1, __VERIFIER_assert::cond@4: 1, counter@17: 15, __VERIFIER_assert::cond@2: 1, counter@16: 14, counter@15: 13, counter@14: 12, counter@13: 11, counter@12: 10, counter@11: 9, counter@10: 8, __VERIFIER_assert::cond@8: 1, main::y@3: 9, main::q@5: 0, Integer_*_(63, 9): 1261, Integer_*_(60, 5): 1260, Integer_*_(52, 9): -412, Integer_*_(52, 4): -36, Integer_*_(52, 0): 424, Integer_*_(51, 5): 1259, Integer_*_(51, 4): -35, Integer_*_(51, 1): 413, Integer_*_(27, 9): -410, Integer_*_(27, 1): -34, Integer_*_(27, 0): 166, Integer_*_(25, 5): 274, Integer_*_(25, 1): -31, Integer_*_(20, 5): 137, Integer_*_(20, 1): -25, Integer_*_(18, 9): -66, Integer_*_(18, 1): -26, Integer_*_(18, 0): 92, Integer_*_(9, 52): -411, Integer_*_(9, 27): -134, Integer_*_(9, 18): -65, Integer_*_(9, 9): 0, Integer_*_(9, 1): -60, Integer_*_(9, 0): 64, Integer_*_(5, 51): 412, Integer_*_(5, 25): 138, Integer_*_(5, 20): 70, Integer_*_(5, 9): 1, Integer_*_(5, 1): -59, Integer_*_(5, 0): 69, Integer_*_(4, 9): 275, Integer_*_(4, 1): 4, Integer_*_(3, 1): 3, Integer_*_(2, 1): 2, Integer_*_(1, 9): -9, Integer_*_(1, 5): 5, Integer_*_(1, 4): 4, Integer_*_(1, 1): 1, Integer_*_(1, 0): -18, Integer_*_(0, 9): 0, Integer_*_(0, 5): 0, Integer_*_(0, 4): 0, Integer_*_(0, 1): 0, Integer_*_(0, 0): -19]
+Stopping analysis ... (CPAchecker.runAlgorithm, INFO)
+
+
+PredicateCPA statistics
+-----------------------
+Number of abstractions:            330 (7% of all post computations)
+  Times abstraction was reused:    0
+  Because of function entry/exit:  0 (0%)
+  Because of loop head:            0 (0%)
+  Because of join nodes:           0 (0%)
+  Because of threshold:            0 (0%)
+  Because of target state:         330 (100%)
+  Times precision was empty:       330 (100%)
+  Times precision was {false}:     0 (0%)
+  Times result was cached:         0 (0%)
+  Times cartesian abs was used:    0 (0%)
+  Times boolean abs was used:      0 (0%)
+  Times result was 'false':        0 (0%)
+Number of strengthen sat checks:   0
+Number of coverage checks:         90
+  BDD entailment checks:           0
+Number of SMT sat checks:          0
+  trivial:                         0
+  cached:                          0
+
+Max ABE block size:                       298
+Avg ABE block size:                                175.03 (sum: 57760, count: 330, min: 39, max: 298)
+Number of predicates discovered:          0
+
+Time for post operator:                                0.639s
+  Time for path formula creation:                      0.627s
+Time for strengthen operator:                          0.017s
+Time for prec operator:                                0.029s
+  Time for abstraction:                  0.009s (Max:     0.001s, Count: 330)
+    Solving time:                        0.000s (Max:     0.000s)
+    Model enumeration time:              0.000s
+    Time for BDD construction:           0.000s (Max:     0.000s)
+Time for merge operator:                               0.006s
+Time for coverage checks:                              0.000s
+Total time for SMT solver (w/o itp):     0.000s
+
+Total number of created targets for pointer analysis: 0
+
+
+
+KeyValue statistics
+-------------------
+Init. function predicates:                         0
+Init. global predicates:                           0
+Init. location predicates:                         0
+
+Invariant Generation statistics
+-------------------------------
+
+Bounds CPA statistics
+---------------------
+Bound k:                                           10
+Maximum loop iteration reached:                    11
+
+
+ValueAnalysisCPA statistics
+---------------------------
+Number of variables per state:                     5.51 (sum: 23419, count: 4250, min: 0, max: 11)
+Number of global variables per state:              1.00 (sum: 4242, count: 4250, min: 0, max: 1)
+Number of assumptions:                                 1328
+Number of deterministic assumptions:                      0
+Level of Determinism:                              0%
+
+ValueAnalysisPrecisionAdjustment statistics
+-------------------------------------------
+Number of abstraction computations:                    4294
+Total time for liveness abstraction:                   0.000s
+Total time for abstraction computation:                0.037s
+Total time for path thresholds:                        0.000s
+
+ConstraintsStrengthenOperator statistics
+----------------------------------------
+Total time for strengthening by ConstraintsCPA:     0.000s
+Replaced symbolic expressions: 0
+
+AutomatonAnalysis (SVCOMP) statistics
+-------------------------------------
+Number of states:                                  1
+Total time for successor computation:                  0.077s
+Automaton transfers with branching:                0
+Automaton transfer successors:                     0.93 (sum: 4294, count: 4628, min: 0, max: 1) [0 x 334, 1 x 4294]
+Number of states with assumption transitions:      0
+
+CPA algorithm statistics
+------------------------
+Number of iterations:            4250
+Max size of waitlist:            22
+Average size of waitlist:        10
+LoopstackSortedWaitlist:                           1.47 (sum: 2529, count: 1721, min: 0, max: 1860)
+ReversePostorderSortedWaitlist:                    0.58 (sum: 999, count: 1733, min: 0, max: 198)
+LoopIterationSortedWaitlist:                       1.46 (sum: 2517, count: 1721, min: 0, max: 1848)
+CallstackSortedWaitlist:                           2529.00 (sum: 2529, count: 1, min: 2529, max: 2529)
+Number of computed successors:   4294
+Max successors for one state:    2
+Number of times merged:          45
+Number of times stopped:         45
+Number of times breaked:         0
+
+Total time for CPA algorithm:         1.465s (Max:     1.465s)
+  Time for choose from waitlist:      0.021s
+  Time for precision adjustment:      0.192s
+  Time for transfer relation:         1.117s
+  Time for merge operator:            0.015s
+  Time for stop operator:             0.023s
+  Time for adding to reached set:     0.055s
+
+BMC algorithm statistics
+------------------------
+Time for BMC formula creation:                       1.467s
+Time for final sat check:                          681.148s
+Time for error-path creation:                        0.142s
+Time for error-path post-processing:                 6.193s
+
+CPAchecker general statistics
+-----------------------------
+Number of program locations:                       92
+Number of CFA edges (per node):                          99 (count: 92, min: 0, max: 6, avg: 1.08)
+Number of relevant variables:                      18
+Number of functions:                               4
+Number of loops (and loop nodes):                         2 (sum: 40, min: 11, max: 29, avg: 20.00)
+Size of reached set:             4250
+  Number of reached locations:   85 (92%)
+    Avg states per location:     50
+    Max states per location:     330 (at node N1)
+  Number of reached functions:   4 (100%)
+  Number of partitions:          4250
+    Avg size of partitions:      1
+    Max size of partitions:      1
+  Number of target states:       330
+
+Time for analysis setup:          1.898s
+  Time for loading CPAs:          1.159s
+  Time for loading parser:        0.192s
+  Time for CFA construction:      0.485s
+    Time for parsing file(s):     0.240s
+    Time for AST to CFA:          0.118s
+    Time for CFA sanity check:    0.000s
+    Time for post-processing:     0.090s
+    Time for loop structure:      0.007s
+    Time for AST structure:       0.000s
+      Time for function pointers resolving:            0.003s
+        Function calls via function pointers:             0 (count: 1, min: 0, max: 0, avg: 0.00)
+        Instrumented function pointer calls:              0 (count: 1, min: 0, max: 0, avg: 0.00)
+        Function calls with function pointer arguments:        0 (count: 1, min: 0, max: 0, avg: 0.00)
+        Instrumented function pointer arguments:          0 (count: 1, min: 0, max: 0, avg: 0.00)
+      Time for classifying variables:                  0.052s
+        Time for collecting variables:                 0.032s
+        Time for solving dependencies:                 0.000s
+        Time for building hierarchy:                   0.000s
+        Time for building classification:              0.020s
+        Time for exporting data:                       0.000s
+Time for Analysis:              689.091s
+CPU time for analysis:          739.880s
+Time for analyzing result:        0.008s
+Total time for CPAchecker:      690.991s
+Total CPU time for CPAchecker:  743.580s
+Time for statistics:              0.080s
+
+Time for Garbage Collector:       1.764s (in 299 runs)
+Garbage Collector(s) used:    G1 Old Generation, G1 Young Generation
+
+Verification result: FALSE. Property violation (unreach-call: reach_error(); called in line 13) found by chosen configuration.
+More details about the verification run can be found in the directory "./output".

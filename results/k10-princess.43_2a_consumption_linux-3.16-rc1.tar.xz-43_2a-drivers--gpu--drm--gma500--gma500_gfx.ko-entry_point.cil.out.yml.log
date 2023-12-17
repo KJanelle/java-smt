@@ -1,0 +1,2028 @@
+scripts/cpa.sh -heap 13000M -stack 50M -noout -benchmark -bmc -setprop cpa.predicate.useArraysForHeap=false -setprop cpa.predicate.memoryAllocationsAlwaysSucceed=true -setprop cpa.loopbound.maxLoopIterations=10 -setprop cpa.predicate.encodeFloatAs=INTEGER -setprop cpa.predicate.encodeBitvectorAs=INTEGER -setprop solver.solver=princess -timelimit 900s -stats -spec test/programs/benchmarks/properties/unreach-call.prp -64 test/programs/benchmarks/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--gpu--drm--gma500--gma500_gfx.ko-entry_point.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Running CPAchecker with Java heap of size 13000M.
+Running CPAchecker with Java stack of size 50M.
+Language C detected and set for analysis (CPAMain.detectFrontendLanguageIfNecessary, INFO)
+
+Using the following resource limits: CPU-time limit of 900s (ResourceLimitChecker.fromConfiguration, INFO)
+
+CPAchecker 2.3.1-svn-45350M / bmc (OpenJDK 64-Bit Server VM 17.0.8.1) started (CPAchecker.run, INFO)
+
+Parsing CFA from file(s) "test/programs/benchmarks/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--gpu--drm--gma500--gma500_gfx.ko-entry_point.cil.out.i" (CPAchecker.parse, INFO)
+
+line 7575: Dead code detected: __ptr = (u8 volatile *)(& v->counter); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7580: Dead code detected: __ptr___0 = (u16 volatile *)(& v->counter); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7590: Dead code detected: __ptr___2 = (u64 volatile *)(& v->counter); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7594: Dead code detected: switch (4UL) {
+  case 1UL:
+  __ptr = (u8 volatile *)(& v->counter);
+  __asm__ volatile (".pushsection .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.popsection\n671:\n\tlock; cmpxchgb %2,%1": "=a" (__ret),
+                       "+m" (*__ptr): "q" (__new), "0" (__old): "memory");
+  goto ldv_5646;
+  case 2UL:
+  __ptr___0 = (u16 volatile *)(& v->counter);
+  __asm__ volatile (".pushsection .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.popsection\n671:\n\tlock; cmpxchgw %2,%1": "=a" (__ret),
+                       "+m" (*__ptr___0): "r" (__new), "0" (__old): "memory");
+  goto ldv_5646;
+  case 4UL:
+  __ptr___1 = (u32 volatile *)(& v->counter);
+  __asm__ volatile (".pushsection .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.popsection\n671:\n\tlock; cmpxchgl %2,%1": "=a" (__ret),
+                       "+m" (*__ptr___1): "r" (__new), "0" (__old): "memory");
+  goto ldv_5646;
+  case 8UL:
+  __ptr___2 = (u64 volatile *)(& v->counter);
+  __asm__ volatile (".pushsection .smp_locks,\"a\"\n.balign 4\n.long 671f - .\n.popsection\n671:\n\tlock; cmpxchgq %2,%1": "=a" (__ret),
+                       "+m" (*__ptr___2): "r" (__new), "0" (__old): "memory");
+  goto ldv_5646;
+  default:
+  __cmpxchg_wrong_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 10999: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11002: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11008: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11010: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "m" (__preempt_count));
+  goto ldv_6004;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "m" (__preempt_count));
+  goto ldv_6004;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret__): "m" (__preempt_count));
+  goto ldv_6004;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "m" (__preempt_count));
+  goto ldv_6004;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11314: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11316: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11319: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11321: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11325: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11327: Dead code detected: switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "m" (cpu_number));
+      goto ldv_39828;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+      goto ldv_39828;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+      goto ldv_39828;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+      goto ldv_39828;
+      default:
+      __bad_percpu_size();
+      } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11334: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11336: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____0): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11339: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11341: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11345: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11347: Dead code detected: switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____0): "m" (cpu_number));
+      goto ldv_39838;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+      goto ldv_39838;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+      goto ldv_39838;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+      goto ldv_39838;
+      default:
+      __bad_percpu_size();
+      } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11356: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____1): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11359: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11365: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11367: Dead code detected: switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____1): "m" (cpu_number));
+      goto ldv_39847;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+      goto ldv_39847;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+      goto ldv_39847;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+      goto ldv_39847;
+      default:
+      __bad_percpu_size();
+      } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11374: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11376: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____2): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11379: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11381: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11385: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11387: Dead code detected: switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____2): "m" (cpu_number));
+      goto ldv_39856;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+      goto ldv_39856;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+      goto ldv_39856;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+      goto ldv_39856;
+      default:
+      __bad_percpu_size();
+      } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11393: Dead code detected: switch (4UL) {
+      case 1UL: ;
+      switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "m" (cpu_number));
+      goto ldv_39828;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+      goto ldv_39828;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+      goto ldv_39828;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+      goto ldv_39828;
+      default:
+      __bad_percpu_size();
+      }
+      ldv_39828:
+      pscr_ret__ = pfo_ret__;
+      goto ldv_39834;
+      case 2UL: ;
+      switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____0): "m" (cpu_number));
+      goto ldv_39838;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+      goto ldv_39838;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+      goto ldv_39838;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+      goto ldv_39838;
+      default:
+      __bad_percpu_size();
+      }
+      ldv_39838:
+      pscr_ret__ = pfo_ret_____0;
+      goto ldv_39834;
+      case 4UL: ;
+      switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____1): "m" (cpu_number));
+      goto ldv_39847;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+      goto ldv_39847;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+      goto ldv_39847;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+      goto ldv_39847;
+      default:
+      __bad_percpu_size();
+      }
+      ldv_39847:
+      pscr_ret__ = pfo_ret_____1;
+      goto ldv_39834;
+      case 8UL: ;
+      switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____2): "m" (cpu_number));
+      goto ldv_39856;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+      goto ldv_39856;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+      goto ldv_39856;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+      goto ldv_39856;
+      default:
+      __bad_percpu_size();
+      }
+      ldv_39856:
+      pscr_ret__ = pfo_ret_____2;
+      goto ldv_39834;
+      default:
+      __bad_size_call_parameter();
+      goto ldv_39834;
+      } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11481: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11483: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____3): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11486: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11488: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11492: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11494: Dead code detected: switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____3): "m" (cpu_number));
+      goto ldv_39891;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number));
+      goto ldv_39891;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number));
+      goto ldv_39891;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number));
+      goto ldv_39891;
+      default:
+      __bad_percpu_size();
+      } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11501: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11503: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____4): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11506: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11508: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11512: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11514: Dead code detected: switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____4): "m" (cpu_number));
+      goto ldv_39901;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number));
+      goto ldv_39901;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number));
+      goto ldv_39901;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number));
+      goto ldv_39901;
+      default:
+      __bad_percpu_size();
+      } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11523: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____5): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11526: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11532: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11534: Dead code detected: switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____5): "m" (cpu_number));
+      goto ldv_39910;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number));
+      goto ldv_39910;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number));
+      goto ldv_39910;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number));
+      goto ldv_39910;
+      default:
+      __bad_percpu_size();
+      } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11541: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11543: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____6): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11546: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11548: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11552: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11554: Dead code detected: switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____6): "m" (cpu_number));
+      goto ldv_39919;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number));
+      goto ldv_39919;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number));
+      goto ldv_39919;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number));
+      goto ldv_39919;
+      default:
+      __bad_percpu_size();
+      } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11560: Dead code detected: switch (4UL) {
+      case 1UL: ;
+      switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____3): "m" (cpu_number));
+      goto ldv_39891;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number));
+      goto ldv_39891;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number));
+      goto ldv_39891;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number));
+      goto ldv_39891;
+      default:
+      __bad_percpu_size();
+      }
+      ldv_39891:
+      pscr_ret_____0 = pfo_ret_____3;
+      goto ldv_39897;
+      case 2UL: ;
+      switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____4): "m" (cpu_number));
+      goto ldv_39901;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number));
+      goto ldv_39901;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number));
+      goto ldv_39901;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number));
+      goto ldv_39901;
+      default:
+      __bad_percpu_size();
+      }
+      ldv_39901:
+      pscr_ret_____0 = pfo_ret_____4;
+      goto ldv_39897;
+      case 4UL: ;
+      switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____5): "m" (cpu_number));
+      goto ldv_39910;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number));
+      goto ldv_39910;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number));
+      goto ldv_39910;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number));
+      goto ldv_39910;
+      default:
+      __bad_percpu_size();
+      }
+      ldv_39910:
+      pscr_ret_____0 = pfo_ret_____5;
+      goto ldv_39897;
+      case 8UL: ;
+      switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____6): "m" (cpu_number));
+      goto ldv_39919;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number));
+      goto ldv_39919;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number));
+      goto ldv_39919;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number));
+      goto ldv_39919;
+      default:
+      __bad_percpu_size();
+      }
+      ldv_39919:
+      pscr_ret_____0 = pfo_ret_____6;
+      goto ldv_39897;
+      default:
+      __bad_size_call_parameter();
+      goto ldv_39897;
+      } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11629: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11631: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____7): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11634: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____7): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11636: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11640: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____7): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11642: Dead code detected: switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____7): "m" (cpu_number));
+      goto ldv_39949;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____7): "m" (cpu_number));
+      goto ldv_39949;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____7): "m" (cpu_number));
+      goto ldv_39949;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____7): "m" (cpu_number));
+      goto ldv_39949;
+      default:
+      __bad_percpu_size();
+      } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11649: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11651: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____8): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11654: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____8): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11656: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11660: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____8): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11662: Dead code detected: switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____8): "m" (cpu_number));
+      goto ldv_39959;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____8): "m" (cpu_number));
+      goto ldv_39959;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____8): "m" (cpu_number));
+      goto ldv_39959;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____8): "m" (cpu_number));
+      goto ldv_39959;
+      default:
+      __bad_percpu_size();
+      } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11671: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____9): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11674: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____9): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11680: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____9): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11682: Dead code detected: switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____9): "m" (cpu_number));
+      goto ldv_39968;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____9): "m" (cpu_number));
+      goto ldv_39968;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____9): "m" (cpu_number));
+      goto ldv_39968;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____9): "m" (cpu_number));
+      goto ldv_39968;
+      default:
+      __bad_percpu_size();
+      } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11689: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11691: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____10): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11694: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____10): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11696: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11700: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____10): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11702: Dead code detected: switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____10): "m" (cpu_number));
+      goto ldv_39977;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____10): "m" (cpu_number));
+      goto ldv_39977;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____10): "m" (cpu_number));
+      goto ldv_39977;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____10): "m" (cpu_number));
+      goto ldv_39977;
+      default:
+      __bad_percpu_size();
+      } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 11708: Dead code detected: switch (4UL) {
+      case 1UL: ;
+      switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____7): "m" (cpu_number));
+      goto ldv_39949;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____7): "m" (cpu_number));
+      goto ldv_39949;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____7): "m" (cpu_number));
+      goto ldv_39949;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____7): "m" (cpu_number));
+      goto ldv_39949;
+      default:
+      __bad_percpu_size();
+      }
+      ldv_39949:
+      pscr_ret_____1 = pfo_ret_____7;
+      goto ldv_39955;
+      case 2UL: ;
+      switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____8): "m" (cpu_number));
+      goto ldv_39959;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____8): "m" (cpu_number));
+      goto ldv_39959;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____8): "m" (cpu_number));
+      goto ldv_39959;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____8): "m" (cpu_number));
+      goto ldv_39959;
+      default:
+      __bad_percpu_size();
+      }
+      ldv_39959:
+      pscr_ret_____1 = pfo_ret_____8;
+      goto ldv_39955;
+      case 4UL: ;
+      switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____9): "m" (cpu_number));
+      goto ldv_39968;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____9): "m" (cpu_number));
+      goto ldv_39968;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____9): "m" (cpu_number));
+      goto ldv_39968;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____9): "m" (cpu_number));
+      goto ldv_39968;
+      default:
+      __bad_percpu_size();
+      }
+      ldv_39968:
+      pscr_ret_____1 = pfo_ret_____9;
+      goto ldv_39955;
+      case 8UL: ;
+      switch (4UL) {
+      case 1UL:
+      __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____10): "m" (cpu_number));
+      goto ldv_39977;
+      case 2UL:
+      __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____10): "m" (cpu_number));
+      goto ldv_39977;
+      case 4UL:
+      __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____10): "m" (cpu_number));
+      goto ldv_39977;
+      case 8UL:
+      __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____10): "m" (cpu_number));
+      goto ldv_39977;
+      default:
+      __bad_percpu_size();
+      }
+      ldv_39977:
+      pscr_ret_____1 = pfo_ret_____10;
+      goto ldv_39955;
+      default:
+      __bad_size_call_parameter();
+      goto ldv_39955;
+      } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12031: Dead code detected: [pao_ID__ == 1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12031: Dead code detected: [!(pao_ID__ == 1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12032: Dead code detected: __asm__ ("incb %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12034: Dead code detected: [pao_ID__ == -1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12034: Dead code detected: [!(pao_ID__ == -1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12035: Dead code detected: __asm__ ("decb %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12037: Dead code detected: __asm__ ("addb %1, %%gs:%P0": "+m" (__preempt_count): "qi" (val)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12041: Dead code detected: [pao_ID__ == 1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12041: Dead code detected: [!(pao_ID__ == 1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12042: Dead code detected: __asm__ ("incw %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12044: Dead code detected: [pao_ID__ == -1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12044: Dead code detected: [!(pao_ID__ == -1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12045: Dead code detected: __asm__ ("decw %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12047: Dead code detected: __asm__ ("addw %1, %%gs:%P0": "+m" (__preempt_count): "ri" (val)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12061: Dead code detected: [pao_ID__ == 1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12061: Dead code detected: [!(pao_ID__ == 1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12062: Dead code detected: __asm__ ("incq %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12064: Dead code detected: [pao_ID__ == -1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12064: Dead code detected: [!(pao_ID__ == -1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12065: Dead code detected: __asm__ ("decq %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12067: Dead code detected: __asm__ ("addq %1, %%gs:%P0": "+m" (__preempt_count): "re" (val)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12070: Dead code detected: switch (4UL) {
+  case 1UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incb %%gs:%P0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decb %%gs:%P0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addb %1, %%gs:%P0": "+m" (__preempt_count): "qi" (val));
+  }
+  goto ldv_6061;
+  case 2UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incw %%gs:%P0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decw %%gs:%P0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addw %1, %%gs:%P0": "+m" (__preempt_count): "ri" (val));
+  }
+  goto ldv_6061;
+  case 4UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incl %%gs:%P0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decl %%gs:%P0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addl %1, %%gs:%P0": "+m" (__preempt_count): "ri" (val));
+  }
+  goto ldv_6061;
+  case 8UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incq %%gs:%P0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decq %%gs:%P0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addq %1, %%gs:%P0": "+m" (__preempt_count): "re" (val));
+  }
+  goto ldv_6061;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12084: Dead code detected: [pao_ID__ == 1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12084: Dead code detected: [!(pao_ID__ == 1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12085: Dead code detected: __asm__ ("incb %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12087: Dead code detected: [pao_ID__ == -1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12087: Dead code detected: [!(pao_ID__ == -1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12088: Dead code detected: __asm__ ("decb %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12090: Dead code detected: __asm__ ("addb %1, %%gs:%P0": "+m" (__preempt_count): "qi" (- val)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12094: Dead code detected: [pao_ID__ == 1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12094: Dead code detected: [!(pao_ID__ == 1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12095: Dead code detected: __asm__ ("incw %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12097: Dead code detected: [pao_ID__ == -1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12097: Dead code detected: [!(pao_ID__ == -1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12098: Dead code detected: __asm__ ("decw %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12100: Dead code detected: __asm__ ("addw %1, %%gs:%P0": "+m" (__preempt_count): "ri" (- val)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12114: Dead code detected: [pao_ID__ == 1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12114: Dead code detected: [!(pao_ID__ == 1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12115: Dead code detected: __asm__ ("incq %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12117: Dead code detected: [pao_ID__ == -1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12117: Dead code detected: [!(pao_ID__ == -1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12118: Dead code detected: __asm__ ("decq %%gs:%P0": "+m" (__preempt_count)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12120: Dead code detected: __asm__ ("addq %1, %%gs:%P0": "+m" (__preempt_count): "re" (- val)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12123: Dead code detected: switch (4UL) {
+  case 1UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incb %%gs:%P0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decb %%gs:%P0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addb %1, %%gs:%P0": "+m" (__preempt_count): "qi" (- val));
+  }
+  goto ldv_6073;
+  case 2UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incw %%gs:%P0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decw %%gs:%P0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addw %1, %%gs:%P0": "+m" (__preempt_count): "ri" (- val));
+  }
+  goto ldv_6073;
+  case 4UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incl %%gs:%P0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decl %%gs:%P0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addl %1, %%gs:%P0": "+m" (__preempt_count): "ri" (- val));
+  }
+  goto ldv_6073;
+  case 8UL: ;
+  if (pao_ID__ == 1) {
+    __asm__ ("incq %%gs:%P0": "+m" (__preempt_count));
+  } else
+  if (pao_ID__ == -1) {
+    __asm__ ("decq %%gs:%P0": "+m" (__preempt_count));
+  } else {
+    __asm__ ("addq %1, %%gs:%P0": "+m" (__preempt_count): "re" (- val));
+  }
+  goto ldv_6073;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26148: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26150: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26153: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26155: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26159: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26161: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39887;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39887;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39887;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39887;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26168: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26170: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____0): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26173: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26175: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26179: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26181: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39897;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39897;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39897;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39897;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26190: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____1): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26193: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26199: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26201: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39906;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39906;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39906;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39906;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26208: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26210: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____2): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26213: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26215: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26219: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26221: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39915;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39915;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39915;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39915;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26227: Dead code detected: switch (4UL) {
+  case 1UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39887;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39887;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39887;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39887;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_39887:
+  pscr_ret__ = pfo_ret__;
+  goto ldv_39893;
+  case 2UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39897;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39897;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39897;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39897;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_39897:
+  pscr_ret__ = pfo_ret_____0;
+  goto ldv_39893;
+  case 4UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39906;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39906;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39906;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39906;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_39906:
+  pscr_ret__ = pfo_ret_____1;
+  goto ldv_39893;
+  case 8UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39915;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39915;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39915;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39915;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_39915:
+  pscr_ret__ = pfo_ret_____2;
+  goto ldv_39893;
+  default:
+  __bad_size_call_parameter();
+  goto ldv_39893;
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26265: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26267: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____3): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26270: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26272: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26276: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26278: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____3): "m" (cpu_number));
+  goto ldv_39941;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number));
+  goto ldv_39941;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number));
+  goto ldv_39941;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number));
+  goto ldv_39941;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26285: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26287: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____4): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26290: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26292: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26296: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26298: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____4): "m" (cpu_number));
+  goto ldv_39951;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number));
+  goto ldv_39951;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number));
+  goto ldv_39951;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number));
+  goto ldv_39951;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26307: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____5): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26310: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26316: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26318: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____5): "m" (cpu_number));
+  goto ldv_39960;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number));
+  goto ldv_39960;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number));
+  goto ldv_39960;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number));
+  goto ldv_39960;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26325: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26327: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____6): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26330: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26332: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26336: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26338: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____6): "m" (cpu_number));
+  goto ldv_39969;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number));
+  goto ldv_39969;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number));
+  goto ldv_39969;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number));
+  goto ldv_39969;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26344: Dead code detected: switch (4UL) {
+  case 1UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____3): "m" (cpu_number));
+  goto ldv_39941;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number));
+  goto ldv_39941;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number));
+  goto ldv_39941;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number));
+  goto ldv_39941;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_39941:
+  pscr_ret_____0 = pfo_ret_____3;
+  goto ldv_39947;
+  case 2UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____4): "m" (cpu_number));
+  goto ldv_39951;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number));
+  goto ldv_39951;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number));
+  goto ldv_39951;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number));
+  goto ldv_39951;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_39951:
+  pscr_ret_____0 = pfo_ret_____4;
+  goto ldv_39947;
+  case 4UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____5): "m" (cpu_number));
+  goto ldv_39960;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number));
+  goto ldv_39960;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number));
+  goto ldv_39960;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number));
+  goto ldv_39960;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_39960:
+  pscr_ret_____0 = pfo_ret_____5;
+  goto ldv_39947;
+  case 8UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____6): "m" (cpu_number));
+  goto ldv_39969;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number));
+  goto ldv_39969;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number));
+  goto ldv_39969;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number));
+  goto ldv_39969;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_39969:
+  pscr_ret_____0 = pfo_ret_____6;
+  goto ldv_39947;
+  default:
+  __bad_size_call_parameter();
+  goto ldv_39947;
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26435: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26437: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26440: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26442: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26446: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26448: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "m" (cpu_number));
+  goto ldv_40003;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_40003;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_40003;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_40003;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26455: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26457: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____0): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26460: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26462: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26466: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26468: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_40013;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_40013;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_40013;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_40013;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26477: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____1): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26480: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26486: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26488: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_40022;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_40022;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_40022;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_40022;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26495: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26497: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____2): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26500: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26502: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26506: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26508: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_40031;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_40031;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_40031;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_40031;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26514: Dead code detected: switch (4UL) {
+  case 1UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "m" (cpu_number));
+  goto ldv_40003;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_40003;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_40003;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_40003;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_40003:
+  pscr_ret__ = pfo_ret__;
+  goto ldv_40009;
+  case 2UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_40013;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_40013;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_40013;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_40013;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_40013:
+  pscr_ret__ = pfo_ret_____0;
+  goto ldv_40009;
+  case 4UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_40022;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_40022;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_40022;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_40022;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_40022:
+  pscr_ret__ = pfo_ret_____1;
+  goto ldv_40009;
+  case 8UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_40031;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_40031;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_40031;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_40031;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_40031:
+  pscr_ret__ = pfo_ret_____2;
+  goto ldv_40009;
+  default:
+  __bad_size_call_parameter();
+  goto ldv_40009;
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26553: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26555: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____3): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26558: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26560: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26564: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26566: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____3): "m" (cpu_number));
+  goto ldv_40056;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number));
+  goto ldv_40056;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number));
+  goto ldv_40056;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number));
+  goto ldv_40056;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26573: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26575: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____4): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26578: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26580: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26584: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26586: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____4): "m" (cpu_number));
+  goto ldv_40066;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number));
+  goto ldv_40066;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number));
+  goto ldv_40066;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number));
+  goto ldv_40066;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26595: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____5): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26598: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26604: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26606: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____5): "m" (cpu_number));
+  goto ldv_40075;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number));
+  goto ldv_40075;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number));
+  goto ldv_40075;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number));
+  goto ldv_40075;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26613: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26615: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____6): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26618: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26620: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26624: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26626: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____6): "m" (cpu_number));
+  goto ldv_40084;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number));
+  goto ldv_40084;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number));
+  goto ldv_40084;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number));
+  goto ldv_40084;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26632: Dead code detected: switch (4UL) {
+  case 1UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____3): "m" (cpu_number));
+  goto ldv_40056;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number));
+  goto ldv_40056;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number));
+  goto ldv_40056;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____3): "m" (cpu_number));
+  goto ldv_40056;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_40056:
+  pscr_ret_____0 = pfo_ret_____3;
+  goto ldv_40062;
+  case 2UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____4): "m" (cpu_number));
+  goto ldv_40066;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number));
+  goto ldv_40066;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number));
+  goto ldv_40066;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____4): "m" (cpu_number));
+  goto ldv_40066;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_40066:
+  pscr_ret_____0 = pfo_ret_____4;
+  goto ldv_40062;
+  case 4UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____5): "m" (cpu_number));
+  goto ldv_40075;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number));
+  goto ldv_40075;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number));
+  goto ldv_40075;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____5): "m" (cpu_number));
+  goto ldv_40075;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_40075:
+  pscr_ret_____0 = pfo_ret_____5;
+  goto ldv_40062;
+  case 8UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____6): "m" (cpu_number));
+  goto ldv_40084;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number));
+  goto ldv_40084;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number));
+  goto ldv_40084;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____6): "m" (cpu_number));
+  goto ldv_40084;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_40084:
+  pscr_ret_____0 = pfo_ret_____6;
+  goto ldv_40062;
+  default:
+  __bad_size_call_parameter();
+  goto ldv_40062;
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29571: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29573: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29576: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29578: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29582: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29584: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39835;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39835;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39835;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39835;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29591: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29593: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____0): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29596: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29598: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29602: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29604: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39845;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39845;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39845;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39845;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29613: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____1): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29616: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29622: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29624: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39854;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39854;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39854;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39854;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29631: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29633: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____2): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29636: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29638: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29642: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29644: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39863;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39863;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39863;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39863;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29650: Dead code detected: switch (4UL) {
+  case 1UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39835;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39835;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39835;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39835;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_39835:
+  pscr_ret__ = pfo_ret__;
+  goto ldv_39841;
+  case 2UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39845;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39845;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39845;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39845;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_39845:
+  pscr_ret__ = pfo_ret_____0;
+  goto ldv_39841;
+  case 4UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39854;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39854;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39854;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39854;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_39854:
+  pscr_ret__ = pfo_ret_____1;
+  goto ldv_39841;
+  case 8UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39863;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39863;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39863;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39863;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_39863:
+  pscr_ret__ = pfo_ret_____2;
+  goto ldv_39841;
+  default:
+  __bad_size_call_parameter();
+  goto ldv_39841;
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29745: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29747: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29750: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29752: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29756: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29758: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39896;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39896;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39896;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39896;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29765: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29767: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____0): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29770: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29772: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29776: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29778: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39906;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39906;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39906;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39906;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29787: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____1): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29790: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29796: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29798: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39915;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39915;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39915;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39915;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29805: Dead code detected: switch (4UL) (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29807: Dead code detected: __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____2): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29810: Dead code detected: __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29812: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29816: Dead code detected: __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number)); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29818: Dead code detected: switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39924;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39924;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39924;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39924;
+  default:
+  __bad_percpu_size();
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 29824: Dead code detected: switch (4UL) {
+  case 1UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39896;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39896;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39896;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret__): "m" (cpu_number));
+  goto ldv_39896;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_39896:
+  pscr_ret__ = pfo_ret__;
+  goto ldv_39902;
+  case 2UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39906;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39906;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39906;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____0): "m" (cpu_number));
+  goto ldv_39906;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_39906:
+  pscr_ret__ = pfo_ret_____0;
+  goto ldv_39902;
+  case 4UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39915;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39915;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39915;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____1): "m" (cpu_number));
+  goto ldv_39915;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_39915:
+  pscr_ret__ = pfo_ret_____1;
+  goto ldv_39902;
+  case 8UL: ;
+  switch (4UL) {
+  case 1UL:
+  __asm__ ("movb %%gs:%P1,%0": "=q" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39924;
+  case 2UL:
+  __asm__ ("movw %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39924;
+  case 4UL:
+  __asm__ ("movl %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39924;
+  case 8UL:
+  __asm__ ("movq %%gs:%P1,%0": "=r" (pfo_ret_____2): "m" (cpu_number));
+  goto ldv_39924;
+  default:
+  __bad_percpu_size();
+  }
+  ldv_39924:
+  pscr_ret__ = pfo_ret_____2;
+  goto ldv_39902;
+  default:
+  __bad_size_call_parameter();
+  goto ldv_39902;
+  } (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 31090: Dead code detected: tmp = ldv__builtin_expect((drm_debug & 4U) != 0U, 0L); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 31091: Dead code detected: [!(tmp != 0L)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 31092: Dead code detected: drm_ut_debug_printk("cdv_intel_dp_set_vswing_premph", "Test2\n"); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 31095: Dead code detected: cdv_sb_reset(dev); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 31099: Dead code detected: [!(premph == 1 && vswing == 1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 31099: Dead code detected: [premph == 1 && vswing == 1] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 31099: Dead code detected: [!(premph == 1 && vswing == 1)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 31100: Dead code detected: cdv_sb_write(dev, ddi_reg->VSwing2, 1433635156U); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 31102: Dead code detected: cdv_sb_write(dev, ddi_reg->VSwing2, dp_vswing_premph_table[index]); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 31104: Dead code detected: [vswing + premph == 3] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 31104: Dead code detected: [!(vswing + premph == 3)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 31105: Dead code detected: cdv_sb_write(dev, ddi_reg->VSwing3, 1887445056U); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 31107: Dead code detected: cdv_sb_write(dev, ddi_reg->VSwing3, 1082138688U); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 31109: Dead code detected: cdv_sb_write(dev, ddi_reg->VSwing1, 3275776085U); (CFACreationUtils.addEdgeToCFA, INFO)
+
+Inline assembler ignored, analysis is probably unsound! (CFABuilder.createCFA, WARNING)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (PredicateCPA:FormulaManagerView.<init>, WARNING)
+
+Using predicate analysis with Princess 2023-04-07. (PredicateCPA:PredicateCPA.<init>, INFO)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (AssumptionStorageCPA:FormulaManagerView.<init>, WARNING)
+
+Starting analysis ... (CPAchecker.runAlgorithm, INFO)
+
+Recursion detected, aborting. To ignore recursion, add -skipRecursion to the command line. (TargetLocationProvider:CallstackCPA:CallstackTransferRelation.getAbstractSuccessorsForEdge, INFO)
+
+Recursion detected. Defaulting to selecting all locations as potential target locations. (TargetLocationProvider:TargetLocationProviderImpl.tryGetAutomatonTargetLocations, INFO)
+
+Creating formula for program (AbstractBMCAlgorithm.run, INFO)
+
+Exception in thread "main" org.sosy_lab.java_smt.basicimpl.GeneratorException: Modular Congruence is not available in SMTLIB2. 
+	at org.sosy_lab.java_smt.basicimpl.AbstractNumeralFormulaManager.modularCongruence(AbstractNumeralFormulaManager.java:361)
+	at org.sosy_lab.java_smt.solvers.princess.PrincessIntegerFormulaManager.modularCongruence(PrincessIntegerFormulaManager.java:22)
+	at org.sosy_lab.cpachecker.util.predicates.smt.IntegerFormulaManagerView.modularCongruence(IntegerFormulaManagerView.java:35)
+	at org.sosy_lab.cpachecker.util.predicates.smt.FormulaManagerView.makeModularCongruence(FormulaManagerView.java:688)
+	at org.sosy_lab.cpachecker.util.predicates.smt.FormulaManagerView.makeModularCongruence(FormulaManagerView.java:670)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.PointerTargetSetManager.makeBaseAddressConstraints(PointerTargetSetManager.java:653)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.PointerTargetSetBuilder$RealPointerTargetSetBuilder.addNextBaseAddressConstraints(PointerTargetSetBuilder.java:286)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.CToFormulaConverterWithPointerAliasing.declareSharedBase(CToFormulaConverterWithPointerAliasing.java:437)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.CToFormulaConverterWithPointerAliasing.makeDeclaration(CToFormulaConverterWithPointerAliasing.java:1001)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.ctoformula.CtoFormulaConverter.createFormulaForEdge(CtoFormulaConverter.java:1231)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.ctoformula.CtoFormulaConverter.makeAnd(CtoFormulaConverter.java:1049)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.PathFormulaManagerImpl.makeAnd(PathFormulaManagerImpl.java:246)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.PathFormulaManagerImpl.makeAnd(PathFormulaManagerImpl.java:300)
+	at org.sosy_lab.cpachecker.cpa.predicate.PredicateTransferRelation.convertEdgeToPathFormula(PredicateTransferRelation.java:203)
+	at org.sosy_lab.cpachecker.cpa.predicate.PredicateTransferRelation.getAbstractSuccessorsForEdge(PredicateTransferRelation.java:113)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.callTransferRelation(CompositeTransferRelation.java:297)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessorForSimpleEdge(CompositeTransferRelation.java:264)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessorForEdge(CompositeTransferRelation.java:196)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessors(CompositeTransferRelation.java:88)
+	at org.sosy_lab.cpachecker.cpa.arg.ARGTransferRelation.getAbstractSuccessors(ARGTransferRelation.java:45)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.handleState(CPAAlgorithm.java:334)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.run0(CPAAlgorithm.java:289)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.run(CPAAlgorithm.java:260)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.BMCHelper.unroll(BMCHelper.java:192)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.AbstractBMCAlgorithm.run(AbstractBMCAlgorithm.java:427)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.BMCAlgorithm.run(BMCAlgorithm.java:130)
+	at org.sosy_lab.cpachecker.core.CPAchecker.runAlgorithm(CPAchecker.java:507)
+	at org.sosy_lab.cpachecker.core.CPAchecker.run(CPAchecker.java:369)
+	at org.sosy_lab.cpachecker.cmdline.CPAMain.main(CPAMain.java:170)

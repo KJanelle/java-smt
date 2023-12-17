@@ -1,0 +1,224 @@
+scripts/cpa.sh -heap 13000M -stack 50M -noout -benchmark -bmc -setprop cpa.predicate.useArraysForHeap=false -setprop cpa.predicate.memoryAllocationsAlwaysSucceed=true -setprop cpa.loopbound.maxLoopIterations=10 -setprop cpa.predicate.encodeFloatAs=INTEGER -setprop cpa.predicate.encodeBitvectorAs=INTEGER -setprop solver.solver=princess -timelimit 900s -stats -spec test/programs/benchmarks/properties/unreach-call.prp -64 test/programs/benchmarks/aws-c-common/aws_hash_ptr_harness.i
+
+
+--------------------------------------------------------------------------------
+
+
+Running CPAchecker with Java heap of size 13000M.
+Running CPAchecker with Java stack of size 50M.
+Language C detected and set for analysis (CPAMain.detectFrontendLanguageIfNecessary, INFO)
+
+Using the following resource limits: CPU-time limit of 900s (ResourceLimitChecker.fromConfiguration, INFO)
+
+CPAchecker 2.3.1-svn-45350M / bmc (OpenJDK 64-Bit Server VM 17.0.8.1) started (CPAchecker.run, INFO)
+
+Parsing CFA from file(s) "test/programs/benchmarks/aws-c-common/aws_hash_ptr_harness.i" (CPAchecker.parse, INFO)
+
+line 3100: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 3207: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7674: Dead code detected: [0 && ((u.i & 0x3) == 0)] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7674: Dead code detected: [!(0 && ((u.i & 0x3) == 0))] (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7675: Dead code detected: const uint32_t *k = (const uint32_t *)key; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7784: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7823: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7829: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7885: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8004: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8013: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8054: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8096: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8097: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8131: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8148: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8168: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8206: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8230: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8236: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8241: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8278: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8282: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8408: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8430: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 8727: Dead code detected:  (CFACreationUtils.addEdgeToCFA, INFO)
+
+Inline assembler ignored, analysis is probably unsound! (CFABuilder.createCFA, WARNING)
+
+line 8341: Function pointer *(state->destroy_key_fn) with type aws_hash_callback_destroy_fn * is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 8344: Function pointer *(state->destroy_value_fn) with type aws_hash_callback_destroy_fn * is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 8375: Function pointer *(state->destroy_key_fn) with type aws_hash_callback_destroy_fn * is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 8378: Function pointer *(state->destroy_value_fn) with type aws_hash_callback_destroy_fn * is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 8177: Function pointer *callback with type int (*)(void *context, struct aws_hash_element *pElement) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 8140: Function pointer *(state->destroy_key_fn) with type aws_hash_callback_destroy_fn * is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 8143: Function pointer *(state->destroy_value_fn) with type aws_hash_callback_destroy_fn * is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 7780: Function pointer *(state->hash_fn) with type aws_hash_fn * is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 7810: Function pointer *equals_fn with type aws_hash_callback_eq_fn * is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (PredicateCPA:FormulaManagerView.<init>, WARNING)
+
+Using predicate analysis with Princess 2023-04-07. (PredicateCPA:PredicateCPA.<init>, INFO)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (AssumptionStorageCPA:FormulaManagerView.<init>, WARNING)
+
+Starting analysis ... (CPAchecker.runAlgorithm, INFO)
+
+Stopping analysis ... (CPAchecker.runAlgorithm, INFO)
+
+
+PredicateCPA statistics
+-----------------------
+Number of abstractions:            0 (NaN% of all post computations)
+Number of strengthen sat checks:   0
+Number of coverage checks:         0
+  BDD entailment checks:           0
+Number of SMT sat checks:          0
+  trivial:                         0
+  cached:                          0
+
+Max ABE block size:                       0
+Avg ABE block size:                                0.00 (sum: 0, count: 0, min: 0, max: 0)
+Number of predicates discovered:          0
+
+Time for post operator:                                0.000s
+  Time for path formula creation:                      0.000s
+Time for strengthen operator:                          0.000s
+Time for prec operator:                                0.000s
+Time for coverage checks:                              0.000s
+Total time for SMT solver (w/o itp):     0.000s
+
+Total number of created targets for pointer analysis: 0
+
+
+
+KeyValue statistics
+-------------------
+Init. function predicates:                         0
+Init. global predicates:                           0
+Init. location predicates:                         0
+
+Invariant Generation statistics
+-------------------------------
+
+Bounds CPA statistics
+---------------------
+Bound k:                                           10
+Maximum loop iteration reached:                    0
+
+
+ValueAnalysisCPA statistics
+---------------------------
+Number of variables per state:                     0.00 (sum: 0, count: 1, min: 0, max: 0)
+Number of global variables per state:              0.00 (sum: 0, count: 1, min: 0, max: 0)
+Number of assumptions:                                    0
+Number of deterministic assumptions:                      0
+Level of Determinism:                              100%
+
+ValueAnalysisPrecisionAdjustment statistics
+-------------------------------------------
+Number of abstraction computations:                       0
+Total time for liveness abstraction:                   0.000s
+Total time for abstraction computation:                0.000s
+Total time for path thresholds:                        0.000s
+
+ConstraintsStrengthenOperator statistics
+----------------------------------------
+Total time for strengthening by ConstraintsCPA:     0.000s
+Replaced symbolic expressions: 0
+
+AutomatonAnalysis (SVCOMP) statistics
+-------------------------------------
+Number of states:                                  1
+Total time for successor computation:                  0.000s
+Automaton transfers with branching:                0
+Automaton transfer successors:                     0.00 (sum: 0, count: 0, min: 0, max: 0) []
+Number of states with assumption transitions:      0
+
+CPA algorithm statistics
+------------------------
+Number of iterations:            0
+
+BMC algorithm statistics
+------------------------
+
+CPAchecker general statistics
+-----------------------------
+Number of program locations:                       4278
+Number of CFA edges (per node):                        5033 (count: 4278, min: 0, max: 138, avg: 1.18)
+Number of relevant variables:                      745
+Number of functions:                               194
+Number of loops (and loop nodes):                        18 (sum: 344, min: 4, max: 34, avg: 19.11)
+Size of reached set:             1
+  Number of reached locations:   1 (0%)
+    Avg states per location:     1
+    Max states per location:     1 (at node N3597)
+  Number of reached functions:   1 (1%)
+  Number of partitions:          1
+    Avg size of partitions:      1
+    Max size of partitions:      1
+  Number of target states:       0
+
+Time for analysis setup:          3.756s
+  Time for loading CPAs:          1.343s
+  Time for loading parser:        0.198s
+  Time for CFA construction:      2.151s
+    Time for parsing file(s):     0.632s
+    Time for AST to CFA:          0.864s
+    Time for CFA sanity check:    0.001s
+    Time for post-processing:     0.537s
+    Time for loop structure:      0.040s
+    Time for AST structure:       0.000s
+      Time for function pointers resolving:            0.011s
+        Function calls via function pointers:             9 (count: 1, min: 9, max: 9, avg: 9.00)
+        Instrumented function pointer calls:              0 (count: 1, min: 0, max: 0, avg: 0.00)
+        Function calls with function pointer arguments:        0 (count: 1, min: 0, max: 0, avg: 0.00)
+        Instrumented function pointer arguments:          0 (count: 1, min: 0, max: 0, avg: 0.00)
+      Time for classifying variables:                  0.373s
+        Time for collecting variables:                 0.294s
+        Time for solving dependencies:                 0.005s
+        Time for building hierarchy:                   0.000s
+        Time for building classification:              0.073s
+        Time for exporting data:                       0.000s
+Time for Analysis:                0.187s
+CPU time for analysis:            0.380s
+Time for analyzing result:        0.001s
+Total time for CPAchecker:        3.945s
+Total CPU time for CPAchecker:    7.770s
+Time for statistics:              0.048s
+
+Time for Garbage Collector:       0.091s (in 8 runs)
+Garbage Collector(s) used:    G1 Old Generation, G1 Young Generation
+
+Verification result: TRUE. No property violation found by chosen configuration.
+More details about the verification run can be found in the directory "./output".

@@ -55,15 +55,15 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     BooleanFormula constraint1 = bvmgr.equal(a, bvmgr.add(a, b));
     BooleanFormula constraint2 = bvmgr.equal(c, d);
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint2);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint2);
 
     /*
      avoid such high numbers with Boolector and Princess
     BitvectorFormula e = bvmgr.makeVariable(214748366, "e");
     BitvectorFormula f = bvmgr.makeVariable(214748366, "f");
     BooleanFormula constraint3 = bvmgr.equal(e, f);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint3);
     */
 
     String actualResult = String.valueOf(Generator.lines);
@@ -100,9 +100,9 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     BooleanFormula constraint2 = bvmgr.equal(a, b);
     BooleanFormula constraint3 = bvmgr.equal(e, f);
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint2);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint2);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -135,9 +135,9 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     BooleanFormula constraint2 = bvmgr.equal(a, b);
     BooleanFormula constraint3 = bvmgr.equal(e, f);
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint2);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint2);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -170,9 +170,9 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     BooleanFormula constraint2 = bvmgr.equal(a, bvmgr.add(a, b));
     BooleanFormula constraint3 = bvmgr.equal(e, bvmgr.add(e, f));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint2);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint2);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -206,8 +206,8 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     BooleanFormula constraint3 =
         bvmgr.equal(bvmgr.negate(e), bvmgr.add(bvmgr.negate(e), bvmgr.negate(f)));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -242,8 +242,8 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     BooleanFormula constraint1 = bvmgr.equal(c, bvmgr.subtract(c, d));
     BooleanFormula constraint3 = bvmgr.equal(e, bvmgr.subtract(e, f));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -282,8 +282,8 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     BooleanFormula constraint1 = bvmgr.equal(c, bvmgr.divide(c, d, true));
     BooleanFormula constraint3 = bvmgr.equal(e, bvmgr.divide(e, f, false));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -315,8 +315,8 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     BooleanFormula constraint1 = bvmgr.equal(c, bvmgr.modulo(c, d, true));
     BooleanFormula constraint3 = bvmgr.equal(e, bvmgr.modulo(e, f, false));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -356,8 +356,8 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     BooleanFormula constraint1 = bvmgr.equal(c, bvmgr.multiply(c, d));
     BooleanFormula constraint3 = bvmgr.equal(e, bvmgr.multiply(e, f));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -392,8 +392,8 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     BooleanFormula constraint1 = bvmgr.greaterThan(c, d, true);
     BooleanFormula constraint3 = bvmgr.greaterThan(e, f, false);
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -417,8 +417,8 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     BooleanFormula constraint1 = bvmgr.greaterOrEquals(c, d, true);
     BooleanFormula constraint3 = bvmgr.greaterOrEquals(e, f, false);
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -442,8 +442,8 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     BooleanFormula constraint1 = bvmgr.lessThan(c, d, true);
     BooleanFormula constraint3 = bvmgr.lessThan(e, f, false);
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -467,8 +467,8 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     BooleanFormula constraint1 = bvmgr.lessOrEquals(c, d, true);
     BooleanFormula constraint3 = bvmgr.lessOrEquals(e, f, false);
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -492,8 +492,8 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     BooleanFormula constraint1 = bvmgr.equal(bvmgr.not(c), bvmgr.not(d));
     BooleanFormula constraint3 = bvmgr.equal(bvmgr.not(e), bvmgr.not(f));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -524,8 +524,8 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     BooleanFormula constraint1 = bvmgr.equal(a, bvmgr.and(c, d));
     BooleanFormula constraint3 = bvmgr.equal(b, bvmgr.and(e, f));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -560,8 +560,8 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     BooleanFormula constraint1 = bvmgr.equal(a, bvmgr.or(c, d));
     BooleanFormula constraint3 = bvmgr.equal(b, bvmgr.or(e, f));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -596,8 +596,8 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     BooleanFormula constraint1 = bvmgr.equal(a, bvmgr.xor(c, d));
     BooleanFormula constraint3 = bvmgr.equal(b, bvmgr.xor(e, f));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -632,8 +632,8 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     BooleanFormula constraint1 = bvmgr.equal(a, bvmgr.shiftRight(c, d, true));
     BooleanFormula constraint3 = bvmgr.equal(b, bvmgr.shiftRight(e, f, false));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -668,8 +668,8 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     BooleanFormula constraint1 = bvmgr.equal(a, bvmgr.shiftLeft(c, d));
     BooleanFormula constraint3 = bvmgr.equal(b, bvmgr.shiftLeft(e, f));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -704,8 +704,8 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     BooleanFormula constraint1 = bvmgr.equal(a, bvmgr.concat(c, d));
     BooleanFormula constraint3 = bvmgr.equal(b, bvmgr.concat(e, f));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -731,8 +731,8 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     BooleanFormula constraint1 = bvmgr.equal(a, bvmgr.extract(c, 11, 6));
     BooleanFormula constraint3 = bvmgr.equal(b, bvmgr.extract(f, 99, 50));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -757,8 +757,8 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     BooleanFormula constraint1 = bvmgr.equal(a, bvmgr.extend(c, 6, true));
     BooleanFormula constraint3 = bvmgr.equal(b, bvmgr.extend(f, 50, false));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -789,7 +789,7 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     BitvectorFormula term7 = bvmgr.shiftLeft(term6, term4);
     BooleanFormula constraint = bvmgr.equal(a, term7);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
 
     String actualResult = String.valueOf(Generator.lines);
 

@@ -66,7 +66,7 @@ public class ArraySMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSol
 
     BooleanFormula constraint1 = amgr.equivalence(a1, a2);
 
-    Generator.logAddConstraint(constraint1);
+    Generator.assembleConstraint(constraint1);
   }
 
   @Test(expected = GeneratorException.class)
@@ -87,7 +87,7 @@ public class ArraySMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSol
 
     BooleanFormula constraint1 = amgr.equivalence(a1, a2);
 
-    Generator.logAddConstraint(constraint1);
+    Generator.assembleConstraint(constraint1);
   }
 
   @Test
@@ -133,8 +133,8 @@ public class ArraySMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSol
     BooleanFormula constraint1 = amgr.equivalence(a1, a2);
     BooleanFormula constraint3 = amgr.equivalence(c1, c2);
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -194,8 +194,8 @@ public class ArraySMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSol
     BooleanFormula constraint1 = amgr.equivalence(a1, a2);
     BooleanFormula constraint3 = amgr.equivalence(c1, c2);
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -256,8 +256,8 @@ public class ArraySMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSol
     BooleanFormula constraint1 = amgr.equivalence(a1, a2);
     BooleanFormula constraint3 = amgr.equivalence(c1, c2);
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -294,7 +294,7 @@ public class ArraySMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSol
 
     BooleanFormula constraint1 = amgr.equivalence(a1, a2);
 
-    Generator.logAddConstraint(constraint1);
+    Generator.assembleConstraint(constraint1);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -357,9 +357,9 @@ public class ArraySMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSol
     BooleanFormula constraint2 = amgr.equivalence(b1, b2);
     BooleanFormula constraint3 = amgr.equivalence(c1, c2);
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint2);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint2);
+    Generator.assembleConstraint(constraint3);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -392,7 +392,7 @@ public class ArraySMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSol
         amgr.store(a1, imgr.makeNumber(3), imgr.makeNumber(2));
     BooleanFormula constraint = amgr.equivalence(a1, term1);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -414,7 +414,7 @@ public class ArraySMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSol
     IntegerFormula term1 = amgr.select(a1, imgr.makeNumber(2));
     BooleanFormula constraint = imgr.equal(term1, imgr.makeNumber(5));
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
 
     String actualResult = String.valueOf(Generator.lines);
 

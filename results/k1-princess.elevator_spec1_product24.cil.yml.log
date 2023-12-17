@@ -1,0 +1,245 @@
+scripts/cpa.sh -heap 13000M -stack 50M -noout -benchmark -bmc -setprop cpa.predicate.useArraysForHeap=false -setprop cpa.predicate.memoryAllocationsAlwaysSucceed=true -setprop cpa.loopbound.maxLoopIterations=1 -setprop cpa.predicate.encodeFloatAs=INTEGER -setprop cpa.predicate.encodeBitvectorAs=INTEGER -setprop solver.solver=princess -timelimit 900s -stats -spec test/programs/benchmarks/properties/unreach-call.prp -32 test/programs/benchmarks/product-lines/elevator_spec1_product24.cil.c
+
+
+--------------------------------------------------------------------------------
+
+
+Running CPAchecker with Java heap of size 13000M.
+Running CPAchecker with Java stack of size 50M.
+Language C detected and set for analysis (CPAMain.detectFrontendLanguageIfNecessary, INFO)
+
+Using the following resource limits: CPU-time limit of 900s (ResourceLimitChecker.fromConfiguration, INFO)
+
+CPAchecker 2.3.1-svn-45350M / bmc (OpenJDK 64-Bit Server VM 17.0.8.1) started (CPAchecker.run, INFO)
+
+Parsing CFA from file(s) "test/programs/benchmarks/product-lines/elevator_spec1_product24.cil.c" (CPAchecker.parse, INFO)
+
+line 365: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 411: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 784: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 904: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1145: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1456: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1542: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1695: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1704: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1738: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1747: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1787: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1867: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1880: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2232: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2272: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2301: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2335: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2391: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2419: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2450: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2464: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 3084: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 3095: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 3104: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 3429: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 3468: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 3507: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 3519: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 3542: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 202: Function pointer *__cil_tmp10 with type int (*)(int, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (PredicateCPA:FormulaManagerView.<init>, WARNING)
+
+Using predicate analysis with Princess 2023-04-07. (PredicateCPA:PredicateCPA.<init>, INFO)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (AssumptionStorageCPA:FormulaManagerView.<init>, WARNING)
+
+Starting analysis ... (CPAchecker.runAlgorithm, INFO)
+
+Creating formula for program (AbstractBMCAlgorithm.run, INFO)
+
+Starting satisfiability check... (AbstractBMCAlgorithm.boundedModelCheck, INFO)
+
+Starting assertions check... (AbstractBMCAlgorithm.checkBoundingAssertions, INFO)
+
+Terminating because none of the following CPAs' precision can be adjusted any further  LoopBoundCPA (AbstractBMCAlgorithm.adjustConditions, INFO)
+
+Stopping analysis ... (CPAchecker.runAlgorithm, INFO)
+
+Analysis incomplete: no errors found, but not everything could be checked. (CPAchecker.analyzeResult, WARNING)
+
+
+PredicateCPA statistics
+-----------------------
+Number of abstractions:            0 (0% of all post computations)
+Number of strengthen sat checks:   0
+Number of coverage checks:         0
+  BDD entailment checks:           0
+Number of SMT sat checks:          0
+  trivial:                         0
+  cached:                          0
+
+Max ABE block size:                       0
+Avg ABE block size:                                0.00 (sum: 0, count: 0, min: 0, max: 0)
+Number of predicates discovered:          0
+
+Time for post operator:                                0.275s
+  Time for path formula creation:                      0.272s
+Time for strengthen operator:                          0.008s
+Time for prec operator:                                0.002s
+Time for coverage checks:                              0.000s
+Total time for SMT solver (w/o itp):     0.000s
+
+Total number of created targets for pointer analysis: 0
+
+
+
+KeyValue statistics
+-------------------
+Init. function predicates:                         0
+Init. global predicates:                           0
+Init. location predicates:                         0
+
+Invariant Generation statistics
+-------------------------------
+
+Bounds CPA statistics
+---------------------
+Bound k:                                           1
+Maximum loop iteration reached:                    2
+
+
+ValueAnalysisCPA statistics
+---------------------------
+Number of variables per state:                     60.33 (sum: 54964, count: 911, min: 0, max: 81)
+Number of global variables per state:              53.81 (sum: 49025, count: 911, min: 0, max: 60)
+Number of assumptions:                                  748
+Number of deterministic assumptions:                      0
+Level of Determinism:                              0%
+
+ValueAnalysisPrecisionAdjustment statistics
+-------------------------------------------
+Number of abstraction computations:                     910
+Total time for liveness abstraction:                   0.000s
+Total time for abstraction computation:                0.030s
+Total time for path thresholds:                        0.000s
+
+ConstraintsStrengthenOperator statistics
+----------------------------------------
+Total time for strengthening by ConstraintsCPA:     0.000s
+Replaced symbolic expressions: 0
+
+AutomatonAnalysis (SVCOMP) statistics
+-------------------------------------
+Number of states:                                  1
+Total time for successor computation:                  0.001s
+Automaton transfers with branching:                0
+Automaton transfer successors:                     1.00 (sum: 910, count: 910, min: 1, max: 1) [1 x 910]
+Number of states with assumption transitions:      0
+
+CPA algorithm statistics
+------------------------
+Number of iterations:            911
+Max size of waitlist:            1
+Average size of waitlist:        1
+LoopstackSortedWaitlist:                           0.00 (sum: 0, count: 911, min: 0, max: 0)
+ReversePostorderSortedWaitlist:                    0.00 (sum: 0, count: 911, min: 0, max: 0)
+LoopIterationSortedWaitlist:                       0.00 (sum: 0, count: 911, min: 0, max: 0)
+CallstackSortedWaitlist:                           0.00 (sum: 0, count: 1, min: 0, max: 0)
+Number of computed successors:   910
+Max successors for one state:    1
+Number of times merged:          0
+Number of times stopped:         0
+Number of times breaked:         0
+
+Total time for CPA algorithm:         0.569s (Max:     0.569s)
+  Time for choose from waitlist:      0.010s
+  Time for precision adjustment:      0.083s
+  Time for transfer relation:         0.432s
+  Time for stop operator:             0.005s
+  Time for adding to reached set:     0.023s
+
+BMC algorithm statistics
+------------------------
+Time for BMC formula creation:                       0.572s
+Time for final sat check:                            0.142s
+Time for bounding assertions check:                  1.024s
+
+CPAchecker general statistics
+-----------------------------
+Number of program locations:                       2338
+Number of CFA edges (per node):                        2830 (count: 2338, min: 0, max: 22, avg: 1.21)
+Number of relevant variables:                      355
+Number of functions:                               80
+Number of loops (and loop nodes):                         9 (sum: 175, min: 11, max: 37, avg: 19.44)
+Size of reached set:             911
+  Number of reached locations:   685 (29%)
+    Avg states per location:     1
+    Max states per location:     8 (at node N594)
+  Number of reached functions:   45 (56%)
+  Number of partitions:          911
+    Avg size of partitions:      1
+    Max size of partitions:      1
+  Number of target states:       0
+
+Time for analysis setup:          2.876s
+  Time for loading CPAs:          1.377s
+  Time for loading parser:        0.229s
+  Time for CFA construction:      1.203s
+    Time for parsing file(s):     0.492s
+    Time for AST to CFA:          0.389s
+    Time for CFA sanity check:    0.000s
+    Time for post-processing:     0.244s
+    Time for loop structure:      0.016s
+    Time for AST structure:       0.000s
+      Time for function pointers resolving:            0.006s
+        Function calls via function pointers:             1 (count: 1, min: 1, max: 1, avg: 1.00)
+        Instrumented function pointer calls:              0 (count: 1, min: 0, max: 0, avg: 0.00)
+        Function calls with function pointer arguments:        0 (count: 1, min: 0, max: 0, avg: 0.00)
+        Instrumented function pointer arguments:          0 (count: 1, min: 0, max: 0, avg: 0.00)
+      Time for classifying variables:                  0.150s
+        Time for collecting variables:                 0.085s
+        Time for solving dependencies:                 0.002s
+        Time for building hierarchy:                   0.000s
+        Time for building classification:              0.063s
+        Time for exporting data:                       0.000s
+Time for Analysis:                2.412s
+CPU time for analysis:            4.340s
+Time for analyzing result:        0.002s
+Total time for CPAchecker:        5.288s
+Total CPU time for CPAchecker:    9.910s
+Time for statistics:              0.051s
+
+Time for Garbage Collector:       0.093s (in 10 runs)
+Garbage Collector(s) used:    G1 Old Generation, G1 Young Generation
+
+Verification result: UNKNOWN, incomplete analysis.
+More details about the verification run can be found in the directory "./output".

@@ -23,8 +23,8 @@ package org.sosy_lab.java_smt.test;
 import static com.google.common.truth.Truth.assertThat;
 import static com.google.common.truth.TruthJUnit.assume;
 
+import com.google.common.collect.ImmutableList;
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -37,14 +37,19 @@ import org.sosy_lab.java_smt.api.BitvectorFormula;
 import org.sosy_lab.java_smt.api.BooleanFormula;
 import org.sosy_lab.java_smt.api.FormulaType;
 import org.sosy_lab.java_smt.api.FunctionDeclaration;
+import org.sosy_lab.java_smt.api.Model;
+import org.sosy_lab.java_smt.api.Model.ValueAssignment;
 import org.sosy_lab.java_smt.api.NumeralFormula;
 import org.sosy_lab.java_smt.api.NumeralFormula.IntegerFormula;
 import org.sosy_lab.java_smt.api.NumeralFormula.RationalFormula;
+import org.sosy_lab.java_smt.api.ProverEnvironment;
+import org.sosy_lab.java_smt.api.SolverContext;
+import org.sosy_lab.java_smt.api.SolverContext.ProverOptions;
 import org.sosy_lab.java_smt.api.SolverException;
 import org.sosy_lab.java_smt.basicimpl.Generator;
-import org.sosy_lab.java_smt.basicimpl.GeneratorException;
 import org.sosy_lab.java_smt.basicimpl.ParserException;
-import org.sosy_lab.java_smt.basicimpl.Visitor;
+import org.sosy_lab.java_smt.basicimpl.BinaryModel;
+import org.sosy_lab.java_smt.basicimpl.parserInterpreter.Visitor;
 
 public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.ParameterizedSolverBasedTest0 {
 
@@ -1497,6 +1502,10 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
   public void testIntegerFloor()
       throws IOException, SolverException, InterruptedException, InvalidConfigurationException {
     requireIntegers();
+    assume()
+        .that(solverToUse())
+        .isNoneOf(Solvers.MATHSAT5, Solvers.SMTINTERPOL, Solvers.Z3, Solvers.CVC4, Solvers.CVC5,
+            Solvers.YICES2);
     clearVisitor();
 
     String x =
@@ -1597,9 +1606,9 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
     BooleanFormula constraint2 = bvmgr.equal(a, bvmgr.add(a, b));
     BooleanFormula constraint3 = bvmgr.equal(e, bvmgr.add(e, f));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint2);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint2);
+    Generator.assembleConstraint(constraint3);
     BooleanFormula constraint = bmgr.and(constraint1, constraint2, constraint3);
     BooleanFormula expectedResult = constraint;
 
@@ -1633,8 +1642,8 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
     BooleanFormula constraint3 =
         bvmgr.equal(bvmgr.negate(e), bvmgr.add(bvmgr.negate(e), bvmgr.negate(f)));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
     BooleanFormula constraint = bmgr.and(constraint1, constraint3);
     BooleanFormula expectedResult = constraint;
 
@@ -1664,8 +1673,8 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
     BooleanFormula constraint1 = bvmgr.equal(c, bvmgr.subtract(c, d));
     BooleanFormula constraint3 = bvmgr.equal(e, bvmgr.subtract(e, f));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
     BooleanFormula constraint = bmgr.and(constraint1, constraint3);
     BooleanFormula expectedResult = constraint;
 
@@ -1698,8 +1707,8 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
     BooleanFormula constraint1 = bvmgr.equal(c, bvmgr.divide(c, d, true));
     BooleanFormula constraint3 = bvmgr.equal(e, bvmgr.divide(e, f, false));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
     BooleanFormula constraint = bmgr.and(constraint1, constraint3);
     BooleanFormula expectedResult = constraint;
 
@@ -1732,8 +1741,8 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
     BooleanFormula constraint1 = bvmgr.equal(c, bvmgr.modulo(c, d, true));
     BooleanFormula constraint3 = bvmgr.equal(e, bvmgr.modulo(e, f, false));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
     BooleanFormula constraint = bmgr.and(constraint1, constraint3);
     BooleanFormula expectedResult = constraint;
 
@@ -1766,8 +1775,8 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
     BooleanFormula constraint1 = bvmgr.equal(c, bvmgr.multiply(c, d));
     BooleanFormula constraint3 = bvmgr.equal(e, bvmgr.multiply(e, f));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
     BooleanFormula constraint = bmgr.and(constraint1, constraint3);
     BooleanFormula expectedResult = constraint;
 
@@ -1795,8 +1804,8 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
     BooleanFormula constraint1 = bvmgr.greaterThan(c, d, true);
     BooleanFormula constraint3 = bvmgr.greaterThan(e, f, false);
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
     BooleanFormula constraint = bmgr.and(constraint1, constraint3);
     BooleanFormula expectedResult = constraint;
 
@@ -1825,8 +1834,8 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
     BooleanFormula constraint1 = bvmgr.greaterOrEquals(c, d, true);
     BooleanFormula constraint3 = bvmgr.greaterOrEquals(e, f, false);
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
     BooleanFormula constraint = bmgr.and(constraint1, constraint3);
     BooleanFormula expectedResult = constraint;
 
@@ -1854,8 +1863,8 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
     BooleanFormula constraint1 = bvmgr.lessThan(c, d, true);
     BooleanFormula constraint3 = bvmgr.lessThan(e, f, false);
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
     BooleanFormula constraint = bmgr.and(constraint1, constraint3);
     BooleanFormula expectedResult = constraint;
 
@@ -1883,8 +1892,8 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
     BooleanFormula constraint1 = bvmgr.lessOrEquals(c, d, true);
     BooleanFormula constraint3 = bvmgr.lessOrEquals(e, f, false);
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
     BooleanFormula constraint = bmgr.and(constraint1, constraint3);
     BooleanFormula expectedResult = constraint;
 
@@ -1913,8 +1922,8 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
     BooleanFormula constraint1 = bvmgr.equal(bvmgr.not(c), bvmgr.not(d));
     BooleanFormula constraint3 = bvmgr.equal(bvmgr.not(e), bvmgr.not(f));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
     BooleanFormula constraint = bmgr.and(constraint1, constraint3);
     BooleanFormula expectedResult = constraint;
 
@@ -1946,8 +1955,8 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
     BooleanFormula constraint1 = bvmgr.equal(a, bvmgr.and(c, d));
     BooleanFormula constraint3 = bvmgr.equal(b, bvmgr.and(e, f));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
     BooleanFormula constraint = bmgr.and(constraint1, constraint3);
     BooleanFormula expectedResult = constraint;
 
@@ -1979,8 +1988,8 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
     BooleanFormula constraint1 = bvmgr.equal(a, bvmgr.or(c, d));
     BooleanFormula constraint3 = bvmgr.equal(b, bvmgr.or(e, f));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
     BooleanFormula constraint = bmgr.and(constraint1, constraint3);
     BooleanFormula expectedResult = constraint;
 
@@ -2012,8 +2021,8 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
     BooleanFormula constraint1 = bvmgr.equal(a, bvmgr.xor(c, d));
     BooleanFormula constraint3 = bvmgr.equal(b, bvmgr.xor(e, f));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
     BooleanFormula constraint = bmgr.and(constraint1, constraint3);
     BooleanFormula expectedResult = constraint;
 
@@ -2045,8 +2054,8 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
     BooleanFormula constraint1 = bvmgr.equal(a, bvmgr.shiftRight(c, d, true));
     BooleanFormula constraint3 = bvmgr.equal(b, bvmgr.shiftRight(e, f, false));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
     BooleanFormula constraint = bmgr.and(constraint1, constraint3);
     BooleanFormula expectedResult = constraint;
 
@@ -2078,8 +2087,8 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
     BooleanFormula constraint1 = bvmgr.equal(a, bvmgr.shiftLeft(c, d));
     BooleanFormula constraint3 = bvmgr.equal(b, bvmgr.shiftLeft(e, f));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
     BooleanFormula constraint = bmgr.and(constraint1, constraint3);
     BooleanFormula expectedResult = constraint;
 
@@ -2111,8 +2120,8 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
     BooleanFormula constraint1 = bvmgr.equal(a, bvmgr.concat(c, d));
     BooleanFormula constraint3 = bvmgr.equal(b, bvmgr.concat(e, f));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
     BooleanFormula constraint = bmgr.and(constraint1, constraint3);
     BooleanFormula expectedResult = constraint;
 
@@ -2141,8 +2150,8 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
     BooleanFormula constraint1 = bvmgr.equal(a, bvmgr.extract(c, 11, 6));
     BooleanFormula constraint3 = bvmgr.equal(b, bvmgr.extract(f, 99, 50));
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
     BooleanFormula constraint = bmgr.and(constraint1, constraint3);
     BooleanFormula expectedResult = constraint;
 
@@ -2176,8 +2185,8 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
 
 
 
-    Generator.logAddConstraint(constraint1);
-    Generator.logAddConstraint(constraint3);
+    Generator.assembleConstraint(constraint1);
+    Generator.assembleConstraint(constraint3);
     BooleanFormula constraint = bmgr.and(constraint1, constraint3);
     BooleanFormula expectedResult = constraint;
 
@@ -3459,7 +3468,7 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
   }
 
   @Test
-  public void testExceptionDefineFunctionRealWithInput()
+  public void testDefineFunctionRealWithInput()
       throws IOException, SolverException, InterruptedException, InvalidConfigurationException {
     requireRationals();
     clearVisitor();
@@ -3479,7 +3488,7 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
   }
 
   @Test
-  public void testExceptionDefineFunctionBitVec()
+  public void testDefineFunctionBitVec()
       throws IOException, SolverException, InterruptedException, InvalidConfigurationException {
     requireBitvectors();
     assume()
@@ -3502,7 +3511,7 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
   }
 
   @Test
-  public void testExceptionDefineFunctionBitVecWithInput()
+  public void testDefineFunctionBitVecWithInput()
       throws IOException, SolverException, InterruptedException, InvalidConfigurationException {
     requireBitvectors();
     assume()
@@ -3525,7 +3534,7 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
   }
 
   @Test
-  public void testExceptionDefineFunctionArray()
+  public void testDefineFunctionArray()
       throws IOException, SolverException, InterruptedException, InvalidConfigurationException {
     requireIntegers();
     requireArrays();
@@ -3547,27 +3556,534 @@ public class SMTLIB2ParserInterpreterTest extends SolverBasedTest0.Parameterized
     assertThat(actualResult).isEqualTo(expectedResult);
   }
 
-  @Test
-  public void testExceptionDefineFunctionArrayWithInput()
+  @Test(expected = ParserException.class)
+  public void testExceptionNewSort()
       throws IOException, SolverException, InterruptedException, InvalidConfigurationException {
     requireIntegers();
-    requireArrays();
     clearVisitor();
 
     String x =
-            "(define-fun bla ((a (Array Int Int))) (Array Int Int) (= (store a 1 2) a))\n"
-        + "(assert (= a a))\n";
+        "(declare-sort Type 0)\n";
     BooleanFormula actualResult = mgr.universalParseFromString(x);
+  }
 
-    ArrayFormula<IntegerFormula, IntegerFormula> a = Objects.requireNonNull(amgr)
-        .makeArray("a", FormulaType.IntegerType,
-        FormulaType.IntegerType);
-    a = amgr.store(a, imgr.makeNumber(1), imgr.makeNumber(2));
-    BooleanFormula constraint = amgr.equivalence(a, a);
+  @Test(expected = ParserException.class)
+  public void testExceptionForAll()
+      throws IOException, SolverException, InterruptedException, InvalidConfigurationException {
+    requireIntegers();
+    assume()
+        .that(solverToUse())
+        .isNotEqualTo(Solvers.MATHSAT5);
+    clearVisitor();
+
+    String x =
+        "(declare-fun subtype (Bool Bool) Bool)\n"
+            + "(declare-fun array-of (Bool) Bool)\n"
+            + "(assert (forall ((x Bool)) (subtype x x)))\n\n";
+    BooleanFormula actualResult = mgr.universalParseFromString(x);
+  }
+
+  @Test(expected = ParserException.class)
+  public void testExceptionExists()
+      throws IOException, SolverException, InterruptedException, InvalidConfigurationException {
+    requireIntegers();
+    assume()
+        .that(solverToUse())
+        .isNotEqualTo(Solvers.MATHSAT5);
+    clearVisitor();
+
+    String x =
+        "(declare-fun subtype (Bool Bool) Bool)\n"
+            + "(declare-fun array-of (Bool) Bool)\n"
+            + "(assert (exists ((x Bool)) (subtype x x)))\n\n";
+    BooleanFormula actualResult = mgr.universalParseFromString(x);
+  }
+
+  @Test(expected = ParserException.class)
+  public void testExceptionExclam()
+      throws IOException, SolverException, InterruptedException, InvalidConfigurationException {
+    requireIntegers();
+    clearVisitor();
+
+    String x =
+        "(assert (! (=> p q) :named PQ))\n";
+    BooleanFormula actualResult = mgr.universalParseFromString(x);
+  }
+
+  @Test(expected = ParserException.class)
+  public void testExceptionPop()
+      throws IOException, SolverException, InterruptedException, InvalidConfigurationException {
+    requireIntegers();
+    clearVisitor();
+
+    String x =
+        "(pop 1)\n";
+    BooleanFormula actualResult = mgr.universalParseFromString(x);
+  }
+
+  @Test(expected = ParserException.class)
+  public void testExceptionPush()
+      throws IOException, SolverException, InterruptedException, InvalidConfigurationException {
+    requireIntegers();
+    clearVisitor();
+
+    String x =
+        "(push 1)\n";
+    BooleanFormula actualResult = mgr.universalParseFromString(x);
+  }
+
+  @Test
+  public void testLetExpression()
+      throws IOException, SolverException, InterruptedException, InvalidConfigurationException {
+    requireIntegers();
+    assume()
+        .that(solverToUse())
+        .isNoneOf(Solvers.CVC4, Solvers.SMTINTERPOL, Solvers.YICES2);
+    clearVisitor();
+
+    String s =
+        "(declare-const x Int)\n"
+        + "(declare-const y Int)\n"
+            + "(declare-const z Int)\n"
+        + "(assert (= z (let ((a (* x y)) (b (div a y))) (* a b))))\n";
+    BooleanFormula actualResult = mgr.universalParseFromString(s);
+    IntegerFormula x = imgr.makeVariable("x");
+    IntegerFormula y = imgr.makeVariable("y");
+    IntegerFormula z = imgr.makeVariable("z");
+    BooleanFormula constraint = imgr.equal(z, imgr.multiply(imgr.multiply(x,y),
+        imgr.divide(imgr.multiply(x, y),
+        y)));
 
     BooleanFormula expectedResult = constraint;
 
     assertThat(actualResult).isEqualTo(expectedResult);
+  }
+
+  @Test
+  public void testBinaryNumber()
+      throws IOException, SolverException, InterruptedException, InvalidConfigurationException {
+    requireBitvectors();
+    clearVisitor();
+
+    String s =
+        "(declare-const x (_ BitVec 3))\n"
+         + "(assert (= x #b110))";
+    BooleanFormula actualResult = mgr.universalParseFromString(s);
+    BitvectorFormula x = bvmgr.makeVariable(3, "x");
+    BooleanFormula constraint = bvmgr.equal(x, bvmgr.makeBitvector(3, 6));
+
+    BooleanFormula expectedResult = constraint;
+
+    assertThat(actualResult).isEqualTo(expectedResult);
+  }
+
+  @Test
+  public void testHexNumber()
+      throws IOException, SolverException, InterruptedException, InvalidConfigurationException {
+    requireBitvectors();
+    clearVisitor();
+
+    String s =
+        "(declare-const x (_ BitVec 12))\n"
+            + "(assert (= x #x110))";
+    BooleanFormula actualResult = mgr.universalParseFromString(s);
+    BitvectorFormula x = bvmgr.makeVariable(12, "x");
+    BooleanFormula constraint = bvmgr.equal(x, bvmgr.makeBitvector(12, 272));
+
+    BooleanFormula expectedResult = constraint;
+
+    assertThat(actualResult).isEqualTo(expectedResult);
+  }
+
+
+  public void clearGenerator() {
+    Generator.lines.delete(0, Generator.lines.length());
+    Generator.registeredVariables.clear();
+    Generator.executedAggregator.clear();
+  }
+
+  public String modelToString(ImmutableList<Model.ValueAssignment> modelList) {
+    StringBuilder out = new StringBuilder();
+    out.append("binary model: \n");
+    for (int i = 0; i < modelList.size(); i++) {
+      out.append(modelList.get(i));
+      out.append("\n");
+    }
+
+    return String.valueOf(out);
+  }
+
+  @Test
+  public void testModelBool()
+    throws IOException, SolverException, InterruptedException, InvalidConfigurationException {
+    clearVisitor();
+    clearGenerator();
+    assume()
+        .that(solverToUse())
+        .isNoneOf(Solvers.MATHSAT5, Solvers.SMTINTERPOL, Solvers.YICES2, Solvers.Z3, Solvers.CVC4
+            , Solvers.CVC5, Solvers.BOOLECTOR, Solvers.PRINCESS);
+    String a =
+            "(declare-const c Bool)\n"
+            + "(declare-const d Bool)\n"
+            + "(assert (and (and d d) (and (not c) (not c))))\n";
+
+    BooleanFormula b = mgr.universalParseFromString(a);
+    Model.ValueAssignment entry1 = new ValueAssignment(bmgr.makeVariable("d"),
+        bmgr.makeTrue(), bmgr.equivalence(bmgr.makeVariable("d"), bmgr.makeTrue()), "d", "true",
+        new ArrayList<>());
+    Model.ValueAssignment entry2 = new ValueAssignment(bmgr.makeVariable("c"),
+        bmgr.makeFalse(), bmgr.equivalence(bmgr.makeVariable("c"), bmgr.makeFalse()), "c", "false",
+        new ArrayList<>());
+    ArrayList<Model.ValueAssignment> temp = new ArrayList<>();
+    temp.add(entry1);
+    temp.add(entry2);
+    String expectedResult = modelToString(ImmutableList.copyOf(temp));
+
+    try (ProverEnvironment prover =
+             context.newProverEnvironment(
+                 SolverContext.ProverOptions.GENERATE_MODELS, ProverOptions.USE_BINARY)) {
+      prover.addConstraint(b);
+      boolean isUnsat = prover.isUnsat();
+      if (!isUnsat) {
+        BinaryModel model = (BinaryModel) prover.getModel();
+        String actualResult = modelToString(model.finalList);
+        assertThat(actualResult).isEqualTo(expectedResult);
+      }
+
+    } catch (SolverException v) {
+      throw new RuntimeException(v);
+    }
+  }
+
+  @Test
+  public void testModelInt()
+      throws IOException, SolverException, InterruptedException, InvalidConfigurationException {
+    clearVisitor();
+    clearGenerator();
+    assume()
+        .that(solverToUse())
+        .isNoneOf(Solvers.MATHSAT5, Solvers.SMTINTERPOL, Solvers.YICES2, Solvers.Z3, Solvers.CVC4
+            , Solvers.CVC5, Solvers.BOOLECTOR, Solvers.PRINCESS);
+    String a =
+        "(declare-const c Int)\n"
+            + "(declare-const d Int)\n"
+            + "(assert (= (+ d 3) (+ c 3)))\n";
+
+    BooleanFormula b = mgr.universalParseFromString(a);
+    Model.ValueAssignment entry1 = new ValueAssignment(bmgr.makeVariable("d"),
+        bmgr.makeTrue(), bmgr.equivalence(bmgr.makeVariable("d"), bmgr.makeTrue()), "d", "true",
+        new ArrayList<>());
+    Model.ValueAssignment entry2 = new ValueAssignment(bmgr.makeVariable("c"),
+        bmgr.makeFalse(), bmgr.equivalence(bmgr.makeVariable("c"), bmgr.makeFalse()), "c", "false",
+        new ArrayList<>());
+    ArrayList<Model.ValueAssignment> temp = new ArrayList<>();
+    temp.add(entry1);
+    temp.add(entry2);
+    String expectedResult = modelToString(ImmutableList.copyOf(temp));
+
+    try (ProverEnvironment prover =
+             context.newProverEnvironment(
+                 SolverContext.ProverOptions.GENERATE_MODELS, ProverOptions.USE_BINARY)) {
+      prover.addConstraint(b);
+      boolean isUnsat = prover.isUnsat();
+      if (!isUnsat) {
+        BinaryModel model = (BinaryModel) prover.getModel();
+        System.out.println(model);
+        String actualResult = modelToString(model.finalList);
+        assertThat(actualResult).isEqualTo(expectedResult);
+      }
+
+    } catch (SolverException v) {
+      throw new RuntimeException(v);
+    }
+  }
+
+  @Test
+  public void testModelBitvector()
+      throws IOException, SolverException, InterruptedException, InvalidConfigurationException {
+    clearVisitor();
+    clearGenerator();
+    assume()
+        .that(solverToUse())
+        .isNoneOf(Solvers.MATHSAT5, Solvers.SMTINTERPOL, Solvers.YICES2, Solvers.Z3, Solvers.CVC4
+            , Solvers.CVC5, Solvers.BOOLECTOR, Solvers.PRINCESS);
+    String a =
+        "(declare-const c (_ BitVec 3))\n"
+            + "(declare-const d (_ BitVec 3))\n"
+            + "(assert (= (bvadd c #b101) (bvadd d #b101)))\n";
+
+    BooleanFormula b = mgr.universalParseFromString(a);
+    Model.ValueAssignment entry1 = new ValueAssignment(bvmgr.makeVariable(3, "d"),
+        bvmgr.makeBitvector(3, 7), bvmgr.equal(bvmgr.makeVariable(3, "d"),
+        bvmgr.makeBitvector(3, 7)),
+        "d",
+        bvmgr.makeBitvector(3, 7).toString(),
+        new ArrayList<>());
+    Model.ValueAssignment entry2 = new ValueAssignment(bvmgr.makeVariable(3, "c"),
+        bvmgr.makeBitvector(3, 7), bvmgr.equal(bvmgr.makeVariable(3, "c"),
+        bvmgr.makeBitvector(3, 7)),
+        "c",
+        bvmgr.makeBitvector(3, 7).toString(),
+        new ArrayList<>());
+    ArrayList<Model.ValueAssignment> temp = new ArrayList<>();
+    temp.add(entry1);
+    temp.add(entry2);
+    String expectedResult = modelToString(ImmutableList.copyOf(temp));
+
+    try (ProverEnvironment prover =
+             context.newProverEnvironment(
+                 SolverContext.ProverOptions.GENERATE_MODELS, ProverOptions.USE_BINARY)) {
+      prover.addConstraint(b);
+      boolean isUnsat = prover.isUnsat();
+      if (!isUnsat) {
+        BinaryModel model = (BinaryModel) prover.getModel();
+        System.out.println(model);
+        String actualResult = modelToString(model.finalList);
+        assertThat(actualResult).isEqualTo(expectedResult);
+      }
+
+    } catch (SolverException v) {
+      throw new RuntimeException(v);
+    }
+  }
+
+  @Test
+  public void testModelArrayInt()
+      throws IOException, SolverException, InterruptedException, InvalidConfigurationException {
+    clearVisitor();
+    clearGenerator();
+    assume()
+        .that(solverToUse())
+        .isNoneOf(Solvers.MATHSAT5, Solvers.SMTINTERPOL, Solvers.YICES2, Solvers.Z3, Solvers.CVC4
+            , Solvers.CVC5, Solvers.BOOLECTOR, Solvers.PRINCESS);
+    String a =
+        "(declare-const c (Array Int Int))\n"
+            + "(declare-const d (Array Int Int))\n"
+            + "(assert (= c d))\n";
+
+    BooleanFormula b = mgr.universalParseFromString(a);
+    Model.ValueAssignment entry2 = new ValueAssignment(amgr.makeArray("c", FormulaType.IntegerType,
+        FormulaType.IntegerType),
+        amgr.makeArray("c", FormulaType.IntegerType,
+            FormulaType.IntegerType), amgr.equivalence(amgr.makeArray("c", FormulaType.IntegerType,
+            FormulaType.IntegerType),
+        amgr.makeArray("c", FormulaType.IntegerType,
+            FormulaType.IntegerType)),
+        "c",
+        "(as const (Array Int Int) 0)",
+        new ArrayList<>());
+    Model.ValueAssignment entry1 = new ValueAssignment(amgr.makeArray("d", FormulaType.IntegerType,
+        FormulaType.IntegerType),
+        amgr.makeArray("d", FormulaType.IntegerType,
+            FormulaType.IntegerType), amgr.equivalence(amgr.makeArray("d", FormulaType.IntegerType,
+            FormulaType.IntegerType),
+        amgr.makeArray("d", FormulaType.IntegerType,
+            FormulaType.IntegerType)),
+        "d",
+        "(as const (Array Int Int) 0)",
+        new ArrayList<>());
+    ArrayList<Model.ValueAssignment> temp = new ArrayList<>();
+    temp.add(entry1);
+    temp.add(entry2);
+    String expectedResult = modelToString(ImmutableList.copyOf(temp));
+
+    try (ProverEnvironment prover =
+             context.newProverEnvironment(
+                 SolverContext.ProverOptions.GENERATE_MODELS, ProverOptions.USE_BINARY)) {
+      prover.addConstraint(b);
+      boolean isUnsat = prover.isUnsat();
+      if (!isUnsat) {
+        BinaryModel model = (BinaryModel) prover.getModel();
+        System.out.println(model);
+        String actualResult = modelToString(model.finalList);
+        assertThat(actualResult).isEqualTo(expectedResult);
+      }
+
+    } catch (SolverException v) {
+      throw new RuntimeException(v);
+    }
+  }
+
+  @Test
+  public void testModelArrayBitVec()
+      throws IOException, SolverException, InterruptedException, InvalidConfigurationException {
+    clearVisitor();
+    clearGenerator();
+    assume()
+        .that(solverToUse())
+        .isNoneOf(Solvers.MATHSAT5, Solvers.SMTINTERPOL, Solvers.YICES2, Solvers.Z3, Solvers.CVC4
+            , Solvers.CVC5, Solvers.BOOLECTOR, Solvers.PRINCESS);
+    String a =
+        "(declare-const c (Array (_ BitVec 32) (_ BitVec 32)))\n"
+            + "(declare-const d (Array (_ BitVec 32) (_ BitVec 32)))\n"
+            + "(assert (= c d))\n";
+
+    BooleanFormula b = mgr.universalParseFromString(a);
+    Model.ValueAssignment entry2 = new ValueAssignment(amgr.makeArray("c",
+        FormulaType.getBitvectorTypeWithSize(32),
+        FormulaType.getBitvectorTypeWithSize(32)),
+        amgr.makeArray("c", FormulaType.getBitvectorTypeWithSize(32),
+            FormulaType.getBitvectorTypeWithSize(32)), amgr.equivalence(amgr.makeArray("c", FormulaType.getBitvectorTypeWithSize(32),
+            FormulaType.getBitvectorTypeWithSize(32)),
+        amgr.makeArray("c", FormulaType.getBitvectorTypeWithSize(32),
+            FormulaType.getBitvectorTypeWithSize(32))),
+        "c",
+        "(as const (Array (_ BitVec 32) (_ BitVec 32)) mod_cast(0, 4294967295, 0))",
+        new ArrayList<>());
+    Model.ValueAssignment entry1 = new ValueAssignment(amgr.makeArray("d", FormulaType.getBitvectorTypeWithSize(32),
+        FormulaType.getBitvectorTypeWithSize(32)),
+        amgr.makeArray("d", FormulaType.getBitvectorTypeWithSize(32),
+            FormulaType.getBitvectorTypeWithSize(32)), amgr.equivalence(amgr.makeArray("d", FormulaType.getBitvectorTypeWithSize(32),
+            FormulaType.getBitvectorTypeWithSize(32)),
+        amgr.makeArray("d", FormulaType.getBitvectorTypeWithSize(32),
+            FormulaType.getBitvectorTypeWithSize(32))),
+        "d",
+        "(as const (Array (_ BitVec 32) (_ BitVec 32)) mod_cast(0, 4294967295, 0))",
+        new ArrayList<>());
+    ArrayList<Model.ValueAssignment> temp = new ArrayList<>();
+    temp.add(entry1);
+    temp.add(entry2);
+    String expectedResult = modelToString(ImmutableList.copyOf(temp));
+
+    try (ProverEnvironment prover =
+             context.newProverEnvironment(
+                 SolverContext.ProverOptions.GENERATE_MODELS, ProverOptions.USE_BINARY)) {
+      prover.addConstraint(b);
+      boolean isUnsat = prover.isUnsat();
+      if (!isUnsat) {
+        BinaryModel model = (BinaryModel) prover.getModel();
+        System.out.println(model);
+        String actualResult = modelToString(model.finalList);
+        assertThat(actualResult).isEqualTo(expectedResult);
+      }
+
+    } catch (SolverException v) {
+      throw new RuntimeException(v);
+    }
+  }
+
+  @Test
+  public void testModelArrayBool()
+      throws IOException, SolverException, InterruptedException, InvalidConfigurationException {
+    clearVisitor();
+    clearGenerator();
+    assume()
+        .that(solverToUse())
+        .isNoneOf(Solvers.MATHSAT5, Solvers.SMTINTERPOL, Solvers.YICES2, Solvers.Z3, Solvers.CVC4
+            , Solvers.CVC5, Solvers.BOOLECTOR, Solvers.PRINCESS);
+    String a =
+        "(declare-const c (Array Bool Bool))\n"
+            + "(declare-const d (Array Bool Bool))\n"
+            + "(assert (= c d))\n";
+
+    BooleanFormula b = mgr.universalParseFromString(a);
+    Model.ValueAssignment entry2 = new ValueAssignment(amgr.makeArray("c", FormulaType.BooleanType,
+        FormulaType.BooleanType),
+        amgr.makeArray("c", FormulaType.BooleanType,
+            FormulaType.BooleanType), amgr.equivalence(amgr.makeArray("c", FormulaType.BooleanType,
+            FormulaType.BooleanType),
+        amgr.makeArray("c", FormulaType.BooleanType,
+            FormulaType.BooleanType)),
+        "c",
+        "(as const (Array Bool Bool) true)",
+        new ArrayList<>());
+    Model.ValueAssignment entry1 = new ValueAssignment(amgr.makeArray("d", FormulaType.BooleanType,
+        FormulaType.BooleanType),
+        amgr.makeArray("d", FormulaType.BooleanType,
+            FormulaType.BooleanType), amgr.equivalence(amgr.makeArray("d", FormulaType.BooleanType,
+            FormulaType.BooleanType),
+        amgr.makeArray("d", FormulaType.BooleanType,
+            FormulaType.BooleanType)),
+        "d",
+        "(as const (Array Bool Bool) true)",
+        new ArrayList<>());
+    ArrayList<Model.ValueAssignment> temp = new ArrayList<>();
+    temp.add(entry1);
+    temp.add(entry2);
+    String expectedResult = modelToString(ImmutableList.copyOf(temp));
+
+    try (ProverEnvironment prover =
+             context.newProverEnvironment(
+                 SolverContext.ProverOptions.GENERATE_MODELS, ProverOptions.USE_BINARY)) {
+      prover.addConstraint(b);
+      boolean isUnsat = prover.isUnsat();
+      if (!isUnsat) {
+        BinaryModel model = (BinaryModel) prover.getModel();
+        System.out.println(model);
+        String actualResult = modelToString(model.finalList);
+        assertThat(actualResult).isEqualTo(expectedResult);
+      }
+
+    } catch (SolverException v) {
+      throw new RuntimeException(v);
+    }
+  }
+
+  @Test
+  public void testModelArrayArray()
+      throws IOException, SolverException, InterruptedException, InvalidConfigurationException {
+    clearVisitor();
+    clearGenerator();
+    assume()
+        .that(solverToUse())
+        .isNoneOf(Solvers.MATHSAT5, Solvers.SMTINTERPOL, Solvers.YICES2, Solvers.Z3, Solvers.CVC4
+            , Solvers.CVC5, Solvers.BOOLECTOR, Solvers.PRINCESS);
+    String a =
+        "(declare-const c (Array (Array Bool Bool) (Array Bool Bool)))\n"
+            + "(declare-const d (Array (Array Bool Bool) (Array Bool Bool)))\n"
+            + "(assert (= c d))\n";
+
+    BooleanFormula b = mgr.universalParseFromString(a);
+    Model.ValueAssignment entry2 = new ValueAssignment(amgr.makeArray("c",
+        FormulaType.getArrayType(FormulaType.BooleanType,
+        FormulaType.BooleanType), FormulaType.getArrayType(FormulaType.BooleanType, FormulaType.BooleanType)),
+        amgr.makeArray("c", FormulaType.getArrayType(FormulaType.BooleanType,
+            FormulaType.BooleanType),FormulaType.getArrayType(FormulaType.BooleanType,
+            FormulaType.BooleanType)), amgr.equivalence(amgr.makeArray("c",
+            FormulaType.getArrayType(FormulaType.BooleanType,
+            FormulaType.BooleanType), FormulaType.getArrayType(FormulaType.BooleanType,
+                FormulaType.BooleanType)),
+        amgr.makeArray("c", FormulaType.getArrayType(FormulaType.BooleanType,
+            FormulaType.BooleanType), FormulaType.getArrayType(FormulaType.BooleanType,
+            FormulaType.BooleanType))),
+        "c",
+        "(as const (Array (Array Bool Bool (Array Bool Bool) (as const (Array Bool Bool) true))",
+        new ArrayList<>());
+    Model.ValueAssignment entry1 = new ValueAssignment(amgr.makeArray("d",
+        FormulaType.getArrayType(FormulaType.BooleanType,
+            FormulaType.BooleanType), FormulaType.getArrayType(FormulaType.BooleanType, FormulaType.BooleanType)),
+        amgr.makeArray("d", FormulaType.getArrayType(FormulaType.BooleanType,
+            FormulaType.BooleanType),FormulaType.getArrayType(FormulaType.BooleanType,
+            FormulaType.BooleanType)), amgr.equivalence(amgr.makeArray("d",
+            FormulaType.getArrayType(FormulaType.BooleanType,
+                FormulaType.BooleanType), FormulaType.getArrayType(FormulaType.BooleanType,
+                FormulaType.BooleanType)),
+        amgr.makeArray("d", FormulaType.getArrayType(FormulaType.BooleanType,
+            FormulaType.BooleanType), FormulaType.getArrayType(FormulaType.BooleanType,
+            FormulaType.BooleanType))),
+        "d",
+        "(as const (Array (Array Bool Bool (Array Bool Bool) (as const (Array Bool Bool) true))",
+        new ArrayList<>());
+    ArrayList<Model.ValueAssignment> temp = new ArrayList<>();
+    temp.add(entry1);
+    temp.add(entry2);
+    String expectedResult = modelToString(ImmutableList.copyOf(temp));
+
+    try (ProverEnvironment prover =
+             context.newProverEnvironment(
+                 SolverContext.ProverOptions.GENERATE_MODELS, ProverOptions.USE_BINARY)) {
+      prover.addConstraint(b);
+      boolean isUnsat = prover.isUnsat();
+      if (!isUnsat) {
+        BinaryModel model = (BinaryModel) prover.getModel();
+        System.out.println(model);
+        String actualResult = modelToString(model.finalList);
+        assertThat(actualResult).isEqualTo(expectedResult);
+      }
+
+    } catch (SolverException v) {
+      throw new RuntimeException(v);
+    }
   }
 
 }

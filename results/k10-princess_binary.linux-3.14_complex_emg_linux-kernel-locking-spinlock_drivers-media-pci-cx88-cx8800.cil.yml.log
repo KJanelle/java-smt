@@ -1,0 +1,194 @@
+scripts/cpa.sh -heap 13000M -stack 50M -noout -benchmark -bmc -setprop cpa.predicate.useArraysForHeap=false -setprop cpa.predicate.memoryAllocationsAlwaysSucceed=true -setprop cpa.loopbound.maxLoopIterations=10 -setprop cpa.predicate.encodeFloatAs=INTEGER -setprop cpa.predicate.encodeBitvectorAs=INTEGER -setprop solver.solver=princess_binary -setprop proveroptions.option=use_binary -timelimit 900s -stats -spec test/programs/benchmarks/properties/unreach-call.prp -64 test/programs/benchmarks/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-pci-cx88-cx8800.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Running CPAchecker with Java heap of size 13000M.
+Running CPAchecker with Java stack of size 50M.
+Language C detected and set for analysis (CPAMain.detectFrontendLanguageIfNecessary, INFO)
+
+Using the following resource limits: CPU-time limit of 900s (ResourceLimitChecker.fromConfiguration, INFO)
+
+CPAchecker 2.3.1-svn-45350M / bmc (OpenJDK 64-Bit Server VM 17.0.8.1) started (CPAchecker.run, INFO)
+
+Parsing CFA from file(s) "test/programs/benchmarks/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-pci-cx88-cx8800.cil.i" (CPAchecker.parse, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+line 12661: Dead code detected: return (arg0); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 13183: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 14236: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 14269: Dead code detected: return (arg0); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16268: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16283: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16298: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16356: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16401: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16416: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16443: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16804: Dead code detected: return (arg0); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16896: Dead code detected: return (arg0); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16911: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16936: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+Inline assembler ignored, analysis is probably unsound! (CFABuilder.createCFA, WARNING)
+
+line 9638: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 9628: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 9612: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 9602: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 9586: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 9576: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 10364: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 10350: Function pointer *(__sd___0->ops->tuner->g_frequency) with type int (*)(struct v4l2_subdev *, struct v4l2_frequency *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 10339: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 10329: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 10315: Function pointer *(__sd->ops->tuner->s_frequency) with type int (*)(struct v4l2_subdev *, const struct v4l2_frequency *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 10304: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 8463: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 8448: Function pointer *(__sd->ops->audio->s_routing) with type int (*)(struct v4l2_subdev *, u32 , u32 , u32 ) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 8435: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 8061: Function pointer *(p->_qproc) with type void (*)(struct file *, wait_queue_head_t *, struct poll_table_struct *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 10473: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 10459: Function pointer *(__sd->ops->tuner->g_tuner) with type int (*)(struct v4l2_subdev *, struct v4l2_tuner *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 10448: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 10523: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 10509: Function pointer *(__sd->ops->tuner->s_tuner) with type int (*)(struct v4l2_subdev *, const struct v4l2_tuner *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 10498: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 9198: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 9184: Function pointer *(__sd___0->ops->tuner->s_radio) with type int (*)(struct v4l2_subdev *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 9174: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 9151: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 9136: Function pointer *(__sd->ops->audio->s_routing) with type int (*)(struct v4l2_subdev *, u32 , u32 , u32 ) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 9123: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 9433: Function pointer *(dev->core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 9419: Function pointer *(__sd->ops->core->s_power) with type int (*)(struct v4l2_subdev *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 9408: Function pointer *(dev->core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 10260: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 10246: Function pointer *(__sd->ops->tuner->g_frequency) with type int (*)(struct v4l2_subdev *, struct v4l2_frequency *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 10235: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 10175: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 10161: Function pointer *(__sd->ops->tuner->g_tuner) with type int (*)(struct v4l2_subdev *, struct v4l2_tuner *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 10150: Function pointer *(core->gate_ctrl) with type void (*)(struct cx88_core *, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (PredicateCPA:FormulaManagerView.<init>, WARNING)
+
+Using predicate analysis with Princess 2023-04-07. (PredicateCPA:PredicateCPA.<init>, INFO)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (AssumptionStorageCPA:FormulaManagerView.<init>, WARNING)
+
+The following configuration options were specified but are not used:
+ proveroptions.option 
+ (CPAchecker.printConfigurationWarnings, WARNING)
+
+Starting analysis ... (CPAchecker.runAlgorithm, INFO)
+
+line 13297: Ignoring call via function pointer ldv_io_instance_callback_7_18::arg0 for which no suitable target was found in line: (*arg0)(arg1, arg2, arg3, arg4); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 13437: Ignoring call via function pointer ldv_io_instance_callback_7_4::arg0 for which no suitable target was found in line: (*arg0)(arg1, arg2); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 15019: Ignoring call via function pointer ldv_timer_instance_callback_6_2::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 14005: Ignoring call via function pointer ldv_pci_instance_suspend_late_1_7::arg0 for which no suitable target was found in line: tmp = (*arg0)(arg1, arg2); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 13974: Ignoring call via function pointer ldv_pci_instance_resume_early_1_6::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 13983: Ignoring call via function pointer ldv_pci_instance_shutdown_1_3::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 13211: Ignoring call via function pointer ldv_interrupt_instance_thread_0_3::arg0 for which no suitable target was found in line: (*arg0)(arg1, arg2); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+Creating formula for program (AbstractBMCAlgorithm.run, INFO)
+
+Exception in thread "main" org.sosy_lab.java_smt.basicimpl.GeneratorException: Modular Congruence is not available in SMTLIB2. 
+	at org.sosy_lab.java_smt.basicimpl.AbstractNumeralFormulaManager.modularCongruence(AbstractNumeralFormulaManager.java:361)
+	at org.sosy_lab.java_smt.solvers.princess.PrincessIntegerFormulaManager.modularCongruence(PrincessIntegerFormulaManager.java:22)
+	at org.sosy_lab.cpachecker.util.predicates.smt.IntegerFormulaManagerView.modularCongruence(IntegerFormulaManagerView.java:35)
+	at org.sosy_lab.cpachecker.util.predicates.smt.FormulaManagerView.makeModularCongruence(FormulaManagerView.java:688)
+	at org.sosy_lab.cpachecker.util.predicates.smt.FormulaManagerView.makeModularCongruence(FormulaManagerView.java:670)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.PointerTargetSetManager.makeBaseAddressConstraints(PointerTargetSetManager.java:653)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.PointerTargetSetBuilder$RealPointerTargetSetBuilder.addNextBaseAddressConstraints(PointerTargetSetBuilder.java:286)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.CToFormulaConverterWithPointerAliasing.declareSharedBase(CToFormulaConverterWithPointerAliasing.java:437)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.CToFormulaConverterWithPointerAliasing.makeDeclaration(CToFormulaConverterWithPointerAliasing.java:1001)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.ctoformula.CtoFormulaConverter.createFormulaForEdge(CtoFormulaConverter.java:1231)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.ctoformula.CtoFormulaConverter.makeAnd(CtoFormulaConverter.java:1049)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.PathFormulaManagerImpl.makeAnd(PathFormulaManagerImpl.java:246)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.PathFormulaManagerImpl.makeAnd(PathFormulaManagerImpl.java:300)
+	at org.sosy_lab.cpachecker.cpa.predicate.PredicateTransferRelation.convertEdgeToPathFormula(PredicateTransferRelation.java:203)
+	at org.sosy_lab.cpachecker.cpa.predicate.PredicateTransferRelation.getAbstractSuccessorsForEdge(PredicateTransferRelation.java:113)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.callTransferRelation(CompositeTransferRelation.java:297)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessorForSimpleEdge(CompositeTransferRelation.java:264)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessorForEdge(CompositeTransferRelation.java:196)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessors(CompositeTransferRelation.java:88)
+	at org.sosy_lab.cpachecker.cpa.arg.ARGTransferRelation.getAbstractSuccessors(ARGTransferRelation.java:45)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.handleState(CPAAlgorithm.java:334)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.run0(CPAAlgorithm.java:289)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.run(CPAAlgorithm.java:260)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.BMCHelper.unroll(BMCHelper.java:192)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.AbstractBMCAlgorithm.run(AbstractBMCAlgorithm.java:427)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.BMCAlgorithm.run(BMCAlgorithm.java:130)
+	at org.sosy_lab.cpachecker.core.CPAchecker.runAlgorithm(CPAchecker.java:507)
+	at org.sosy_lab.cpachecker.core.CPAchecker.run(CPAchecker.java:369)
+	at org.sosy_lab.cpachecker.cmdline.CPAMain.main(CPAMain.java:170)

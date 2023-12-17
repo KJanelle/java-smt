@@ -63,7 +63,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     BooleanFormula constraint = bmgr.equivalence(c, d);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -90,7 +90,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     BooleanFormula constraint = bmgr.equivalence(c, d);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -117,7 +117,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     BooleanFormula constraint = bmgr.equivalence(c, d);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
   }
 
   @Test(expected = GeneratorException.class)
@@ -135,7 +135,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     BooleanFormula constraint = Objects.requireNonNull(smgr).equal(c, d);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
   }
 
   @Test
@@ -152,7 +152,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     BooleanFormula constraint = imgr.equal(c, d);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -178,7 +178,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     BooleanFormula constraint = imgr.equal(c, d);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -202,7 +202,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     BooleanFormula constraint = rmgr.equal(c, d);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -234,7 +234,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     BooleanFormula constraint = Objects.requireNonNull(rmgr).equal(c, d);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -261,7 +261,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     BooleanFormula constraint = bvmgr.equal(c, d);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -289,7 +289,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     BooleanFormula constraint = Objects.requireNonNull(bvmgr).equal(c, d);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -343,7 +343,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     BooleanFormula constraint = fmgr.callUF(constr, c, d);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -384,7 +384,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     BooleanFormula constraint = fmgr.callUF(constr, c, d);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -406,7 +406,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     BooleanFormula constraint = bmgr.equivalence(a, b);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -428,7 +428,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     BooleanFormula constraint = bmgr.equivalence(a, b);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -449,7 +449,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     BooleanFormula constraint = imgr.equal(a, b);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -470,7 +470,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     BooleanFormula constraint = imgr.equal(a, b);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -491,7 +491,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     BooleanFormula constraint = rmgr.equal(a, b);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -519,7 +519,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     BooleanFormula constraint = Objects.requireNonNull(rmgr).equal(a, b);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -542,7 +542,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     BooleanFormula constraint = bvmgr.equal(a, b);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -568,7 +568,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     BooleanFormula constraint = Objects.requireNonNull(bvmgr).equal(a, b);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -604,7 +604,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     BooleanFormula constraint = fmgr.declareAndCallUF("constr", FormulaType.BooleanType, a, b);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
 
     String actualResult = String.valueOf(Generator.lines);
 
@@ -634,7 +634,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     BooleanFormula constraint = fmgr.declareAndCallUF("constr", FormulaType.BooleanType, a, b);
 
-    Generator.logAddConstraint(constraint);
+    Generator.assembleConstraint(constraint);
 
     String actualResult = String.valueOf(Generator.lines);
 

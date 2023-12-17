@@ -385,7 +385,8 @@ public abstract class SolverBasedTest0 {
       Collection<Formula> possibleExpectedFormulas)
       throws SolverException, InterruptedException, IOException {
 
-    try (ProverEnvironment prover = context.newProverEnvironment(ProverOptions.GENERATE_MODELS)) {
+    try (ProverEnvironment prover = context.newProverEnvironment(ProverOptions.GENERATE_MODELS,
+        ProverOptions.USE_BINARY)) {
       prover.push(constraint);
       assertThat(prover).isSatisfiable();
 
@@ -416,6 +417,9 @@ public abstract class SolverBasedTest0 {
               break;
             case BOOLECTOR:
               // ignore, Boolector provides no useful values
+              break;
+            case PRINCESS_BINARY:
+              // ignore, eval is not implemented for the binary
               break;
             default:
               Truth.assertThat(eval).isIn(possibleExpectedFormulas);

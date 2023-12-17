@@ -1,0 +1,232 @@
+scripts/cpa.sh -heap 13000M -stack 50M -noout -benchmark -bmc -setprop cpa.predicate.useArraysForHeap=false -setprop cpa.predicate.memoryAllocationsAlwaysSucceed=true -setprop cpa.loopbound.maxLoopIterations=1 -setprop cpa.predicate.encodeFloatAs=INTEGER -setprop cpa.predicate.encodeBitvectorAs=INTEGER -setprop solver.solver=princess_binary -setprop proveroptions.option=use_binary -timelimit 900s -stats -spec test/programs/benchmarks/properties/unreach-call.prp -64 test/programs/benchmarks/ldv-linux-3.14/linux-3.14_complex_emg_linux-drivers-clk1_drivers-media-pci-bt8xx-bttv.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Running CPAchecker with Java heap of size 13000M.
+Running CPAchecker with Java stack of size 50M.
+Language C detected and set for analysis (CPAMain.detectFrontendLanguageIfNecessary, INFO)
+
+Using the following resource limits: CPU-time limit of 900s (ResourceLimitChecker.fromConfiguration, INFO)
+
+CPAchecker 2.3.1-svn-45350M / bmc (OpenJDK 64-Bit Server VM 17.0.8.1) started (CPAchecker.run, INFO)
+
+Parsing CFA from file(s) "test/programs/benchmarks/ldv-linux-3.14/linux-3.14_complex_emg_linux-drivers-clk1_drivers-media-pci-bt8xx-bttv.cil.i" (CPAchecker.parse, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+line 13633: Dead code detected: return (arg0); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 14769: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16082: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 16905: Dead code detected: return (arg0); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 22579: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 22616: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+line 25359: Dead code detected: __ms = 2UL; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 25872: Dead code detected: __ms = 1UL; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 25894: Dead code detected: __ms___0 = 1UL; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 25916: Dead code detected: __ms___1 = 1UL; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 25938: Dead code detected: __ms___2 = 1UL; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 27480: Dead code detected: goto case_1; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 27484: Dead code detected: goto case_2; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 27492: Dead code detected: goto case_8; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 27495: Dead code detected: goto switch_default; (CFACreationUtils.addEdgeToCFA, INFO)
+
+Dead code detected: Label case_8 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_default is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_1 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_2 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+line 28796: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 28811: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 31141: Dead code detected: return (arg0); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 31176: Dead code detected: return (arg0); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 31191: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 31206: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 31221: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 31236: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 31725: Dead code detected: return (arg0); (CFACreationUtils.addEdgeToCFA, INFO)
+
+Inline assembler ignored, analysis is probably unsound! (CFABuilder.createCFA, WARNING)
+
+line 6910: Function pointer *(btv->sd_tvaudio->ops->audio->s_routing) with type int (*)(struct v4l2_subdev *, u32 , u32 , u32 ) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 6894: Function pointer *(btv->sd_msp34xx->ops->audio->s_routing) with type int (*)(struct v4l2_subdev *, u32 , u32 , u32 ) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 9360: Function pointer *(__sd->ops->tuner->g_tuner) with type int (*)(struct v4l2_subdev *, struct v4l2_tuner *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 24804: Function pointer *(__sd___0->ops->tuner->s_config) with type int (*)(struct v4l2_subdev *, const struct v4l2_priv_tun_config *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 24781: Function pointer *(__sd->ops->tuner->s_type_addr) with type int (*)(struct v4l2_subdev *, struct tuner_setup *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 7957: Function pointer *(__sd->ops->tuner->s_tuner) with type int (*)(struct v4l2_subdev *, const struct v4l2_tuner *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 8037: Function pointer *(__sd___0->ops->tuner->g_frequency) with type int (*)(struct v4l2_subdev *, struct v4l2_frequency *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 8019: Function pointer *(__sd->ops->tuner->s_frequency) with type int (*)(struct v4l2_subdev *, const struct v4l2_frequency *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 30146: Function pointer *(sub->remove) with type void (*)(struct bttv_sub_device *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 5891: Function pointer *(p->_qproc) with type void (*)(struct file *, wait_queue_head_t *, struct poll_table_struct *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 10365: Function pointer *(__sd->ops->tuner->g_tuner) with type int (*)(struct v4l2_subdev *, struct v4l2_tuner *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 10510: Function pointer *(__sd->ops->core->ioctl) with type long int (*)(struct v4l2_subdev *, unsigned int, void *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 10452: Function pointer *(__sd->ops->core->ioctl) with type long int (*)(struct v4l2_subdev *, unsigned int, void *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 10321: Function pointer *(__sd->ops->core->ioctl) with type long int (*)(struct v4l2_subdev *, unsigned int, void *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 10411: Function pointer *(__sd->ops->tuner->s_tuner) with type int (*)(struct v4l2_subdev *, const struct v4l2_tuner *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 7031: Function pointer *(__sd->ops->core->s_std) with type int (*)(struct v4l2_subdev *, v4l2_std_id ) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (PredicateCPA:FormulaManagerView.<init>, WARNING)
+
+Using predicate analysis with Princess 2023-04-07. (PredicateCPA:PredicateCPA.<init>, INFO)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (AssumptionStorageCPA:FormulaManagerView.<init>, WARNING)
+
+The following configuration options were specified but are not used:
+ proveroptions.option 
+ (CPAchecker.printConfigurationWarnings, WARNING)
+
+Starting analysis ... (CPAchecker.runAlgorithm, INFO)
+
+line 15484: Ignoring call via function pointer ldv_io_instance_callback_36_4::arg0 for which no suitable target was found in line: (*arg0)(arg1, arg2); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 21008: Ignoring call via function pointer ldv_timer_instance_callback_34_2::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16090: Ignoring call via function pointer ldv_platform_instance_probe_3_14::arg0 for which no suitable target was found in line: tmp = (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16099: Ignoring call via function pointer ldv_platform_instance_release_3_3::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16234: Ignoring call via function pointer ldv_pm_ops_instance_runtime_idle_2_27::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16252: Ignoring call via function pointer ldv_pm_ops_instance_runtime_suspend_2_25::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16243: Ignoring call via function pointer ldv_pm_ops_instance_runtime_resume_2_24::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16171: Ignoring call via function pointer ldv_pm_ops_instance_prepare_2_22::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16261: Ignoring call via function pointer ldv_pm_ops_instance_suspend_2_21::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16279: Ignoring call via function pointer ldv_pm_ops_instance_suspend_noirq_2_20::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16225: Ignoring call via function pointer ldv_pm_ops_instance_resume_noirq_2_19::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16270: Ignoring call via function pointer ldv_pm_ops_instance_suspend_late_2_18::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16216: Ignoring call via function pointer ldv_pm_ops_instance_resume_early_2_17::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16207: Ignoring call via function pointer ldv_pm_ops_instance_resume_2_16::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16117: Ignoring call via function pointer ldv_pm_ops_instance_freeze_2_15::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16126: Ignoring call via function pointer ldv_pm_ops_instance_freeze_late_2_14::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16297: Ignoring call via function pointer ldv_pm_ops_instance_thaw_early_2_13::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16135: Ignoring call via function pointer ldv_pm_ops_instance_freeze_noirq_2_12::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16306: Ignoring call via function pointer ldv_pm_ops_instance_thaw_noirq_2_11::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16288: Ignoring call via function pointer ldv_pm_ops_instance_thaw_2_10::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16144: Ignoring call via function pointer ldv_pm_ops_instance_poweroff_2_9::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16153: Ignoring call via function pointer ldv_pm_ops_instance_poweroff_late_2_8::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16189: Ignoring call via function pointer ldv_pm_ops_instance_restore_early_2_7::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16162: Ignoring call via function pointer ldv_pm_ops_instance_poweroff_noirq_2_6::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16198: Ignoring call via function pointer ldv_pm_ops_instance_restore_noirq_2_5::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16180: Ignoring call via function pointer ldv_pm_ops_instance_restore_2_4::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 16108: Ignoring call via function pointer ldv_pm_ops_instance_complete_2_3::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 15851: Ignoring call via function pointer ldv_pci_instance_suspend_late_1_7::arg0 for which no suitable target was found in line: tmp = (*arg0)(arg1, arg2); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 15820: Ignoring call via function pointer ldv_pci_instance_resume_early_1_6::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 15829: Ignoring call via function pointer ldv_pci_instance_shutdown_1_3::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 14797: Ignoring call via function pointer ldv_interrupt_instance_thread_0_3::arg0 for which no suitable target was found in line: (*arg0)(arg1, arg2); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+Creating formula for program (AbstractBMCAlgorithm.run, INFO)
+
+Exception in thread "main" org.sosy_lab.java_smt.basicimpl.GeneratorException: Modular Congruence is not available in SMTLIB2. 
+	at org.sosy_lab.java_smt.basicimpl.AbstractNumeralFormulaManager.modularCongruence(AbstractNumeralFormulaManager.java:361)
+	at org.sosy_lab.java_smt.solvers.princess.PrincessIntegerFormulaManager.modularCongruence(PrincessIntegerFormulaManager.java:22)
+	at org.sosy_lab.cpachecker.util.predicates.smt.IntegerFormulaManagerView.modularCongruence(IntegerFormulaManagerView.java:35)
+	at org.sosy_lab.cpachecker.util.predicates.smt.FormulaManagerView.makeModularCongruence(FormulaManagerView.java:688)
+	at org.sosy_lab.cpachecker.util.predicates.smt.FormulaManagerView.makeModularCongruence(FormulaManagerView.java:670)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.PointerTargetSetManager.makeBaseAddressConstraints(PointerTargetSetManager.java:653)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.PointerTargetSetBuilder$RealPointerTargetSetBuilder.addNextBaseAddressConstraints(PointerTargetSetBuilder.java:286)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.CToFormulaConverterWithPointerAliasing.declareSharedBase(CToFormulaConverterWithPointerAliasing.java:442)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.CToFormulaConverterWithPointerAliasing.makeDeclaration(CToFormulaConverterWithPointerAliasing.java:1001)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.ctoformula.CtoFormulaConverter.createFormulaForEdge(CtoFormulaConverter.java:1231)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.ctoformula.CtoFormulaConverter.makeAnd(CtoFormulaConverter.java:1049)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.PathFormulaManagerImpl.makeAnd(PathFormulaManagerImpl.java:246)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.PathFormulaManagerImpl.makeAnd(PathFormulaManagerImpl.java:300)
+	at org.sosy_lab.cpachecker.cpa.predicate.PredicateTransferRelation.convertEdgeToPathFormula(PredicateTransferRelation.java:203)
+	at org.sosy_lab.cpachecker.cpa.predicate.PredicateTransferRelation.getAbstractSuccessorsForEdge(PredicateTransferRelation.java:113)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.callTransferRelation(CompositeTransferRelation.java:297)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessorForSimpleEdge(CompositeTransferRelation.java:264)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessorForEdge(CompositeTransferRelation.java:196)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessors(CompositeTransferRelation.java:88)
+	at org.sosy_lab.cpachecker.cpa.arg.ARGTransferRelation.getAbstractSuccessors(ARGTransferRelation.java:45)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.handleState(CPAAlgorithm.java:334)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.run0(CPAAlgorithm.java:289)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.run(CPAAlgorithm.java:260)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.BMCHelper.unroll(BMCHelper.java:192)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.AbstractBMCAlgorithm.run(AbstractBMCAlgorithm.java:427)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.BMCAlgorithm.run(BMCAlgorithm.java:130)
+	at org.sosy_lab.cpachecker.core.CPAchecker.runAlgorithm(CPAchecker.java:507)
+	at org.sosy_lab.cpachecker.core.CPAchecker.run(CPAchecker.java:369)
+	at org.sosy_lab.cpachecker.cmdline.CPAMain.main(CPAMain.java:170)

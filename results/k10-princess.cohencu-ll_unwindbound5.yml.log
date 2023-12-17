@@ -1,0 +1,199 @@
+scripts/cpa.sh -heap 13000M -stack 50M -noout -benchmark -bmc -setprop cpa.predicate.useArraysForHeap=false -setprop cpa.predicate.memoryAllocationsAlwaysSucceed=true -setprop cpa.loopbound.maxLoopIterations=10 -setprop cpa.predicate.encodeFloatAs=INTEGER -setprop cpa.predicate.encodeBitvectorAs=INTEGER -setprop solver.solver=princess -timelimit 900s -stats -spec test/programs/benchmarks/properties/unreach-call.prp -32 test/programs/benchmarks/nla-digbench-scaling/cohencu-ll_unwindbound5.c
+
+
+--------------------------------------------------------------------------------
+
+
+Running CPAchecker with Java heap of size 13000M.
+Running CPAchecker with Java stack of size 50M.
+Language C detected and set for analysis (CPAMain.detectFrontendLanguageIfNecessary, INFO)
+
+Using the following resource limits: CPU-time limit of 900s (ResourceLimitChecker.fromConfiguration, INFO)
+
+CPAchecker 2.3.1-svn-45350M / bmc (OpenJDK 64-Bit Server VM 17.0.8.1) started (CPAchecker.run, INFO)
+
+Parsing CFA from file(s) "test/programs/benchmarks/nla-digbench-scaling/cohencu-ll_unwindbound5.c" (CPAchecker.parse, INFO)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (PredicateCPA:FormulaManagerView.<init>, WARNING)
+
+Using predicate analysis with Princess 2023-04-07. (PredicateCPA:PredicateCPA.<init>, INFO)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (AssumptionStorageCPA:FormulaManagerView.<init>, WARNING)
+
+Starting analysis ... (CPAchecker.runAlgorithm, INFO)
+
+Creating formula for program (AbstractBMCAlgorithm.run, INFO)
+
+Starting satisfiability check... (AbstractBMCAlgorithm.boundedModelCheck, INFO)
+
+Error found, creating error path (AbstractBMCAlgorithm.analyzeCounterexample0, INFO)
+
+{counter@8 -> 6, main::__CPAchecker_TMP_0@7 -> 5, main::z@8 -> 36, main::y@8 -> 91, main::x@8 -> 125, main::n@8 -> 5, __VERIFIER_assert::cond@28 -> 0, counter@7 -> 5, main::__CPAchecker_TMP_0@6 -> 4, main::z@7 -> 30, main::y@7 -> 61, main::x@7 -> 64, main::n@7 -> 4, __VERIFIER_assert::cond@27 -> 1, __VERIFIER_assert::cond@26 -> 1, __VERIFIER_assert::cond@25 -> 1, __VERIFIER_assert::cond@24 -> 1, __VERIFIER_assert::cond@23 -> 1, counter@6 -> 4, main::__CPAchecker_TMP_0@5 -> 3, main::z@6 -> 24, main::y@6 -> 37, main::x@6 -> 27, main::n@6 -> 3, __VERIFIER_assert::cond@22 -> 1, __VERIFIER_assert::cond@21 -> 1, __VERIFIER_assert::cond@20 -> 1, __VERIFIER_assert::cond@19 -> 1, __VERIFIER_assert::cond@18 -> 1, counter@5 -> 3, main::__CPAchecker_TMP_0@4 -> 2, main::z@5 -> 18, main::y@5 -> 19, main::x@5 -> 8, main::n@5 -> 2, __VERIFIER_assert::cond@17 -> 1, __VERIFIER_assert::cond@16 -> 1, __VERIFIER_assert::cond@15 -> 1, __VERIFIER_assert::cond@14 -> 1, __VERIFIER_assert::cond@13 -> 1, counter@4 -> 2, main::__CPAchecker_TMP_0@3 -> 1, main::z@4 -> 12, main::y@4 -> 7, main::x@4 -> 1, main::n@4 -> 1, __VERIFIER_assert::cond@12 -> 1, __VERIFIER_assert::cond@11 -> 1, __VERIFIER_assert::cond@10 -> 1, __VERIFIER_assert::cond@9 -> 1, __VERIFIER_assert::cond@8 -> 1, __VERIFIER_assert::cond@7 -> 1, __VERIFIER_assert::cond@6 -> 1, __VERIFIER_assert::cond@5 -> 1, __VERIFIER_assert::cond@4 -> 1, __VERIFIER_assert::cond@3 -> 1, __VERIFIER_assert::cond@2 -> 1, counter@3 -> 1, main::__CPAchecker_TMP_0@2 -> 0, main::z@3 -> 6, main::y@3 -> 1, main::x@3 -> 0, main::n@3 -> 0, main::a@3 -> 4, __VERIFIER_nondet_ushort!2@ -> 4, counter@2 -> 0, abbrev_22_def -> true, abbrev_22 -> true, abbrev_20_def -> true, abbrev_20 -> true, abbrev_18_def -> true, abbrev_18 -> true, abbrev_16_def -> true, abbrev_16 -> true, abbrev_14_def -> true, abbrev_14 -> true, Integer_*_(3336, 1) -> 1, Integer_*_(3335, 2) -> 8, Integer_*_(3334, 3) -> 27, Integer_*_(3333, 4) -> 64, Integer_*_(125, 36) -> 3332, Integer_*_(61, 30) -> 1830, Integer_*_(37, 24) -> 888, Integer_*_(30, 30) -> 900, Integer_*_(24, 125) -> 1831, Integer_*_(24, 24) -> 576, Integer_*_(19, 18) -> 342, Integer_*_(18, 18) -> 324, Integer_*_(12, 12) -> 144, Integer_*_(12, 4) -> 48, Integer_*_(9, 3) -> 27, Integer_*_(7, 12) -> 84, Integer_*_(6, 6) -> 36, Integer_*_(6, 2) -> 12, Integer_*_(4, 4) -> 3333, Integer_*_(3, 3) -> 3334, Integer_*_(3, 1) -> 3, Integer_*_(2, 2) -> 3335, Integer_*_(1, 6) -> 6, Integer_*_(1, 1) -> 3336, Integer_*_(0, 0) -> 0}
+{__VERIFIER_assert::cond@54 -> 0, __VERIFIER_assert::cond@52 -> 1, main::__CPAchecker_TMP_0@32 -> 5, main::z@33 -> 36, main::y@33 -> 91, main::x@33 -> 125, main::n@33 -> 5, __VERIFIER_assert::cond@50 -> 1, __VERIFIER_assert::cond@48 -> 1, __VERIFIER_assert::cond@46 -> 1, __VERIFIER_assert::cond@44 -> 1, __VERIFIER_assert::cond@42 -> 1, main::__CPAchecker_TMP_0@26 -> 4, main::z@27 -> 30, main::y@27 -> 61, main::x@27 -> 64, main::n@27 -> 4, __VERIFIER_assert::cond@40 -> 1, __VERIFIER_assert::cond@38 -> 1, __VERIFIER_assert::cond@36 -> 1, __VERIFIER_assert::cond@34 -> 1, main::__CPAchecker_TMP_0@20 -> 3, main::z@21 -> 24, main::y@21 -> 37, main::x@21 -> 27, main::n@21 -> 3, main::__CPAchecker_TMP_0@14 -> 2, main::z@15 -> 18, main::y@15 -> 19, main::x@15 -> 8, main::n@15 -> 2, main::__CPAchecker_TMP_0@8 -> 1, main::z@9 -> 12, main::y@9 -> 7, main::x@9 -> 1, main::n@9 -> 1, counter@2 -> 0, __VERIFIER_assert::cond@24 -> 1, counter@3 -> 1, __VERIFIER_assert::cond@26 -> 1, main::x@3 -> 0, __VERIFIER_assert::cond@28 -> 1, main::z@3 -> 6, counter@8 -> 6, main::n@3 -> 0, counter@6 -> 4, counter@7 -> 5, __VERIFIER_assert::cond@20 -> 1, counter@4 -> 2, __VERIFIER_assert::cond@22 -> 1, counter@5 -> 3, main::a@3 -> 4, __VERIFIER_assert::cond@6 -> 1, __VERIFIER_assert::cond@4 -> 1, __VERIFIER_assert::cond@30 -> 1, __VERIFIER_assert::cond@2 -> 1, __VERIFIER_assert::cond@32 -> 1, __VERIFIER_assert::cond@8 -> 1, main::__CPAchecker_TMP_0@2 -> 0, main::y@3 -> 1, __VERIFIER_assert::cond@12 -> 1, __VERIFIER_nondet_ushort!2@ -> 4, __VERIFIER_assert::cond@14 -> 1, __VERIFIER_assert::cond@16 -> 1, __VERIFIER_assert::cond@18 -> 1, __VERIFIER_assert::cond@10 -> 1, Integer_*_(1834, 4) -> 64, Integer_*_(1833, 3) -> 27, Integer_*_(1832, 2) -> 8, Integer_*_(1831, 1) -> 1, Integer_*_(125, 36) -> 3336, Integer_*_(61, 30) -> 1830, Integer_*_(37, 24) -> 888, Integer_*_(30, 30) -> 900, Integer_*_(24, 125) -> 1835, Integer_*_(24, 24) -> 576, Integer_*_(19, 18) -> 342, Integer_*_(18, 18) -> 324, Integer_*_(12, 12) -> 144, Integer_*_(12, 4) -> 48, Integer_*_(9, 3) -> 27, Integer_*_(7, 12) -> 84, Integer_*_(6, 6) -> 36, Integer_*_(6, 2) -> 12, Integer_*_(4, 4) -> 1834, Integer_*_(3, 3) -> 1833, Integer_*_(3, 1) -> 3, Integer_*_(2, 2) -> 1832, Integer_*_(1, 6) -> 6, Integer_*_(1, 1) -> 1831, Integer_*_(0, 0) -> 0}
+[__VERIFIER_assert::cond@54: 0, __VERIFIER_assert::cond@52: 1, main::__CPAchecker_TMP_0@32: 5, main::z@33: 36, main::y@33: 91, main::x@33: 125, main::n@33: 5, __VERIFIER_assert::cond@50: 1, __VERIFIER_assert::cond@48: 1, __VERIFIER_assert::cond@46: 1, __VERIFIER_assert::cond@44: 1, __VERIFIER_assert::cond@42: 1, main::__CPAchecker_TMP_0@26: 4, main::z@27: 30, main::y@27: 61, main::x@27: 64, main::n@27: 4, __VERIFIER_assert::cond@40: 1, __VERIFIER_assert::cond@38: 1, __VERIFIER_assert::cond@36: 1, __VERIFIER_assert::cond@34: 1, main::__CPAchecker_TMP_0@20: 3, main::z@21: 24, main::y@21: 37, main::x@21: 27, main::n@21: 3, main::__CPAchecker_TMP_0@14: 2, main::z@15: 18, main::y@15: 19, main::x@15: 8, main::n@15: 2, main::__CPAchecker_TMP_0@8: 1, main::z@9: 12, main::y@9: 7, main::x@9: 1, main::n@9: 1, counter@2: 0, __VERIFIER_assert::cond@24: 1, counter@3: 1, __VERIFIER_assert::cond@26: 1, main::x@3: 0, __VERIFIER_assert::cond@28: 1, main::z@3: 6, counter@8: 6, main::n@3: 0, counter@6: 4, counter@7: 5, __VERIFIER_assert::cond@20: 1, counter@4: 2, __VERIFIER_assert::cond@22: 1, counter@5: 3, main::a@3: 4, __VERIFIER_assert::cond@6: 1, __VERIFIER_assert::cond@4: 1, __VERIFIER_assert::cond@30: 1, __VERIFIER_assert::cond@2: 1, __VERIFIER_assert::cond@32: 1, __VERIFIER_assert::cond@8: 1, main::__CPAchecker_TMP_0@2: 0, main::y@3: 1, __VERIFIER_assert::cond@12: 1, __VERIFIER_nondet_ushort!2@: 4, __VERIFIER_assert::cond@14: 1, __VERIFIER_assert::cond@16: 1, __VERIFIER_assert::cond@18: 1, __VERIFIER_assert::cond@10: 1, Integer_*_(1834, 4): 64, Integer_*_(1833, 3): 27, Integer_*_(1832, 2): 8, Integer_*_(1831, 1): 1, Integer_*_(125, 36): 3336, Integer_*_(61, 30): 1830, Integer_*_(37, 24): 888, Integer_*_(30, 30): 900, Integer_*_(24, 125): 1835, Integer_*_(24, 24): 576, Integer_*_(19, 18): 342, Integer_*_(18, 18): 324, Integer_*_(12, 12): 144, Integer_*_(12, 4): 48, Integer_*_(9, 3): 27, Integer_*_(7, 12): 84, Integer_*_(6, 6): 36, Integer_*_(6, 2): 12, Integer_*_(4, 4): 1834, Integer_*_(3, 3): 1833, Integer_*_(3, 1): 3, Integer_*_(2, 2): 1832, Integer_*_(1, 6): 6, Integer_*_(1, 1): 1831, Integer_*_(0, 0): 0]
+Stopping analysis ... (CPAchecker.runAlgorithm, INFO)
+
+
+PredicateCPA statistics
+-----------------------
+Number of abstractions:            12 (2% of all post computations)
+  Times abstraction was reused:    0
+  Because of function entry/exit:  0 (0%)
+  Because of loop head:            0 (0%)
+  Because of join nodes:           0 (0%)
+  Because of threshold:            0 (0%)
+  Because of target state:         12 (100%)
+  Times precision was empty:       12 (100%)
+  Times precision was {false}:     0 (0%)
+  Times result was cached:         0 (0%)
+  Times cartesian abs was used:    0 (0%)
+  Times boolean abs was used:      0 (0%)
+  Times result was 'false':        0 (0%)
+Number of strengthen sat checks:   0
+Number of coverage checks:         0
+  BDD entailment checks:           0
+Number of SMT sat checks:          0
+  trivial:                         0
+  cached:                          0
+
+Max ABE block size:                       110
+Avg ABE block size:                                73.17 (sum: 878, count: 12, min: 29, max: 110)
+Number of predicates discovered:          0
+
+Time for post operator:                                0.188s
+  Time for path formula creation:                      0.183s
+Time for strengthen operator:                          0.004s
+Time for prec operator:                                0.006s
+  Time for abstraction:                  0.000s (Max:     0.000s, Count: 12)
+    Solving time:                        0.000s (Max:     0.000s)
+    Model enumeration time:              0.000s
+    Time for BDD construction:           0.000s (Max:     0.000s)
+Time for coverage checks:                              0.000s
+Total time for SMT solver (w/o itp):     0.000s
+
+Total number of created targets for pointer analysis: 0
+
+
+
+KeyValue statistics
+-------------------
+Init. function predicates:                         0
+Init. global predicates:                           0
+Init. location predicates:                         0
+
+Invariant Generation statistics
+-------------------------------
+
+Bounds CPA statistics
+---------------------
+Bound k:                                           10
+Maximum loop iteration reached:                    6
+
+
+ValueAnalysisCPA statistics
+---------------------------
+Number of variables per state:                     6.13 (sum: 2617, count: 427, min: 0, max: 7)
+Number of global variables per state:              0.98 (sum: 419, count: 427, min: 0, max: 1)
+Number of assumptions:                                  254
+Number of deterministic assumptions:                      0
+Level of Determinism:                              0%
+
+ValueAnalysisPrecisionAdjustment statistics
+-------------------------------------------
+Number of abstraction computations:                     426
+Total time for liveness abstraction:                   0.000s
+Total time for abstraction computation:                0.010s
+Total time for path thresholds:                        0.000s
+
+ConstraintsStrengthenOperator statistics
+----------------------------------------
+Total time for strengthening by ConstraintsCPA:     0.000s
+Replaced symbolic expressions: 0
+
+AutomatonAnalysis (SVCOMP) statistics
+-------------------------------------
+Number of states:                                  1
+Total time for successor computation:                  0.012s
+Automaton transfers with branching:                0
+Automaton transfer successors:                     0.97 (sum: 426, count: 438, min: 0, max: 1) [0 x 12, 1 x 426]
+Number of states with assumption transitions:      0
+
+CPA algorithm statistics
+------------------------
+Number of iterations:            427
+Max size of waitlist:            3
+Average size of waitlist:        1
+LoopstackSortedWaitlist:                           0.19 (sum: 69, count: 358, min: 0, max: 9)
+ReversePostorderSortedWaitlist:                    0.00 (sum: 0, count: 358, min: 0, max: 0)
+LoopIterationSortedWaitlist:                       0.19 (sum: 69, count: 358, min: 0, max: 9)
+CallstackSortedWaitlist:                           69.00 (sum: 69, count: 1, min: 69, max: 69)
+Number of computed successors:   426
+Max successors for one state:    2
+Number of times merged:          0
+Number of times stopped:         0
+Number of times breaked:         0
+
+Total time for CPA algorithm:         0.388s (Max:     0.388s)
+  Time for choose from waitlist:      0.010s
+  Time for precision adjustment:      0.061s
+  Time for transfer relation:         0.283s
+  Time for stop operator:             0.002s
+  Time for adding to reached set:     0.014s
+
+BMC algorithm statistics
+------------------------
+Time for BMC formula creation:                       0.391s
+Time for final sat check:                            1.656s
+Time for error-path creation:                        0.131s
+Time for error-path post-processing:                 0.489s
+
+CPAchecker general statistics
+-----------------------------
+Number of program locations:                       63
+Number of CFA edges (per node):                          69 (count: 63, min: 0, max: 11, avg: 1.10)
+Number of relevant variables:                      9
+Number of functions:                               4
+Number of loops (and loop nodes):                         1 (sum: 14, min: 14, max: 14, avg: 14.00)
+Size of reached set:             427
+  Number of reached locations:   51 (81%)
+    Avg states per location:     8
+    Max states per location:     61 (at node N10)
+  Number of reached functions:   3 (75%)
+  Number of partitions:          427
+    Avg size of partitions:      1
+    Max size of partitions:      1
+  Number of target states:       12
+
+Time for analysis setup:          2.127s
+  Time for loading CPAs:          1.151s
+  Time for loading parser:        0.279s
+  Time for CFA construction:      0.597s
+    Time for parsing file(s):     0.325s
+    Time for AST to CFA:          0.119s
+    Time for CFA sanity check:    0.000s
+    Time for post-processing:     0.101s
+    Time for loop structure:      0.005s
+    Time for AST structure:       0.000s
+      Time for function pointers resolving:            0.003s
+        Function calls via function pointers:             0 (count: 1, min: 0, max: 0, avg: 0.00)
+        Instrumented function pointer calls:              0 (count: 1, min: 0, max: 0, avg: 0.00)
+        Function calls with function pointer arguments:        0 (count: 1, min: 0, max: 0, avg: 0.00)
+        Instrumented function pointer arguments:          0 (count: 1, min: 0, max: 0, avg: 0.00)
+      Time for classifying variables:                  0.061s
+        Time for collecting variables:                 0.038s
+        Time for solving dependencies:                 0.000s
+        Time for building hierarchy:                   0.000s
+        Time for building classification:              0.023s
+        Time for exporting data:                       0.000s
+Time for Analysis:                2.758s
+CPU time for analysis:            5.190s
+Time for analyzing result:        0.001s
+Total time for CPAchecker:        4.885s
+Total CPU time for CPAchecker:    9.250s
+Time for statistics:              0.036s
+
+Time for Garbage Collector:       0.075s (in 8 runs)
+Garbage Collector(s) used:    G1 Old Generation, G1 Young Generation
+
+Verification result: FALSE. Property violation (unreach-call: reach_error(); called in line 17) found by chosen configuration.
+More details about the verification run can be found in the directory "./output".

@@ -1,0 +1,362 @@
+scripts/cpa.sh -heap 13000M -stack 50M -noout -benchmark -bmc -setprop cpa.predicate.useArraysForHeap=false -setprop cpa.predicate.memoryAllocationsAlwaysSucceed=true -setprop cpa.loopbound.maxLoopIterations=10 -setprop cpa.predicate.encodeFloatAs=INTEGER -setprop cpa.predicate.encodeBitvectorAs=INTEGER -setprop solver.solver=princess -timelimit 900s -stats -spec test/programs/benchmarks/properties/unreach-call.prp -64 test/programs/benchmarks/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-sun-niu.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Running CPAchecker with Java heap of size 13000M.
+Running CPAchecker with Java stack of size 50M.
+Language C detected and set for analysis (CPAMain.detectFrontendLanguageIfNecessary, INFO)
+
+Using the following resource limits: CPU-time limit of 900s (ResourceLimitChecker.fromConfiguration, INFO)
+
+CPAchecker 2.3.1-svn-45350M / bmc (OpenJDK 64-Bit Server VM 17.0.8.1) started (CPAchecker.run, INFO)
+
+Parsing CFA from file(s) "test/programs/benchmarks/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-sun-niu.cil.i" (CPAchecker.parse, INFO)
+
+line 6252: Dead code detected: return (1); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7526: Dead code detected: goto case_1; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7545: Dead code detected: goto case_1___0; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7549: Dead code detected: goto case_2; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7557: Dead code detected: goto case_8; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7560: Dead code detected: goto switch_default; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7530: Dead code detected: goto case_2___0; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7585: Dead code detected: goto case_1___1; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7589: Dead code detected: goto case_2___1; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7597: Dead code detected: goto case_8___0; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7600: Dead code detected: goto switch_default___0; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7625: Dead code detected: goto case_1___2; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7629: Dead code detected: goto case_2___2; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7637: Dead code detected: goto case_8___1; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7640: Dead code detected: goto switch_default___1; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7538: Dead code detected: goto case_8___2; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7665: Dead code detected: goto case_1___3; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7669: Dead code detected: goto case_2___3; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7677: Dead code detected: goto case_8___3; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7680: Dead code detected: goto switch_default___2; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 7541: Dead code detected: goto switch_default___3; (CFACreationUtils.addEdgeToCFA, INFO)
+
+Dead code detected: Label case_4___0 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_4___3 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_8___3 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_8___2 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_8___1 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_8 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_8___0 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_4 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_1 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_2 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_default is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_2___2 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_2___3 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_2___0 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_2___1 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_1___1 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_1___2 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_1___3 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_1___0 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+line 12848: Dead code detected: goto case_1; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12867: Dead code detected: goto case_1___0; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12871: Dead code detected: goto case_2; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12879: Dead code detected: goto case_8; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12882: Dead code detected: goto switch_default; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12852: Dead code detected: goto case_2___0; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12907: Dead code detected: goto case_1___1; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12911: Dead code detected: goto case_2___1; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12919: Dead code detected: goto case_8___0; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12922: Dead code detected: goto switch_default___0; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12947: Dead code detected: goto case_1___2; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12951: Dead code detected: goto case_2___2; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12959: Dead code detected: goto case_8___1; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12962: Dead code detected: goto switch_default___1; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12860: Dead code detected: goto case_8___2; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12987: Dead code detected: goto case_1___3; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12991: Dead code detected: goto case_2___3; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12999: Dead code detected: goto case_8___3; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 13002: Dead code detected: goto switch_default___2; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 12863: Dead code detected: goto switch_default___3; (CFACreationUtils.addEdgeToCFA, INFO)
+
+Dead code detected: Label case_4___0 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_4___3 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_8___3 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_8___2 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_8___1 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_8 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_8___0 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_4 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_1 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_2 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_default is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_2___2 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_2___3 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_2___0 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_2___1 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_1___1 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_1___2 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_1___3 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label case_1___0 is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+line 14509: Dead code detected: goto switch_default; (CFACreationUtils.addEdgeToCFA, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_default is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+Dead code detected: Label switch_break is not reachable. (CFAFunctionBuilder.leave, INFO)
+
+line 24066: Dead code detected: return (arg0); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 24085: Dead code detected: return (arg0); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 24088: Dead code detected: return (arg0); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 24090: Dead code detected: return (arg0); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 24177: Dead code detected: return (arg0); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 25404: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 25416: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26117: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26158: Dead code detected: return (arg0); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26159: Dead code detected: return (arg0); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 26202: Dead code detected: return (arg0); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 28245: Dead code detected: return; (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 28340: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 28375: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 28390: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 28406: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 28421: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 28466: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 28483: Dead code detected: return (ldv_func_res); (CFACreationUtils.addEdgeToCFA, INFO)
+
+Inline assembler ignored, analysis is probably unsound! (CFABuilder.createCFA, WARNING)
+
+line 6939: Function pointer *(ops->alloc) with type void *(*)(struct device *, size_t , dma_addr_t *, gfp_t , struct dma_attrs *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 6978: Function pointer *(ops->free) with type void (*)(struct device *, size_t , void *, dma_addr_t , struct dma_attrs *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 6828: Function pointer *(ops->map_page) with type dma_addr_t (*)(struct device *, struct page *, unsigned long, size_t , enum dma_data_direction , struct dma_attrs *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 6754: Function pointer *(ops->map_page) with type dma_addr_t (*)(struct device *, struct page *, unsigned long, size_t , enum dma_data_direction , struct dma_attrs *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 6861: Function pointer *(ops->unmap_page) with type void (*)(struct device *, dma_addr_t , size_t , enum dma_data_direction , struct dma_attrs *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 6791: Function pointer *(ops->unmap_page) with type void (*)(struct device *, dma_addr_t , size_t , enum dma_data_direction , struct dma_attrs *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 24797: Function pointer *arg0 with type long int (*)(struct device *, struct device_attribute *, char *, unsigned long) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 24821: Function pointer *arg0 with type long int (*)(struct device *, struct device_attribute *, char *, unsigned long) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 24845: Function pointer *arg0 with type long int (*)(struct device *, struct device_attribute *, char *, unsigned long) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 24869: Function pointer *arg0 with type long int (*)(struct device *, struct device_attribute *, char *, unsigned long) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 24893: Function pointer *arg0 with type long int (*)(struct device *, struct device_attribute *, char *, unsigned long) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+line 7113: Function pointer *(skb->destructor) with type void (*)(struct sk_buff *) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (PredicateCPA:FormulaManagerView.<init>, WARNING)
+
+Using predicate analysis with Princess 2023-04-07. (PredicateCPA:PredicateCPA.<init>, INFO)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (AssumptionStorageCPA:FormulaManagerView.<init>, WARNING)
+
+Starting analysis ... (CPAchecker.runAlgorithm, INFO)
+
+line 28190: Ignoring call via function pointer ldv_timer_instance_callback_16_2::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 24893: Ignoring call via function pointer ldv_dummy_resourceless_instance_callback_7_9::arg0 for which no suitable target was found in line: (*arg0)(arg1, arg2, arg3, arg4); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 24869: Ignoring call via function pointer ldv_dummy_resourceless_instance_callback_6_9::arg0 for which no suitable target was found in line: (*arg0)(arg1, arg2, arg3, arg4); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 24845: Ignoring call via function pointer ldv_dummy_resourceless_instance_callback_5_9::arg0 for which no suitable target was found in line: (*arg0)(arg1, arg2, arg3, arg4); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 24821: Ignoring call via function pointer ldv_dummy_resourceless_instance_callback_4_9::arg0 for which no suitable target was found in line: (*arg0)(arg1, arg2, arg3, arg4); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 24797: Ignoring call via function pointer ldv_dummy_resourceless_instance_callback_3_9::arg0 for which no suitable target was found in line: (*arg0)(arg1, arg2, arg3, arg4); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 25887: Ignoring call via function pointer ldv_pci_instance_suspend_late_2_7::arg0 for which no suitable target was found in line: tmp = (*arg0)(arg1, arg2); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 25856: Ignoring call via function pointer ldv_pci_instance_resume_early_2_6::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 25865: Ignoring call via function pointer ldv_pci_instance_shutdown_2_3::arg0 for which no suitable target was found in line: (*arg0)(arg1); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+line 25444: Ignoring call via function pointer ldv_interrupt_instance_thread_0_3::arg0 for which no suitable target was found in line: (*arg0)(arg1, arg2); (TargetLocationProvider:FunctionPointerCPA:FunctionPointerTransferRelation.getAbstractSuccessorsForEdge, WARNING)
+
+Creating formula for program (AbstractBMCAlgorithm.run, INFO)
+
+Exception in thread "main" org.sosy_lab.java_smt.basicimpl.GeneratorException: Modular Congruence is not available in SMTLIB2. 
+	at org.sosy_lab.java_smt.basicimpl.AbstractNumeralFormulaManager.modularCongruence(AbstractNumeralFormulaManager.java:361)
+	at org.sosy_lab.java_smt.solvers.princess.PrincessIntegerFormulaManager.modularCongruence(PrincessIntegerFormulaManager.java:22)
+	at org.sosy_lab.cpachecker.util.predicates.smt.IntegerFormulaManagerView.modularCongruence(IntegerFormulaManagerView.java:35)
+	at org.sosy_lab.cpachecker.util.predicates.smt.FormulaManagerView.makeModularCongruence(FormulaManagerView.java:688)
+	at org.sosy_lab.cpachecker.util.predicates.smt.FormulaManagerView.makeModularCongruence(FormulaManagerView.java:670)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.PointerTargetSetManager.makeBaseAddressConstraints(PointerTargetSetManager.java:653)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.PointerTargetSetBuilder$RealPointerTargetSetBuilder.addNextBaseAddressConstraints(PointerTargetSetBuilder.java:286)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.CToFormulaConverterWithPointerAliasing.declareSharedBase(CToFormulaConverterWithPointerAliasing.java:437)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.pointeraliasing.CToFormulaConverterWithPointerAliasing.makeDeclaration(CToFormulaConverterWithPointerAliasing.java:1001)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.ctoformula.CtoFormulaConverter.createFormulaForEdge(CtoFormulaConverter.java:1231)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.ctoformula.CtoFormulaConverter.makeAnd(CtoFormulaConverter.java:1049)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.PathFormulaManagerImpl.makeAnd(PathFormulaManagerImpl.java:246)
+	at org.sosy_lab.cpachecker.util.predicates.pathformula.PathFormulaManagerImpl.makeAnd(PathFormulaManagerImpl.java:300)
+	at org.sosy_lab.cpachecker.cpa.predicate.PredicateTransferRelation.convertEdgeToPathFormula(PredicateTransferRelation.java:203)
+	at org.sosy_lab.cpachecker.cpa.predicate.PredicateTransferRelation.getAbstractSuccessorsForEdge(PredicateTransferRelation.java:113)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.callTransferRelation(CompositeTransferRelation.java:297)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessorForSimpleEdge(CompositeTransferRelation.java:264)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessorForEdge(CompositeTransferRelation.java:196)
+	at org.sosy_lab.cpachecker.cpa.composite.CompositeTransferRelation.getAbstractSuccessors(CompositeTransferRelation.java:88)
+	at org.sosy_lab.cpachecker.cpa.arg.ARGTransferRelation.getAbstractSuccessors(ARGTransferRelation.java:45)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.handleState(CPAAlgorithm.java:334)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.run0(CPAAlgorithm.java:289)
+	at org.sosy_lab.cpachecker.core.algorithm.CPAAlgorithm.run(CPAAlgorithm.java:260)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.BMCHelper.unroll(BMCHelper.java:192)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.AbstractBMCAlgorithm.run(AbstractBMCAlgorithm.java:427)
+	at org.sosy_lab.cpachecker.core.algorithm.bmc.BMCAlgorithm.run(BMCAlgorithm.java:130)
+	at org.sosy_lab.cpachecker.core.CPAchecker.runAlgorithm(CPAchecker.java:507)
+	at org.sosy_lab.cpachecker.core.CPAchecker.run(CPAchecker.java:369)
+	at org.sosy_lab.cpachecker.cmdline.CPAMain.main(CPAMain.java:170)

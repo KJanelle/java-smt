@@ -1,0 +1,253 @@
+scripts/cpa.sh -heap 13000M -stack 50M -noout -benchmark -bmc -setprop cpa.predicate.useArraysForHeap=false -setprop cpa.predicate.memoryAllocationsAlwaysSucceed=true -setprop cpa.loopbound.maxLoopIterations=10 -setprop cpa.predicate.encodeFloatAs=INTEGER -setprop cpa.predicate.encodeBitvectorAs=INTEGER -setprop solver.solver=princess_binary -setprop proveroptions.option=use_binary -timelimit 900s -stats -spec test/programs/benchmarks/properties/unreach-call.prp -32 test/programs/benchmarks/product-lines/elevator_spec2_product26.cil.c
+
+
+--------------------------------------------------------------------------------
+
+
+Running CPAchecker with Java heap of size 13000M.
+Running CPAchecker with Java stack of size 50M.
+Language C detected and set for analysis (CPAMain.detectFrontendLanguageIfNecessary, INFO)
+
+Using the following resource limits: CPU-time limit of 900s (ResourceLimitChecker.fromConfiguration, INFO)
+
+CPAchecker 2.3.1-svn-45350M / bmc (OpenJDK 64-Bit Server VM 17.0.8.1) started (CPAchecker.run, INFO)
+
+Parsing CFA from file(s) "test/programs/benchmarks/product-lines/elevator_spec2_product26.cil.c" (CPAchecker.parse, INFO)
+
+line 409: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 498: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 676: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 685: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 719: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 728: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 768: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 848: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 861: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1213: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1247: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1303: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1317: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1937: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 1977: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2016: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2055: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2387: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2433: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2445: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2468: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2582: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2818: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 3129: Dead code detected: return (retValue_acc); (CFACreationUtils.addEdgeToCFA, INFO)
+
+line 2224: Function pointer *__cil_tmp10 with type int (*)(int, int) is called, but no possible target functions were found. (CFunctionPointerResolver.getTargets, WARNING)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (PredicateCPA:FormulaManagerView.<init>, WARNING)
+
+Using predicate analysis with Princess 2023-04-07. (PredicateCPA:PredicateCPA.<init>, INFO)
+
+Using unsound approximation of ints with unbounded integers and floats with unbounded integers for encoding program semantics. (AssumptionStorageCPA:FormulaManagerView.<init>, WARNING)
+
+The following configuration options were specified but are not used:
+ proveroptions.option 
+ (CPAchecker.printConfigurationWarnings, WARNING)
+
+Starting analysis ... (CPAchecker.runAlgorithm, INFO)
+
+Creating formula for program (AbstractBMCAlgorithm.run, INFO)
+
+Starting satisfiability check... (AbstractBMCAlgorithm.boundedModelCheck, INFO)
+
+Error found, creating error path (AbstractBMCAlgorithm.analyzeCounterexample0, INFO)
+
+{cleanup::tmp___0@5 -> 1, isBlocked::__retval__@4 -> 1, isBlocked::retValue_acc@7 -> 1, cleanup::__cil_tmp4@5 -> 11, cleanup::i@5 -> 2, __utac_acc__Specification2_spec__3::floor@7 -> 1, __utac_acc__Specification2_spec__3::tmp@7 -> 1, getCurrentFloorID::__retval__@4 -> 1, getCurrentFloorID::retValue_acc@7 -> 1, blocked@5 -> 1, timeShift::tmp@7 -> 1, areDoorsOpen::__retval__@4 -> 1, areDoorsOpen::retValue_acc@7 -> 1, cleanup::tmp@4 -> 0, isIdle::__retval__@3 -> 0, isIdle::retValue_acc@5 -> 0, isIdle::tmp@5 -> 1, anyStopRequested::__retval__@3 -> 1, anyStopRequested::retValue_acc@5 -> 1, anyStopRequested::tmp___0@4 -> 0, isFloorCalling::__retval__@10 -> 0, isFloorCalling::retValue_acc@19 -> 0, isFloorCalling::floorID@10 -> 3, anyStopRequested::tmp___1@4 -> 0, isFloorCalling::__retval__@9 -> 0, isFloorCalling::retValue_acc@17 -> 0, isFloorCalling::floorID@9 -> 2, anyStopRequested::tmp___2@5 -> 0, isFloorCalling::__retval__@8 -> 0, isFloorCalling::retValue_acc@15 -> 0, isFloorCalling::floorID@8 -> 1, anyStopRequested::tmp___3@5 -> 0, isFloorCalling::__retval__@7 -> 0, isFloorCalling::retValue_acc@13 -> 0, isFloorCalling::floorID@7 -> 0, cleanup::tmp___0@4 -> 0, isBlocked::__retval__@3 -> 0, isBlocked::retValue_acc@5 -> 0, cleanup::__cil_tmp4@4 -> 11, cleanup::i@4 -> 1, __utac_acc__Specification2_spec__3::floor@5 -> 1, __utac_acc__Specification2_spec__3::tmp@5 -> 1, getCurrentFloorID::__retval__@3 -> 1, getCurrentFloorID::retValue_acc@5 -> 1, floorButtons_1@3 -> 0, resetFloorButton::floorID@2 -> 1, calls_1@5 -> 0, resetCallOnFloor::floorID@3 -> 1, weight@3 -> 150, enterElevator::tmp@3 -> 150, getWeight::__retval__@2 -> 150, getWeight::retValue_acc@3 -> 150, getWeight::person@2 -> 5, persons_5@3 -> 1, enterElevator__wrappee__base::p@2 -> 5, enterElevator::p@2 -> 5, floorButtons_3@3 -> 1, floorButtons_spc2_3@4 -> 1, __utac_acc__Specification2_spec__2::floor@2 -> 3, pressInLiftFloorButton::__utac__ad__arg1@3 -> 3, pressInLiftFloorButton::floorID@2 -> 3, processWaitingOnFloor::tmp___9@3 -> 3, getDestination::__retval__@2 -> 3, getDestination::retValue_acc@3 -> 3, getDestination::person@2 -> 5, calls_1@4 -> 0, resetCallOnFloor::floorID@2 -> 1, personOnFloor_5_1@4 -> 0, removePersonFromFloor::floor@2 -> 1, removePersonFromFloor::person@2 -> 5, processWaitingOnFloor::tmp___10@3 -> 1, isPersonOnFloor::__retval__@7 -> 1, isPersonOnFloor::retValue_acc@13 -> 1, isPersonOnFloor::floor@7 -> 1, isPersonOnFloor::person@7 -> 5, processWaitingOnFloor::tmp___8@3 -> 0, isPersonOnFloor::__retval__@6 -> 0, isPersonOnFloor::retValue_acc@11 -> 0, isPersonOnFloor::floor@6 -> 1, isPersonOnFloor::person@6 -> 4, processWaitingOnFloor::tmp___6@3 -> 0, isPersonOnFloor::__retval__@5 -> 0, isPersonOnFloor::retValue_acc@9 -> 0, isPersonOnFloor::floor@5 -> 1, isPersonOnFloor::person@5 -> 3, processWaitingOnFloor::tmp___4@3 -> 0, isPersonOnFloor::__retval__@4 -> 0, isPersonOnFloor::retValue_acc@7 -> 0, isPersonOnFloor::floor@4 -> 1, isPersonOnFloor::person@4 -> 2, processWaitingOnFloor::tmp___2@3 -> 0, isPersonOnFloor::__retval__@3 -> 0, isPersonOnFloor::retValue_acc@5 -> 0, isPersonOnFloor::floor@3 -> 1, isPersonOnFloor::person@3 -> 1, processWaitingOnFloor::tmp___0@3 -> 0, isPersonOnFloor::__retval__@2 -> 0, isPersonOnFloor::retValue_acc@3 -> 0, isPersonOnFloor::floor@2 -> 1, isPersonOnFloor::person@2 -> 0, processWaitingOnFloor::floorID@2 -> 1, doorState@4 -> 1, timeShift__wrappee__empty::tmp___9@5 -> 1, stopRequestedAtCurrentFloor::__retval__@3 -> 1, stopRequestedAtCurrentFloor::retValue_acc@5 -> 1, stopRequestedAtCurrentFloor::tmp___0@5 -> 1, isFloorCalling::__retval__@6 -> 1, isFloorCalling::retValue_acc@11 -> 1, isFloorCalling::floorID@6 -> 1, blocked@4 -> 0, timeShift::tmp@5 -> 0, areDoorsOpen::__retval__@3 -> 0, areDoorsOpen::retValue_acc@5 -> 0, cleanup::tmp@3 -> 0, isIdle::__retval__@2 -> 0, isIdle::retValue_acc@3 -> 0, isIdle::tmp@3 -> 1, anyStopRequested::__retval__@2 -> 1, anyStopRequested::retValue_acc@3 -> 1, anyStopRequested::tmp___2@3 -> 1, isFloorCalling::__retval__@5 -> 1, isFloorCalling::retValue_acc@9 -> 1, isFloorCalling::floorID@5 -> 1, anyStopRequested::tmp___3@3 -> 0, isFloorCalling::__retval__@4 -> 0, isFloorCalling::retValue_acc@7 -> 0, isFloorCalling::floorID@4 -> 0, cleanup::tmp___0@3 -> 0, isBlocked::__retval__@2 -> 0, isBlocked::retValue_acc@3 -> 0, cleanup::__cil_tmp4@3 -> 11, cleanup::i@3 -> 0, __utac_acc__Specification2_spec__3::floor@3 -> 1, __utac_acc__Specification2_spec__3::tmp@3 -> 1, getCurrentFloorID::__retval__@2 -> 1, getCurrentFloorID::retValue_acc@3 -> 1, currentFloorID@3 -> 1, continueInDirection::tmp@3 -> 0, isTopFloor::__retval__@3 -> 0, isTopFloor::retValue_acc@5 -> 0, isTopFloor::floorID@3 -> 0, currentHeading@3 -> 1, continueInDirection::dir@2 -> 1, timeShift__wrappee__empty::tmp___8@3 -> 1, stopRequestedInDirection::__retval__@2 -> 1, stopRequestedInDirection::retValue_acc@3 -> 1, stopRequestedInDirection::tmp___3@3 -> 1, isFloorCalling::__retval__@3 -> 1, isFloorCalling::retValue_acc@5 -> 1, isFloorCalling::floorID@3 -> 1, stopRequestedInDirection::tmp@3 -> 0, isTopFloor::__retval__@2 -> 0, isTopFloor::retValue_acc@3 -> 0, isTopFloor::floorID@2 -> 0, stopRequestedInDirection::respectInLiftCalls@2 -> 1, stopRequestedInDirection::respectFloorCalls@2 -> 1, stopRequestedInDirection::dir@2 -> 1, doorState@3 -> 0, timeShift__wrappee__empty::tmp___9@3 -> 0, stopRequestedAtCurrentFloor::__retval__@2 -> 0, stopRequestedAtCurrentFloor::retValue_acc@3 -> 0, stopRequestedAtCurrentFloor::tmp@3 -> 0, buttonForFloorIsPressed::__retval__@2 -> 0, buttonForFloorIsPressed::retValue_acc@3 -> 0, buttonForFloorIsPressed::floorID@2 -> 0, stopRequestedAtCurrentFloor::tmp___0@3 -> 0, isFloorCalling::__retval__@2 -> 0, isFloorCalling::retValue_acc@3 -> 0, isFloorCalling::floorID@2 -> 0, blocked@3 -> 0, timeShift::tmp@3 -> 1, areDoorsOpen::__retval__@2 -> 1, areDoorsOpen::retValue_acc@3 -> 1, calls_1@3 -> 1, callOnFloor::floorID@2 -> 1, personOnFloor_5_1@3 -> 1, initPersonOnFloor::floor@2 -> 1, initPersonOnFloor::person@2 -> 5, bigMacCall::tmp@3 -> 1, getOrigin::__retval__@2 -> 1, getOrigin::retValue_acc@3 -> 1, getOrigin::person@2 -> 5, floorButtons_spc2_4@3 -> 0, floorButtons_spc2_3@3 -> 0, floorButtons_spc2_2@3 -> 0, floorButtons_spc2_1@3 -> 0, floorButtons_spc2_0@3 -> 0, main::tmp@3 -> 1, valid_product::__retval__@2 -> 1, valid_product::retValue_acc@3 -> 1, floorButtons_spc2_4@2 -> 0, floorButtons_spc2_3@2 -> 0, floorButtons_spc2_2@2 -> 0, floorButtons_spc2_1@2 -> 0, floorButtons_spc2_0@2 -> 0, personOnFloor_5_4@2 -> 0, personOnFloor_5_3@2 -> 0, personOnFloor_5_2@2 -> 0, personOnFloor_5_1@2 -> 0, personOnFloor_5_0@2 -> 0, personOnFloor_4_4@2 -> 0, personOnFloor_4_3@2 -> 0, personOnFloor_4_2@2 -> 0, personOnFloor_4_1@2 -> 0, personOnFloor_4_0@2 -> 0, personOnFloor_3_4@2 -> 0, personOnFloor_3_3@2 -> 0, personOnFloor_3_2@2 -> 0, personOnFloor_3_1@2 -> 0, personOnFloor_3_0@2 -> 0, personOnFloor_2_4@2 -> 0, personOnFloor_2_3@2 -> 0, personOnFloor_2_2@2 -> 0, personOnFloor_2_1@2 -> 0, personOnFloor_2_0@2 -> 0, personOnFloor_1_4@2 -> 0, personOnFloor_1_3@2 -> 0, personOnFloor_1_2@2 -> 0, personOnFloor_1_1@2 -> 0, personOnFloor_1_0@2 -> 0, personOnFloor_0_4@2 -> 0, personOnFloor_0_3@2 -> 0, personOnFloor_0_2@2 -> 0, personOnFloor_0_1@2 -> 0, personOnFloor_0_0@2 -> 0, calls_4@2 -> 0, calls_3@2 -> 0, calls_2@2 -> 0, calls_1@2 -> 0, calls_0@2 -> 0, head@2 -> 0, floorButtons_4@2 -> 0, floorButtons_3@2 -> 0, floorButtons_2@2 -> 0, floorButtons_1@2 -> 0, floorButtons_0@2 -> 0, doorState@2 -> 1, persons_5@2 -> 0, persons_4@2 -> 0, persons_3@2 -> 0, persons_2@2 -> 0, persons_1@2 -> 0, persons_0@2 -> 0, currentFloorID@2 -> 0, currentHeading@2 -> 1, blocked@2 -> 0, maximumWeight@2 -> 100, weight@2 -> 0, cleanupTimeShifts@2 -> 12}
+{cleanup::tmp___0@59 -> 1, isBlocked::__retval__@42 -> 1, isBlocked::retValue_acc@47 -> 1, cleanup::__cil_tmp4@58 -> 11, cleanup::i@58 -> 2, __utac_acc__Specification2_spec__3::floor@48 -> 1, __utac_acc__Specification2_spec__3::tmp@48 -> 1, getCurrentFloorID::__retval__@42 -> 1, getCurrentFloorID::retValue_acc@47 -> 1, timeShift::tmp@57 -> 1, areDoorsOpen::__retval__@51 -> 1, areDoorsOpen::retValue_acc@56 -> 1, cleanup::tmp@53 -> 0, isIdle::__retval__@33 -> 0, isIdle::retValue_acc@39 -> 0, isIdle::tmp@39 -> 1, anyStopRequested::__retval__@33 -> 1, anyStopRequested::retValue_acc@38 -> 1, anyStopRequested::tmp___0@37 -> 0, isFloorCalling::__retval__@47 -> 0, isFloorCalling::retValue_acc@64 -> 0, isFloorCalling::floorID@55 -> 3, anyStopRequested::tmp___1@36 -> 0, isFloorCalling::__retval__@46 -> 0, isFloorCalling::retValue_acc@61 -> 0, isFloorCalling::floorID@53 -> 2, anyStopRequested::tmp___2@36 -> 0, isFloorCalling::__retval__@45 -> 0, isFloorCalling::retValue_acc@58 -> 0, isFloorCalling::floorID@51 -> 1, anyStopRequested::tmp___3@35 -> 0, isFloorCalling::__retval__@44 -> 0, isFloorCalling::retValue_acc@55 -> 0, isFloorCalling::floorID@49 -> 0, cleanup::tmp___0@47 -> 0, isBlocked::__retval__@31 -> 0, isBlocked::retValue_acc@34 -> 0, cleanup::__cil_tmp4@46 -> 11, cleanup::i@46 -> 1, __utac_acc__Specification2_spec__3::floor@35 -> 1, __utac_acc__Specification2_spec__3::tmp@35 -> 1, getCurrentFloorID::__retval__@31 -> 1, getCurrentFloorID::retValue_acc@34 -> 1, resetCallOnFloor::floorID@11 -> 1, enterElevator::tmp@5 -> 150, processWaitingOnFloor::tmp___9@12 -> 3, processWaitingOnFloor::tmp___10@9 -> 1, isPersonOnFloor::retValue_acc@18 -> 1, isPersonOnFloor::floor@12 -> 1, isPersonOnFloor::person@12 -> 5, processWaitingOnFloor::tmp___8@8 -> 0, isPersonOnFloor::retValue_acc@15 -> 0, isPersonOnFloor::floor@10 -> 1, isPersonOnFloor::person@10 -> 4, processWaitingOnFloor::tmp___6@7 -> 0, isPersonOnFloor::retValue_acc@12 -> 0, isPersonOnFloor::floor@8 -> 1, isPersonOnFloor::person@8 -> 3, processWaitingOnFloor::tmp___4@6 -> 0, processWaitingOnFloor::tmp___2@5 -> 0, isPersonOnFloor::retValue_acc@6 -> 0, processWaitingOnFloor::tmp___0@4 -> 0, timeShift__wrappee__empty::tmp___9@25 -> 1, stopRequestedAtCurrentFloor::__retval__@19 -> 1, stopRequestedAtCurrentFloor::retValue_acc@24 -> 1, stopRequestedAtCurrentFloor::tmp___0@24 -> 1, isFloorCalling::__retval__@20 -> 1, isFloorCalling::retValue_acc@29 -> 1, isFloorCalling::floorID@24 -> 1, timeShift::tmp@24 -> 0, areDoorsOpen::__retval__@20 -> 0, areDoorsOpen::retValue_acc@23 -> 0, cleanup::tmp@21 -> 0, isIdle::retValue_acc@6 -> 0, isIdle::tmp@6 -> 1, isFloorCalling::__retval__@16 -> 1, isFloorCalling::retValue_acc@23 -> 1, isFloorCalling::floorID@19 -> 1, anyStopRequested::tmp___3@4 -> 0, isFloorCalling::__retval__@15 -> 0, isFloorCalling::retValue_acc@20 -> 0, isFloorCalling::floorID@17 -> 0, cleanup::tmp___0@17 -> 0, cleanup::__cil_tmp4@16 -> 11, cleanup::i@16 -> 0, __utac_acc__Specification2_spec__3::floor@4 -> 1, __utac_acc__Specification2_spec__3::tmp@4 -> 1, continueInDirection::tmp@4 -> 0, isTopFloor::__retval__@5 -> 0, isTopFloor::retValue_acc@8 -> 0, isTopFloor::floorID@6 -> 0, timeShift__wrappee__empty::tmp___8@9 -> 1, stopRequestedInDirection::retValue_acc@5 -> 1, stopRequestedInDirection::tmp___3@5 -> 1, stopRequestedInDirection::tmp@4 -> 0, timeShift__wrappee__empty::tmp___9@6 -> 0, stopRequestedAtCurrentFloor::tmp@5 -> 0, stopRequestedAtCurrentFloor::tmp___0@4 -> 0, timeShift::tmp@4 -> 1, bigMacCall::tmp@4 -> 1, main::tmp@6 -> 1, isTopFloor::__retval__@2 -> 0, floorButtons_spc2_4@2 -> 0, personOnFloor_5_2@2 -> 0, floorButtons_spc2_4@3 -> 0, removePersonFromFloor::person@2 -> 5, doorState@4 -> 1, doorState@3 -> 0, doorState@2 -> 1, stopRequestedInDirection::dir@2 -> 1, isFloorCalling::floorID@2 -> 0, floorButtons_0@2 -> 0, personOnFloor_1_1@2 -> 0, weight@3 -> 150, isFloorCalling::floorID@7 -> 1, weight@2 -> 0, stopRequestedInDirection::respectInLiftCalls@2 -> 1, isPersonOnFloor::floor@6 -> 1, stopRequestedInDirection::__retval__@2 -> 1, isPersonOnFloor::floor@4 -> 1, isPersonOnFloor::floor@2 -> 1, personOnFloor_0_2@2 -> 0, personOnFloor_4_3@2 -> 0, buttonForFloorIsPressed::floorID@2 -> 0, initPersonOnFloor::person@2 -> 5, getOrigin::__retval__@2 -> 1, getCurrentFloorID::__retval__@2 -> 1, personOnFloor_5_3@2 -> 0, getDestination::retValue_acc@3 -> 3, pressInLiftFloorButton::__utac__ad__arg1@3 -> 3, personOnFloor_1_0@2 -> 0, personOnFloor_3_4@2 -> 0, getDestination::__retval__@2 -> 3, anyStopRequested::__retval__@2 -> 1, personOnFloor_0_3@2 -> 0, persons_0@2 -> 0, continueInDirection::dir@2 -> 1, personOnFloor_4_2@2 -> 0, personOnFloor_5_4@2 -> 0, buttonForFloorIsPressed::__retval__@2 -> 0, floorButtons_2@2 -> 0, getDestination::person@2 -> 5, initPersonOnFloor::floor@2 -> 1, personOnFloor_3_3@2 -> 0, persons_5@2 -> 0, persons_5@3 -> 1, personOnFloor_0_0@2 -> 0, getOrigin::person@2 -> 5, calls_3@2 -> 0, __utac_acc__Specification2_spec__2::floor@2 -> 3, personOnFloor_4_1@2 -> 0, getCurrentFloorID::retValue_acc@3 -> 1, valid_product::__retval__@2 -> 1, callOnFloor::floorID@2 -> 1, currentFloorID@3 -> 1, currentFloorID@2 -> 0, personOnFloor_2_4@2 -> 0, floorButtons_1@2 -> 0, floorButtons_1@3 -> 0, isTopFloor::retValue_acc@3 -> 0, isPersonOnFloor::person@2 -> 0, isPersonOnFloor::person@4 -> 1, personOnFloor_3_2@2 -> 0, personOnFloor_0_1@2 -> 0, isPersonOnFloor::person@6 -> 2, removePersonFromFloor::floor@2 -> 1, calls_4@2 -> 0, valid_product::retValue_acc@3 -> 1, personOnFloor_4_0@2 -> 0, areDoorsOpen::__retval__@2 -> 1, floorButtons_spc2_0@2 -> 0, floorButtons_spc2_0@3 -> 0, buttonForFloorIsPressed::retValue_acc@3 -> 0, personOnFloor_2_3@2 -> 0, blocked@5 -> 1, isFloorCalling::__retval__@6 -> 1, blocked@4 -> 0, head@2 -> 0, isFloorCalling::__retval__@2 -> 0, floorButtons_4@2 -> 0, stopRequestedInDirection::respectFloorCalls@2 -> 1, personOnFloor_3_1@2 -> 0, blocked@3 -> 0, blocked@2 -> 0, enterElevator__wrappee__base::p@2 -> 5, persons_3@2 -> 0, calls_1@3 -> 1, calls_1@4 -> 0, isFloorCalling::retValue_acc@3 -> 0, calls_1@2 -> 0, calls_1@5 -> 0, pressInLiftFloorButton::floorID@2 -> 3, isFloorCalling::retValue_acc@9 -> 1, personOnFloor_1_4@2 -> 0, areDoorsOpen::retValue_acc@3 -> 1, resetFloorButton::floorID@2 -> 1, floorButtons_spc2_1@2 -> 0, processWaitingOnFloor::floorID@2 -> 1, floorButtons_spc2_1@3 -> 0, personOnFloor_2_2@2 -> 0, isTopFloor::floorID@2 -> 0, getOrigin::retValue_acc@3 -> 1, floorButtons_3@2 -> 0, floorButtons_3@3 -> 1, currentHeading@3 -> 1, maximumWeight@2 -> 100, currentHeading@2 -> 1, getWeight::__retval__@2 -> 150, persons_4@2 -> 0, calls_2@2 -> 0, personOnFloor_3_0@2 -> 0, personOnFloor_1_3@2 -> 0, isBlocked::retValue_acc@3 -> 0, floorButtons_spc2_2@3 -> 0, personOnFloor_2_1@2 -> 0, getWeight::person@2 -> 5, personOnFloor_5_0@2 -> 0, anyStopRequested::tmp___2@5 -> 1, floorButtons_spc2_2@2 -> 0, anyStopRequested::retValue_acc@5 -> 1, isBlocked::__retval__@2 -> 0, persons_1@2 -> 0, personOnFloor_0_4@2 -> 0, isIdle::__retval__@2 -> 0, floorButtons_spc2_3@2 -> 0, personOnFloor_5_1@2 -> 0, personOnFloor_5_1@3 -> 1, floorButtons_spc2_3@3 -> 0, floorButtons_spc2_3@4 -> 1, personOnFloor_2_0@2 -> 0, personOnFloor_5_1@4 -> 0, getWeight::retValue_acc@3 -> 150, personOnFloor_1_2@2 -> 0, resetCallOnFloor::floorID@2 -> 1, enterElevator::p@2 -> 5, persons_2@2 -> 0, stopRequestedAtCurrentFloor::retValue_acc@5 -> 0, calls_0@2 -> 0, isPersonOnFloor::retValue_acc@9 -> 0, isPersonOnFloor::__retval__@6 -> 0, isPersonOnFloor::__retval__@7 -> 1, isPersonOnFloor::__retval__@4 -> 0, cleanupTimeShifts@2 -> 12, isPersonOnFloor::__retval__@5 -> 0, personOnFloor_4_4@2 -> 0, isPersonOnFloor::__retval__@2 -> 0, stopRequestedAtCurrentFloor::__retval__@2 -> 0, isPersonOnFloor::__retval__@3 -> 0, isPersonOnFloor::retValue_acc@3 -> 0}
+[cleanup::tmp___0@59: 1, isBlocked::__retval__@42: 1, isBlocked::retValue_acc@47: 1, cleanup::__cil_tmp4@58: 11, cleanup::i@58: 2, __utac_acc__Specification2_spec__3::floor@48: 1, __utac_acc__Specification2_spec__3::tmp@48: 1, getCurrentFloorID::__retval__@42: 1, getCurrentFloorID::retValue_acc@47: 1, timeShift::tmp@57: 1, areDoorsOpen::__retval__@51: 1, areDoorsOpen::retValue_acc@56: 1, cleanup::tmp@53: 0, isIdle::__retval__@33: 0, isIdle::retValue_acc@39: 0, isIdle::tmp@39: 1, anyStopRequested::__retval__@33: 1, anyStopRequested::retValue_acc@38: 1, anyStopRequested::tmp___0@37: 0, isFloorCalling::__retval__@47: 0, isFloorCalling::retValue_acc@64: 0, isFloorCalling::floorID@55: 3, anyStopRequested::tmp___1@36: 0, isFloorCalling::__retval__@46: 0, isFloorCalling::retValue_acc@61: 0, isFloorCalling::floorID@53: 2, anyStopRequested::tmp___2@36: 0, isFloorCalling::__retval__@45: 0, isFloorCalling::retValue_acc@58: 0, isFloorCalling::floorID@51: 1, anyStopRequested::tmp___3@35: 0, isFloorCalling::__retval__@44: 0, isFloorCalling::retValue_acc@55: 0, isFloorCalling::floorID@49: 0, cleanup::tmp___0@47: 0, isBlocked::__retval__@31: 0, isBlocked::retValue_acc@34: 0, cleanup::__cil_tmp4@46: 11, cleanup::i@46: 1, __utac_acc__Specification2_spec__3::floor@35: 1, __utac_acc__Specification2_spec__3::tmp@35: 1, getCurrentFloorID::__retval__@31: 1, getCurrentFloorID::retValue_acc@34: 1, resetCallOnFloor::floorID@11: 1, enterElevator::tmp@5: 150, processWaitingOnFloor::tmp___9@12: 3, processWaitingOnFloor::tmp___10@9: 1, isPersonOnFloor::retValue_acc@18: 1, isPersonOnFloor::floor@12: 1, isPersonOnFloor::person@12: 5, processWaitingOnFloor::tmp___8@8: 0, isPersonOnFloor::retValue_acc@15: 0, isPersonOnFloor::floor@10: 1, isPersonOnFloor::person@10: 4, processWaitingOnFloor::tmp___6@7: 0, isPersonOnFloor::retValue_acc@12: 0, isPersonOnFloor::floor@8: 1, isPersonOnFloor::person@8: 3, processWaitingOnFloor::tmp___4@6: 0, processWaitingOnFloor::tmp___2@5: 0, isPersonOnFloor::retValue_acc@6: 0, processWaitingOnFloor::tmp___0@4: 0, timeShift__wrappee__empty::tmp___9@25: 1, stopRequestedAtCurrentFloor::__retval__@19: 1, stopRequestedAtCurrentFloor::retValue_acc@24: 1, stopRequestedAtCurrentFloor::tmp___0@24: 1, isFloorCalling::__retval__@20: 1, isFloorCalling::retValue_acc@29: 1, isFloorCalling::floorID@24: 1, timeShift::tmp@24: 0, areDoorsOpen::__retval__@20: 0, areDoorsOpen::retValue_acc@23: 0, cleanup::tmp@21: 0, isIdle::retValue_acc@6: 0, isIdle::tmp@6: 1, isFloorCalling::__retval__@16: 1, isFloorCalling::retValue_acc@23: 1, isFloorCalling::floorID@19: 1, anyStopRequested::tmp___3@4: 0, isFloorCalling::__retval__@15: 0, isFloorCalling::retValue_acc@20: 0, isFloorCalling::floorID@17: 0, cleanup::tmp___0@17: 0, cleanup::__cil_tmp4@16: 11, cleanup::i@16: 0, __utac_acc__Specification2_spec__3::floor@4: 1, __utac_acc__Specification2_spec__3::tmp@4: 1, continueInDirection::tmp@4: 0, isTopFloor::__retval__@5: 0, isTopFloor::retValue_acc@8: 0, isTopFloor::floorID@6: 0, timeShift__wrappee__empty::tmp___8@9: 1, stopRequestedInDirection::retValue_acc@5: 1, stopRequestedInDirection::tmp___3@5: 1, stopRequestedInDirection::tmp@4: 0, timeShift__wrappee__empty::tmp___9@6: 0, stopRequestedAtCurrentFloor::tmp@5: 0, stopRequestedAtCurrentFloor::tmp___0@4: 0, timeShift::tmp@4: 1, bigMacCall::tmp@4: 1, main::tmp@6: 1, isTopFloor::__retval__@2: 0, floorButtons_spc2_4@2: 0, personOnFloor_5_2@2: 0, floorButtons_spc2_4@3: 0, removePersonFromFloor::person@2: 5, doorState@4: 1, doorState@3: 0, doorState@2: 1, stopRequestedInDirection::dir@2: 1, isFloorCalling::floorID@2: 0, floorButtons_0@2: 0, personOnFloor_1_1@2: 0, weight@3: 150, isFloorCalling::floorID@7: 1, weight@2: 0, stopRequestedInDirection::respectInLiftCalls@2: 1, isPersonOnFloor::floor@6: 1, stopRequestedInDirection::__retval__@2: 1, isPersonOnFloor::floor@4: 1, isPersonOnFloor::floor@2: 1, personOnFloor_0_2@2: 0, personOnFloor_4_3@2: 0, buttonForFloorIsPressed::floorID@2: 0, initPersonOnFloor::person@2: 5, getOrigin::__retval__@2: 1, getCurrentFloorID::__retval__@2: 1, personOnFloor_5_3@2: 0, getDestination::retValue_acc@3: 3, pressInLiftFloorButton::__utac__ad__arg1@3: 3, personOnFloor_1_0@2: 0, personOnFloor_3_4@2: 0, getDestination::__retval__@2: 3, anyStopRequested::__retval__@2: 1, personOnFloor_0_3@2: 0, persons_0@2: 0, continueInDirection::dir@2: 1, personOnFloor_4_2@2: 0, personOnFloor_5_4@2: 0, buttonForFloorIsPressed::__retval__@2: 0, floorButtons_2@2: 0, getDestination::person@2: 5, initPersonOnFloor::floor@2: 1, personOnFloor_3_3@2: 0, persons_5@2: 0, persons_5@3: 1, personOnFloor_0_0@2: 0, getOrigin::person@2: 5, calls_3@2: 0, __utac_acc__Specification2_spec__2::floor@2: 3, personOnFloor_4_1@2: 0, getCurrentFloorID::retValue_acc@3: 1, valid_product::__retval__@2: 1, callOnFloor::floorID@2: 1, currentFloorID@3: 1, currentFloorID@2: 0, personOnFloor_2_4@2: 0, floorButtons_1@2: 0, floorButtons_1@3: 0, isTopFloor::retValue_acc@3: 0, isPersonOnFloor::person@2: 0, isPersonOnFloor::person@4: 1, personOnFloor_3_2@2: 0, personOnFloor_0_1@2: 0, isPersonOnFloor::person@6: 2, removePersonFromFloor::floor@2: 1, calls_4@2: 0, valid_product::retValue_acc@3: 1, personOnFloor_4_0@2: 0, areDoorsOpen::__retval__@2: 1, floorButtons_spc2_0@2: 0, floorButtons_spc2_0@3: 0, buttonForFloorIsPressed::retValue_acc@3: 0, personOnFloor_2_3@2: 0, blocked@5: 1, isFloorCalling::__retval__@6: 1, blocked@4: 0, head@2: 0, isFloorCalling::__retval__@2: 0, floorButtons_4@2: 0, stopRequestedInDirection::respectFloorCalls@2: 1, personOnFloor_3_1@2: 0, blocked@3: 0, blocked@2: 0, enterElevator__wrappee__base::p@2: 5, persons_3@2: 0, calls_1@3: 1, calls_1@4: 0, isFloorCalling::retValue_acc@3: 0, calls_1@2: 0, calls_1@5: 0, pressInLiftFloorButton::floorID@2: 3, isFloorCalling::retValue_acc@9: 1, personOnFloor_1_4@2: 0, areDoorsOpen::retValue_acc@3: 1, resetFloorButton::floorID@2: 1, floorButtons_spc2_1@2: 0, processWaitingOnFloor::floorID@2: 1, floorButtons_spc2_1@3: 0, personOnFloor_2_2@2: 0, isTopFloor::floorID@2: 0, getOrigin::retValue_acc@3: 1, floorButtons_3@2: 0, floorButtons_3@3: 1, currentHeading@3: 1, maximumWeight@2: 100, currentHeading@2: 1, getWeight::__retval__@2: 150, persons_4@2: 0, calls_2@2: 0, personOnFloor_3_0@2: 0, personOnFloor_1_3@2: 0, isBlocked::retValue_acc@3: 0, floorButtons_spc2_2@3: 0, personOnFloor_2_1@2: 0, getWeight::person@2: 5, personOnFloor_5_0@2: 0, anyStopRequested::tmp___2@5: 1, floorButtons_spc2_2@2: 0, anyStopRequested::retValue_acc@5: 1, isBlocked::__retval__@2: 0, persons_1@2: 0, personOnFloor_0_4@2: 0, isIdle::__retval__@2: 0, floorButtons_spc2_3@2: 0, personOnFloor_5_1@2: 0, personOnFloor_5_1@3: 1, floorButtons_spc2_3@3: 0, floorButtons_spc2_3@4: 1, personOnFloor_2_0@2: 0, personOnFloor_5_1@4: 0, getWeight::retValue_acc@3: 150, personOnFloor_1_2@2: 0, resetCallOnFloor::floorID@2: 1, enterElevator::p@2: 5, persons_2@2: 0, stopRequestedAtCurrentFloor::retValue_acc@5: 0, calls_0@2: 0, isPersonOnFloor::retValue_acc@9: 0, isPersonOnFloor::__retval__@6: 0, isPersonOnFloor::__retval__@7: 1, isPersonOnFloor::__retval__@4: 0, cleanupTimeShifts@2: 12, isPersonOnFloor::__retval__@5: 0, personOnFloor_4_4@2: 0, isPersonOnFloor::__retval__@2: 0, stopRequestedAtCurrentFloor::__retval__@2: 0, isPersonOnFloor::__retval__@3: 0, isPersonOnFloor::retValue_acc@3: 0]
+Stopping analysis ... (CPAchecker.runAlgorithm, INFO)
+
+
+PredicateCPA statistics
+-----------------------
+Number of abstractions:            1 (0% of all post computations)
+  Times abstraction was reused:    0
+  Because of function entry/exit:  0 (0%)
+  Because of loop head:            0 (0%)
+  Because of join nodes:           0 (0%)
+  Because of threshold:            0 (0%)
+  Because of target state:         1 (100%)
+  Times precision was empty:       1 (100%)
+  Times precision was {false}:     0 (0%)
+  Times result was cached:         0 (0%)
+  Times cartesian abs was used:    0 (0%)
+  Times boolean abs was used:      0 (0%)
+  Times result was 'false':        0 (0%)
+Number of strengthen sat checks:   0
+Number of coverage checks:         0
+  BDD entailment checks:           0
+Number of SMT sat checks:          0
+  trivial:                         0
+  cached:                          0
+
+Max ABE block size:                       555
+Avg ABE block size:                                555.00 (sum: 555, count: 1, min: 555, max: 555)
+Number of predicates discovered:          0
+
+Time for post operator:                                0.253s
+  Time for path formula creation:                      0.252s
+Time for strengthen operator:                          0.009s
+Time for prec operator:                                0.007s
+  Time for abstraction:                  0.000s (Max:     0.000s, Count: 1)
+    Solving time:                        0.000s (Max:     0.000s)
+    Model enumeration time:              0.000s
+    Time for BDD construction:           0.000s (Max:     0.000s)
+Time for coverage checks:                              0.000s
+Total time for SMT solver (w/o itp):     0.000s
+
+Total number of created targets for pointer analysis: 0
+
+
+
+KeyValue statistics
+-------------------
+Init. function predicates:                         0
+Init. global predicates:                           0
+Init. location predicates:                         0
+
+Invariant Generation statistics
+-------------------------------
+
+Bounds CPA statistics
+---------------------
+Bound k:                                           10
+Maximum loop iteration reached:                    3
+
+
+ValueAnalysisCPA statistics
+---------------------------
+Number of variables per state:                     57.82 (sum: 50536, count: 874, min: 0, max: 77)
+Number of global variables per state:              51.82 (sum: 45289, count: 874, min: 0, max: 59)
+Number of assumptions:                                  736
+Number of deterministic assumptions:                      0
+Level of Determinism:                              0%
+
+ValueAnalysisPrecisionAdjustment statistics
+-------------------------------------------
+Number of abstraction computations:                     873
+Total time for liveness abstraction:                   0.000s
+Total time for abstraction computation:                0.048s
+Total time for path thresholds:                        0.000s
+
+ConstraintsStrengthenOperator statistics
+----------------------------------------
+Total time for strengthening by ConstraintsCPA:     0.000s
+Replaced symbolic expressions: 0
+
+AutomatonAnalysis (SVCOMP) statistics
+-------------------------------------
+Number of states:                                  1
+Total time for successor computation:                  0.003s
+Automaton transfers with branching:                0
+Automaton transfer successors:                     1.00 (sum: 873, count: 874, min: 0, max: 1) [0, 1 x 873]
+Number of states with assumption transitions:      0
+
+CPA algorithm statistics
+------------------------
+Number of iterations:            874
+Max size of waitlist:            1
+Average size of waitlist:        1
+LoopstackSortedWaitlist:                           0.00 (sum: 0, count: 874, min: 0, max: 0)
+ReversePostorderSortedWaitlist:                    0.00 (sum: 0, count: 874, min: 0, max: 0)
+LoopIterationSortedWaitlist:                       0.00 (sum: 0, count: 874, min: 0, max: 0)
+CallstackSortedWaitlist:                           0.00 (sum: 0, count: 1, min: 0, max: 0)
+Number of computed successors:   873
+Max successors for one state:    1
+Number of times merged:          0
+Number of times stopped:         0
+Number of times breaked:         0
+
+Total time for CPA algorithm:         0.521s (Max:     0.521s)
+  Time for choose from waitlist:      0.013s
+  Time for precision adjustment:      0.093s
+  Time for transfer relation:         0.377s
+  Time for stop operator:             0.010s
+  Time for adding to reached set:     0.020s
+
+BMC algorithm statistics
+------------------------
+Time for BMC formula creation:                       0.529s
+Time for final sat check:                            1.051s
+Time for error-path creation:                        0.129s
+Time for error-path post-processing:                 2.126s
+
+CPAchecker general statistics
+-----------------------------
+Number of program locations:                       2267
+Number of CFA edges (per node):                        2745 (count: 2267, min: 0, max: 21, avg: 1.21)
+Number of relevant variables:                      325
+Number of functions:                               75
+Number of loops (and loop nodes):                         9 (sum: 175, min: 11, max: 37, avg: 19.44)
+Size of reached set:             874
+  Number of reached locations:   619 (27%)
+    Avg states per location:     1
+    Max states per location:     9 (at node N1934)
+  Number of reached functions:   41 (55%)
+  Number of partitions:          874
+    Avg size of partitions:      1
+    Max size of partitions:      1
+  Number of target states:       1
+
+Time for analysis setup:          2.846s
+  Time for loading CPAs:          1.334s
+  Time for loading parser:        0.215s
+  Time for CFA construction:      1.233s
+    Time for parsing file(s):     0.511s
+    Time for AST to CFA:          0.376s
+    Time for CFA sanity check:    0.001s
+    Time for post-processing:     0.279s
+    Time for loop structure:      0.030s
+    Time for AST structure:       0.000s
+      Time for function pointers resolving:            0.008s
+        Function calls via function pointers:             1 (count: 1, min: 1, max: 1, avg: 1.00)
+        Instrumented function pointer calls:              0 (count: 1, min: 0, max: 0, avg: 0.00)
+        Function calls with function pointer arguments:        0 (count: 1, min: 0, max: 0, avg: 0.00)
+        Instrumented function pointer arguments:          0 (count: 1, min: 0, max: 0, avg: 0.00)
+      Time for classifying variables:                  0.161s
+        Time for collecting variables:                 0.092s
+        Time for solving dependencies:                 0.001s
+        Time for building hierarchy:                   0.001s
+        Time for building classification:              0.067s
+        Time for exporting data:                       0.000s
+Time for Analysis:                4.453s
+CPU time for analysis:            7.380s
+Time for analyzing result:        0.002s
+Total time for CPAchecker:        7.301s
+Total CPU time for CPAchecker:   12.900s
+Time for statistics:              0.069s
+
+Time for Garbage Collector:       0.115s (in 10 runs)
+Garbage Collector(s) used:    G1 Old Generation, G1 Young Generation
+
+Verification result: FALSE. Property violation (unreach-call: reach_error(); called in line 3319) found by chosen configuration.
+More details about the verification run can be found in the directory "./output".

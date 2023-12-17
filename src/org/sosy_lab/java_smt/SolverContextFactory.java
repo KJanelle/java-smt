@@ -109,7 +109,6 @@ public class SolverContextFactory {
               + "This affects only the theories of integer and rational arithmetic.")
   private NonLinearArithmetic nonLinearArithmetic = NonLinearArithmetic.USE;
 
-  @Option(secure = true, description = "test.")
   private boolean generateSMTLIB2;
 
   private final LogManager logger;
@@ -293,6 +292,7 @@ public class SolverContextFactory {
       case PRINCESS:
         return PrincessSolverContext.create(
             config, shutdownNotifier, logfile, (int) randomSeed, nonLinearArithmetic);
+
       case PRINCESS_BINARY:
         generateSMTLIB2 = true;
         return PrincessSolverContext.create(
