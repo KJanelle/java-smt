@@ -39,6 +39,7 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
    * only when executed separately from other solvers
    */
   public void clearGenerator() {
+    Generator.setIsLoggingEnabled(true);
     Generator.lines.delete(0, Generator.lines.length());
     Generator.registeredVariables.clear();
     Generator.executedAggregator.clear();
@@ -84,8 +85,10 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
 
   @Test
   public void testMakeBitVectorWithIntegerFormulas() {
-    // not working for Yices due to lacking support of BitVectorFormula from IntegerFormula
     requireBitvectors();
+    assume()
+        .that(solverToUse())
+        .isNotEqualTo(Solvers.Z3);
     requireIntegers();
     requireBitvectorToInt();
     clearGenerator();
@@ -268,9 +271,7 @@ public class BitVectorSMTLIB2GeneratorTest extends SolverBasedTest0.Parameterize
     // Does not work for CVC4 due to "BigInteger argument out of bounds"
     requireBitvectors();
     assume()
-        .withMessage(
-            "Solver %s cannot handle this BigInterger argument",
-            solverToUse())
+        .withMessage("Solver %s cannot handle this BigInterger argument", solverToUse())
         .that(solverToUse())
         .isNotEqualTo(Solvers.CVC4);
     clearGenerator();

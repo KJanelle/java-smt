@@ -307,9 +307,7 @@ public class NumeralSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedS
   public void testIntegerModulo() {
     requireIntegers();
     assume()
-        .withMessage(
-            "Solver %s does not support modulo. ",
-            solverToUse())
+        .withMessage("Solver %s does not support modulo. ", solverToUse())
         .that(solverToUse())
         .isNotEqualTo(Solvers.MATHSAT5);
     clearGenerator();

@@ -136,7 +136,7 @@ public abstract class SolverBasedTest0 {
           .isNotInstanceOf(UnsatisfiedLinkError.class);
       throw e;
     }
-    Generator.setIsLoggingEnabled(true);
+
     mgr = context.getFormulaManager();
 
     fmgr = mgr.getUFManager();
@@ -194,18 +194,17 @@ public abstract class SolverBasedTest0 {
   /** Skip test if the solver does not support Booleans in UFs. */
   protected final void requireBooleanUFs() {
     assume()
-        .withMessage("Solver %s does not support making UFs with Boolean return values",
-            solverToUse())
+        .withMessage(
+            "Solver %s does not support making UFs with Boolean return values", solverToUse())
         .that(solverToUse())
         .isNotEqualTo(Solvers.MATHSAT5);
   }
 
-
   /** Skip test if the solver does not support Booleans as arguments in Arrays. */
   protected final void requireBooleanArgumentArrays() {
     assume()
-        .withMessage("Solver %s does not support making Arrays with Bool as arguments",
-            solverToUse())
+        .withMessage(
+            "Solver %s does not support making Arrays with Bool as arguments", solverToUse())
         .that(solverToUse())
         .isNoneOf(Solvers.MATHSAT5, Solvers.SMTINTERPOL);
   }
@@ -213,18 +212,17 @@ public abstract class SolverBasedTest0 {
   /** Skip test if the solver does not support any other sort than bitvector in Arrays. */
   protected final void requireAllSortArrays() {
     assume()
-        .withMessage("Solver %s does not support making Arrays with sorts other than bitvectors",
+        .withMessage(
+            "Solver %s does not support making Arrays with sorts other than bitvectors",
             solverToUse())
         .that(solverToUse())
         .isNotEqualTo(Solvers.BOOLECTOR);
   }
 
-
   /** Skip test if the solver does not support UFs without arguments. */
   protected final void requireNoArgumentsInUFs() {
     assume()
-        .withMessage("Solver %s does not support making UFs without input Arguments",
-            solverToUse())
+        .withMessage("Solver %s does not support making UFs without input Arguments", solverToUse())
         .that(solverToUse())
         .isNotEqualTo(Solvers.BOOLECTOR);
   }
@@ -385,8 +383,8 @@ public abstract class SolverBasedTest0 {
       Collection<Formula> possibleExpectedFormulas)
       throws SolverException, InterruptedException, IOException {
 
-    try (ProverEnvironment prover = context.newProverEnvironment(ProverOptions.GENERATE_MODELS,
-        ProverOptions.USE_BINARY)) {
+    try (ProverEnvironment prover =
+        context.newProverEnvironment(ProverOptions.GENERATE_MODELS, ProverOptions.USE_BINARY)) {
       prover.push(constraint);
       assertThat(prover).isSatisfiable();
 

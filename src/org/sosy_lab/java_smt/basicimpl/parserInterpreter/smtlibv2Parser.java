@@ -269,7 +269,7 @@ public class smtlibv2Parser extends Parser {
       "hexadecimal",
       "binary",
       "string",
-      "keyword",
+      "Keyword",
       "spec_constant",
       "s_expr",
       "index",

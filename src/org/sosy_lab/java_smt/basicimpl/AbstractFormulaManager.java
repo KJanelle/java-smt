@@ -46,10 +46,10 @@ import org.sosy_lab.java_smt.api.visitors.FormulaTransformationVisitor;
 import org.sosy_lab.java_smt.api.visitors.FormulaVisitor;
 import org.sosy_lab.java_smt.api.visitors.TraversalProcess;
 import org.sosy_lab.java_smt.basicimpl.parserInterpreter.Visitor;
-import org.sosy_lab.java_smt.basicimpl.tactics.NNFVisitor;
-import org.sosy_lab.java_smt.utils.SolverUtils;
 import org.sosy_lab.java_smt.basicimpl.parserInterpreter.smtlibv2Lexer;
 import org.sosy_lab.java_smt.basicimpl.parserInterpreter.smtlibv2Parser;
+import org.sosy_lab.java_smt.basicimpl.tactics.NNFVisitor;
+import org.sosy_lab.java_smt.utils.SolverUtils;
 
 /**
  * Simplifies building a solver from the specific theories.
@@ -183,6 +183,7 @@ public abstract class AbstractFormulaManager<TFormulaInfo, TType, TEnv, TFuncDec
 
   /**
    * Parses an SMT-LIB2 file and translates it into an equivalent BooleanFormula constraint
+   *
    * @param pString name of the file that contains the SMT-LIB2
    * @return BooleanFormula equivalent to the SMT-LIB2 in file
    * @throws IOException if file can't be read
@@ -208,6 +209,7 @@ public abstract class AbstractFormulaManager<TFormulaInfo, TType, TEnv, TFuncDec
 
   /**
    * Parses an SMT-LIB2 String and translates it into an equivalent BooleanFormula constraint
+   *
    * @param pString SMT-LIB2 formula as String that will be parsed
    * @return BooleanFormula equivalent to the SMT-LIB2 string
    */
@@ -233,6 +235,7 @@ public abstract class AbstractFormulaManager<TFormulaInfo, TType, TEnv, TFuncDec
   /**
    * Calls the dumpSMTLIB2 method from the Generator, which will write the assembled SMT-LIB2 to a
    * file 'Out.smt2'
+   *
    * @throws IOException if writing to file fails
    */
   @Override
@@ -585,7 +588,7 @@ public abstract class AbstractFormulaManager<TFormulaInfo, TType, TEnv, TFuncDec
         help);
     Preconditions.checkArgument(
         !SMTLIB2_KEYWORDS.contains(variableName),
-        "Identifier '%s' can not be used, because it is a keyword of SMT-LIB2. %s",
+        "Identifier '%s' can not be used, because it is a expressionType of SMT-LIB2. %s",
         variableName,
         help);
     Preconditions.checkArgument(

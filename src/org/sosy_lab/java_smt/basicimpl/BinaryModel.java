@@ -40,9 +40,9 @@ import org.sosy_lab.java_smt.api.BooleanFormulaManager;
 import org.sosy_lab.java_smt.api.IntegerFormulaManager;
 import org.sosy_lab.java_smt.api.UFManager;
 import org.sosy_lab.java_smt.basicimpl.parserInterpreter.Visitor;
-import org.sosy_lab.java_smt.solvers.princess.PrincessEnvironment;
 import org.sosy_lab.java_smt.basicimpl.parserInterpreter.smtlibv2Lexer;
 import org.sosy_lab.java_smt.basicimpl.parserInterpreter.smtlibv2Parser;
+import org.sosy_lab.java_smt.solvers.princess.PrincessEnvironment;
 
 /**
  * Generates a model by executing Princess with the contents of "Out.smt2" as input and parsing
@@ -60,10 +60,10 @@ public class BinaryModel extends AbstractModel<IExpression, Sort, PrincessEnviro
   private final UFManager umgr;
 
   private List<ValueAssignment> assignments;
-  /**
-   * Model.ValuesAssignments for the parsed Princess model
-   */
+
+  /** Model.ValuesAssignments for the parsed Princess model */
   public ImmutableList<ValueAssignment> finalList;
+
   private boolean isUnsat;
 
   public BinaryModel(
@@ -91,45 +91,45 @@ public class BinaryModel extends AbstractModel<IExpression, Sort, PrincessEnviro
   }
 
   /**
-   * generates a SMT-LIB2 model from Princess and writes it into a file "Model.smt2"
+   * generates an SMT-LIB2 model from Princess and writes it into a file "Model.smt2"
+   *
    * @throws IOException if writing to file fails
    */
   public void getOutput() throws IOException {
 
-    String fileName =
-        "/princess_all-2023-06-19.jar";
+    String fileName = "/princess_all-2023-06-19.jar";
     String princessJar = filePath + fileName;
     new File(princessJar).setExecutable(true);
 
     Process process =
-        Runtime.getRuntime().exec("java -jar " + princessJar + " +incremental " + filePath +
-            "/Out.smt2");
+        Runtime.getRuntime()
+            .exec("java -jar " + princessJar + " +incremental " + filePath + "/Out.smt2");
 
     StringBuilder output = new StringBuilder();
-      try (InputStream is = process.getInputStream()) {
-        try {
-          process.waitFor();
-        } catch (InterruptedException pE) {
-          throw new RuntimeException(pE);
-        }
-        try (InputStreamReader isr = new InputStreamReader(is, Charset.defaultCharset())) {
-          try (BufferedReader br = new BufferedReader(isr)) {
-            String lines;
-            while ((lines = br.readLine()) != null) {
-              output.append(lines).append("\n");
-            }
-            if (String.valueOf(output).startsWith("un")) {
-              isUnsat = true;
-              output.delete(0, 5);
-            } else {
-              isUnsat = false;
-              output.delete(0, 3);
-            }
-            Generator.writeToFile(String.valueOf(output), (filePath + "/Model.smt2"));
+    try (InputStream is = process.getInputStream()) {
+      try {
+        process.waitFor();
+      } catch (InterruptedException pE) {
+        throw new RuntimeException(pE);
+      }
+      try (InputStreamReader isr = new InputStreamReader(is, Charset.defaultCharset())) {
+        try (BufferedReader br = new BufferedReader(isr)) {
+          String lines;
+          while ((lines = br.readLine()) != null) {
+            output.append(lines).append("\n");
           }
+          if (String.valueOf(output).startsWith("un")) {
+            isUnsat = true;
+            output.delete(0, 5);
+          } else {
+            isUnsat = false;
+            output.delete(0, 3);
+          }
+          Generator.writeToFile(String.valueOf(output), (filePath + "/Model.smt2"));
         }
       }
     }
+  }
 
   private List<ValueAssignment> parseModel(String pString) throws IOException {
     smtlibv2Lexer lexer = new smtlibv2Lexer(CharStreams.fromFileName(pString));
@@ -156,9 +156,7 @@ public class BinaryModel extends AbstractModel<IExpression, Sort, PrincessEnviro
     return finalList;
   }
 
-  public BinaryModel getModel()
-      throws IOException,
-          ModelException {
+  public BinaryModel getModel() throws IOException, ModelException {
     getAssignments();
     return this;
   }
@@ -175,11 +173,11 @@ public class BinaryModel extends AbstractModel<IExpression, Sort, PrincessEnviro
     return String.valueOf(out);
   }
 
-  private boolean isUnsat() {
+  public boolean isUnsat() {
     return isUnsat;
   }
 
-  private void setUnsat(boolean pUnsat) {
+  public void setUnsat(boolean pUnsat) {
     isUnsat = pUnsat;
   }
 }

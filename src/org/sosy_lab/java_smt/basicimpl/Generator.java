@@ -39,10 +39,8 @@ import org.sosy_lab.java_smt.api.BooleanFormula;
 public class Generator {
   private Generator() {}
 
-  /**
-   * Used to determine what kind of SMT-LIB2 string needs to be assembled.
-   */
-  public enum keyword {
+  /** Used to determine what kind of SMT-LIB2 string needs to be assembled. */
+  public enum Keyword {
     DIRECT,
     SKIP,
     BOOL,
@@ -56,29 +54,25 @@ public class Generator {
   private static boolean loggingEnabled = false;
   private static final String file = "Out.smt2";
 
-  /**
-   * collects assembled SMT-LIB2, its value will be written to Out.smt2
-   */
+  /** collects assembled SMT-LIB2, its value will be written to Out.smt2 */
   public static final StringBuilder lines = new StringBuilder("(set-logic AUFLIRA)\n");
 
-  /**
-   * holds FunctionEnvironment for each operation that has been executed
-   */
+  /** holds FunctionEnvironment for each operation that has been executed */
   public static final List<FunctionEnvironment> executedAggregator = new ArrayList<>();
 
   /**
-   * holds FunctionEnvironment for each variable or function that needs to be declared or defined
-   * in SMT-LIB2
+   * holds FunctionEnvironment for each variable or function that needs to be declared or defined in
+   * SMT-LIB2
    */
   public static final List<FunctionEnvironment> registeredVariables = new ArrayList<>();
 
   protected static void writeToFile(String line, String fileName) throws IOException {
 
     try {
-      try (Writer fileWriter = Files.newBufferedWriter(Paths.get(fileName),
-          Charset.defaultCharset())) {
-      fileWriter.write(line);
-      fileWriter.flush();
+      try (Writer fileWriter =
+          Files.newBufferedWriter(Paths.get(fileName), Charset.defaultCharset())) {
+        fileWriter.write(line);
+        fileWriter.flush();
       }
     } catch (GeneratorException e) {
       throw new GeneratorException("Could not write to file");
@@ -95,6 +89,7 @@ public class Generator {
 
   /**
    * Recursively evaluates a Formula to SMT-LIB2, stops when input is a String
+   *
    * @param constraint Formula or String that is translated to SMT-LIB2
    * @return SMT-LIB2 String that is equivalent to Formula or String input
    */
@@ -103,13 +98,11 @@ public class Generator {
       return (String) constraint;
     } else {
       Optional<FunctionEnvironment> methodToEvaluate =
-          executedAggregator.stream()
-              .filter(x -> x.getResult().equals(constraint))
-              .findFirst();
-      if (methodToEvaluate.isPresent() && !methodToEvaluate.get().keyword.equals(keyword.DIRECT)) {
+          executedAggregator.stream().filter(x -> x.getResult().equals(constraint)).findFirst();
+      if (methodToEvaluate.isPresent()
+          && !methodToEvaluate.get().expressionType.equals(Keyword.DIRECT)) {
         registeredVariables.add(methodToEvaluate.get());
       }
-      List<FunctionEnvironment> bla = executedAggregator;
       List<Object> evaluatedInputs = new ArrayList<>();
       for (Object value : Objects.requireNonNull(methodToEvaluate).get().getInputParams()) {
         String evaluatedInput = evaluateRecursive(value);
@@ -120,10 +113,11 @@ public class Generator {
   }
 
   /**
-   * This method will assemble a valid SMT-LIB2 String from any given JavaSMT constraint and
-   * append it to the StringBuilder 'lines'.
+   * This method will assemble a valid SMT-LIB2 String from any given JavaSMT constraint and append
+   * it to the StringBuilder 'lines'.
+   *
    * @param constraint JavaSMT constraint of type BooleanFormula that will be interpreted as
-   *                   SMT-LIB2
+   *     SMT-LIB2
    */
   public static void assembleConstraint(BooleanFormula constraint) {
     String result = evaluateRecursive(constraint);
@@ -131,25 +125,25 @@ public class Generator {
         registeredVariables.stream().distinct().collect(Collectors.toList());
     String command = "(assert ";
     for (FunctionEnvironment variable : uniqueRegisteredValues) {
-      if (variable.keyword.equals(keyword.BOOL)) {
+      if (variable.expressionType.equals(Keyword.BOOL)) {
         String newEntry = "(declare-const " + variable.inputParams.get(0) + " Bool)\n";
         if (lines.indexOf(newEntry) == -1) {
           lines.append(newEntry);
         }
       }
-      if (variable.keyword.equals(keyword.INT)) {
+      if (variable.expressionType.equals(Keyword.INT)) {
         String newEntry = "(declare-const " + variable.inputParams.get(0) + " Int)\n";
         if (lines.indexOf(newEntry) == -1) {
           lines.append(newEntry);
         }
       }
-      if (variable.keyword.equals(keyword.REAL)) {
+      if (variable.expressionType.equals(Keyword.REAL)) {
         String newEntry = "(declare-const " + variable.inputParams.get(0) + " Real)\n";
         if (lines.indexOf(newEntry) == -1) {
           lines.append(newEntry);
         }
       }
-      if (variable.keyword.equals(keyword.BITVEC)) {
+      if (variable.expressionType.equals(Keyword.BITVEC)) {
         String newEntry =
             "(declare-const "
                 + variable.inputParams.get(0)
@@ -160,7 +154,7 @@ public class Generator {
           lines.append(newEntry);
         }
       }
-      if (variable.keyword.equals(keyword.ARRAY)) {
+      if (variable.expressionType.equals(Keyword.ARRAY)) {
         String newEntry =
             "(declare-const "
                 + variable.inputParams.get(0)
@@ -174,7 +168,7 @@ public class Generator {
           lines.append(newEntry);
         }
       }
-      if (variable.keyword.equals(keyword.UFFUN)) {
+      if (variable.expressionType.equals(Keyword.UFFUN)) {
         String newEntry =
             "(declare-fun "
                 + variable.ufName
@@ -202,8 +196,9 @@ public class Generator {
   }
 
   /**
-   * Adds commands for generating an SMT-LIB2 model and exiting the solver to StringBuilder
-   * 'lines' and writes the value of 'lines' into a file named 'OUT.smt2'
+   * Adds commands for generating an SMT-LIB2 model and exiting the solver to StringBuilder 'lines'
+   * and writes the value of 'lines' into a file named 'OUT.smt2'
+   *
    * @throws IOException if writing to file failed
    */
   public static void dumpSMTLIB2() throws IOException {

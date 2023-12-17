@@ -26,15 +26,12 @@ import org.sosy_lab.java_smt.api.FormulaType;
 
 public class ParserFormula {
 
-  @Nullable
-  String type;
+  @Nullable String type;
   Object javaSmt;
 
-  @Nullable
-  FormulaType<?> returnType;
+  @Nullable FormulaType<?> returnType;
 
-  @Nullable
-  List<FormulaType<?>> inputParams;
+  @Nullable List<FormulaType<?>> inputParams;
 
   public ParserFormula(Object pJavaSmt) {
     javaSmt = pJavaSmt;
@@ -62,10 +59,10 @@ public class ParserFormula {
     return returnType;
   }
 
-
   public void setReturnType(FormulaType<?> pReturnType) {
     returnType = pReturnType;
   }
+
   @Nullable
   public List<FormulaType<?>> getInputParams() {
     return inputParams;

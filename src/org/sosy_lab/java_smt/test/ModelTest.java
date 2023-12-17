@@ -28,7 +28,6 @@ import java.util.stream.Collectors;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.Before;
 import org.junit.Test;
-import org.sosy_lab.common.configuration.InvalidConfigurationException;
 import org.sosy_lab.common.rationals.Rational;
 import org.sosy_lab.java_smt.SolverContextFactory.Solvers;
 import org.sosy_lab.java_smt.api.ArrayFormula;
@@ -2186,7 +2185,7 @@ public class ModelTest extends SolverBasedTest0.ParameterizedSolverBasedTest0 {
 
   @Test
   public void arrayTest4()
-      throws SolverException, InterruptedException, IOException, InvalidConfigurationException {
+      throws SolverException, InterruptedException, IOException {
     requireParser();
     requireArrays();
     requireBitvectors();

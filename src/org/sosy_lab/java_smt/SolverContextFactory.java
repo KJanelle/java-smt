@@ -13,7 +13,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.function.Consumer;
-import javax.security.auth.callback.ConfirmationCallback;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.sosy_lab.common.NativeLibraries;
 import org.sosy_lab.common.ShutdownNotifier;
@@ -27,7 +26,6 @@ import org.sosy_lab.common.log.LogManager;
 import org.sosy_lab.java_smt.api.FloatingPointRoundingMode;
 import org.sosy_lab.java_smt.api.SolverContext;
 import org.sosy_lab.java_smt.basicimpl.AbstractNumeralFormulaManager.NonLinearArithmetic;
-import org.sosy_lab.java_smt.basicimpl.AbstractProver;
 import org.sosy_lab.java_smt.basicimpl.Generator;
 import org.sosy_lab.java_smt.delegate.logging.LoggingSolverContext;
 import org.sosy_lab.java_smt.delegate.statistics.StatisticsSolverContext;
@@ -55,11 +53,12 @@ public class SolverContextFactory {
     Z3,
     SMTINTERPOL,
     PRINCESS,
-    PRINCESS_BINARY,
+
     BOOLECTOR,
     CVC4,
     CVC5,
-    YICES2
+    YICES2,
+    PRINCESS_BINARY
   }
 
   @Option(secure = true, description = "Export solver queries in SmtLib format into a file.")
@@ -297,7 +296,7 @@ public class SolverContextFactory {
         generateSMTLIB2 = true;
         return PrincessSolverContext.create(
             config,
-            //Configuration.fromCmdLineArguments(cmdLineArguments),
+            // Configuration.fromCmdLineArguments(cmdLineArguments),
             shutdownNotifier,
             logfile,
             (int) randomSeed,

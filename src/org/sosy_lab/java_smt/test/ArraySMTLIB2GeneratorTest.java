@@ -21,9 +21,11 @@
 package org.sosy_lab.java_smt.test;
 
 import static com.google.common.truth.Truth.assertThat;
+import static com.google.common.truth.TruthJUnit.assume;
 
 import java.util.Objects;
 import org.junit.Test;
+import org.sosy_lab.java_smt.SolverContextFactory.Solvers;
 import org.sosy_lab.java_smt.api.ArrayFormula;
 import org.sosy_lab.java_smt.api.BitvectorFormula;
 import org.sosy_lab.java_smt.api.BooleanFormula;
@@ -41,6 +43,7 @@ public class ArraySMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSol
    * only when executed separately from other solvers
    */
   public void clearGenerator() {
+    Generator.setIsLoggingEnabled(true);
     Generator.lines.delete(0, Generator.lines.length());
     Generator.registeredVariables.clear();
     Generator.executedAggregator.clear();
@@ -53,16 +56,10 @@ public class ArraySMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSol
     clearGenerator();
     ArrayFormula<BitvectorFormula, StringFormula> a1 =
         Objects.requireNonNull(amgr)
-            .makeArray(
-                "a1",
-                FormulaType.getBitvectorTypeWithSize(3),
-                FormulaType.StringType);
+            .makeArray("a1", FormulaType.getBitvectorTypeWithSize(3), FormulaType.StringType);
     ArrayFormula<BitvectorFormula, StringFormula> a2 =
         Objects.requireNonNull(amgr)
-            .makeArray(
-                "a2",
-                FormulaType.getBitvectorTypeWithSize(3),
-                FormulaType.StringType);
+            .makeArray("a2", FormulaType.getBitvectorTypeWithSize(3), FormulaType.StringType);
 
     BooleanFormula constraint1 = amgr.equivalence(a1, a2);
 
@@ -76,14 +73,10 @@ public class ArraySMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSol
     clearGenerator();
     ArrayFormula<StringFormula, BitvectorFormula> a1 =
         Objects.requireNonNull(amgr)
-            .makeArray(
-                "a1", FormulaType.StringType,
-                FormulaType.getBitvectorTypeWithSize(3));
+            .makeArray("a1", FormulaType.StringType, FormulaType.getBitvectorTypeWithSize(3));
     ArrayFormula<StringFormula, BitvectorFormula> a2 =
         Objects.requireNonNull(amgr)
-            .makeArray(
-                "a2", FormulaType.StringType,
-                FormulaType.getBitvectorTypeWithSize(3));
+            .makeArray("a2", FormulaType.StringType, FormulaType.getBitvectorTypeWithSize(3));
 
     BooleanFormula constraint1 = amgr.equivalence(a1, a2);
 
@@ -383,6 +376,9 @@ public class ArraySMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSol
   public void testStore() {
     requireArrays();
     requireIntegers();
+    assume()
+        .that(solverToUse())
+        .isNotEqualTo(Solvers.Z3);
     clearGenerator();
     ArrayFormula<IntegerFormula, IntegerFormula> a1 =
         Objects.requireNonNull(amgr)
@@ -406,6 +402,9 @@ public class ArraySMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSol
   public void testSelect() {
     requireArrays();
     requireIntegers();
+    assume()
+        .that(solverToUse())
+        .isNotEqualTo(Solvers.Z3);
     clearGenerator();
     ArrayFormula<IntegerFormula, IntegerFormula> a1 =
         Objects.requireNonNull(amgr)

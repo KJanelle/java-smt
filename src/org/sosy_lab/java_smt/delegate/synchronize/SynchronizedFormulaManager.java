@@ -39,7 +39,6 @@ import org.sosy_lab.java_smt.api.UFManager;
 import org.sosy_lab.java_smt.api.visitors.FormulaTransformationVisitor;
 import org.sosy_lab.java_smt.api.visitors.FormulaVisitor;
 import org.sosy_lab.java_smt.api.visitors.TraversalProcess;
-import org.sosy_lab.java_smt.basicimpl.Generator;
 
 class SynchronizedFormulaManager implements FormulaManager {
 
@@ -170,6 +169,7 @@ class SynchronizedFormulaManager implements FormulaManager {
 
   /**
    * Parses an SMT-LIB2 file and translates it into an equivalent BooleanFormula constraint
+   *
    * @param pS name of the file that contains the SMT-LIB2
    * @return BooleanFormula equivalent to the SMT-LIB2 in file
    * @throws IOException if file can't be read
@@ -188,6 +188,7 @@ class SynchronizedFormulaManager implements FormulaManager {
 
   /**
    * Parses an SMT-LIB2 String and translates it into an equivalent BooleanFormula constraint
+   *
    * @param pString SMT-LIB2 formula as String that will be parsed
    * @return BooleanFormula equivalent to the SMT-LIB2 string
    */
@@ -200,6 +201,7 @@ class SynchronizedFormulaManager implements FormulaManager {
   /**
    * Calls the dumpSMTLIB2 method from the Generator, which will write the assembled SMT-LIB2 to a
    * file 'Out.smt2'
+   *
    * @throws IOException if writing to file fails
    */
   @Override

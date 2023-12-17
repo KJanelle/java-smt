@@ -39,11 +39,13 @@ import org.sosy_lab.java_smt.basicimpl.GeneratorException;
 
 public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolverBasedTest0 {
 
+
   /**
    * Integer and Rationals not supported by BOOLECTOR Rationals not supported by PRINCESS Z3 runs
    * only when executed separately from other solvers
    */
   public void clearGenerator() {
+    Generator.setIsLoggingEnabled(true);
     Generator.lines.delete(0, Generator.lines.length());
     Generator.registeredVariables.clear();
     Generator.executedAggregator.clear();
@@ -80,10 +82,8 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
     clearGenerator();
     requireBooleanUFs();
     requireNoArgumentsInUFs();
-    FunctionDeclaration<BooleanFormula> a =
-        fmgr.declareUF("a", FormulaType.BooleanType);
-    FunctionDeclaration<BooleanFormula> b =
-        fmgr.declareUF("b", FormulaType.BooleanType);
+    FunctionDeclaration<BooleanFormula> a = fmgr.declareUF("a", FormulaType.BooleanType);
+    FunctionDeclaration<BooleanFormula> b = fmgr.declareUF("b", FormulaType.BooleanType);
 
     BooleanFormula c = fmgr.callUF(a);
     BooleanFormula d = fmgr.callUF(b);
@@ -95,9 +95,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
     String actualResult = String.valueOf(Generator.lines);
 
     String expectedResult =
-        "(declare-fun a () Bool)\n"
-            + "(declare-fun b () Bool)\n"
-            + "(assert (= a b))\n";
+        "(declare-fun a () Bool)\n" + "(declare-fun b () Bool)\n" + "(assert (= a b))\n";
 
     assertThat(actualResult).isEqualTo(expectedResult);
   }
@@ -157,7 +155,9 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
     String actualResult = String.valueOf(Generator.lines);
 
     String expectedResult =
-        "(declare-fun a (Int) Int)\n" + "(declare-fun b (Int) Int)\n" + "(assert (= (a 4) (b 9)))"
+        "(declare-fun a (Int) Int)\n"
+            + "(declare-fun b (Int) Int)\n"
+            + "(assert (= (a 4) (b 9)))"
             + "\n";
 
     assertThat(actualResult).isEqualTo(expectedResult);
@@ -168,10 +168,8 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
     requireIntegers();
     clearGenerator();
     requireNoArgumentsInUFs();
-    FunctionDeclaration<IntegerFormula> a =
-        fmgr.declareUF("a", FormulaType.IntegerType);
-    FunctionDeclaration<IntegerFormula> b =
-        fmgr.declareUF("b", FormulaType.IntegerType);
+    FunctionDeclaration<IntegerFormula> a = fmgr.declareUF("a", FormulaType.IntegerType);
+    FunctionDeclaration<IntegerFormula> b = fmgr.declareUF("b", FormulaType.IntegerType);
 
     IntegerFormula c = fmgr.callUF(a);
     IntegerFormula d = fmgr.callUF(b);
@@ -207,12 +205,16 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
     String actualResult = String.valueOf(Generator.lines);
 
     String expectedResult =
-        "(declare-fun a (Real) Real)\n" + "(declare-fun b (Real) Real)\n" + "(assert (= (a 4) (b "
+        "(declare-fun a (Real) Real)\n"
+            + "(declare-fun b (Real) Real)\n"
+            + "(assert (= (a 4) (b "
             + "9)))"
             + "\n";
 
     String expectedResultSMTInterpol =
-        "(declare-fun a (Real) Real)\n" + "(declare-fun b (Real) Real)\n" + "(assert (= (a 4.0) "
+        "(declare-fun a (Real) Real)\n"
+            + "(declare-fun b (Real) Real)\n"
+            + "(assert (= (a 4.0) "
             + "(b 9.0)))\n";
 
     Assert.assertTrue(
@@ -224,10 +226,8 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
     requireRationals();
     clearGenerator();
     requireNoArgumentsInUFs();
-    FunctionDeclaration<RationalFormula> a =
-        fmgr.declareUF("a", FormulaType.RationalType);
-    FunctionDeclaration<RationalFormula> b =
-        fmgr.declareUF("b", FormulaType.RationalType);
+    FunctionDeclaration<RationalFormula> a = fmgr.declareUF("a", FormulaType.RationalType);
+    FunctionDeclaration<RationalFormula> b = fmgr.declareUF("b", FormulaType.RationalType);
 
     RationalFormula c = fmgr.callUF(a);
     RationalFormula d = fmgr.callUF(b);
@@ -241,7 +241,6 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
     String expectedResult =
         "(declare-fun a () Real)\n" + "(declare-fun b () Real)\n" + "(assert (= a b))\n";
 
-
     assertThat(actualResult).isEqualTo(expectedResult);
   }
 
@@ -253,8 +252,8 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
         fmgr.declareUF(
             "a", FormulaType.getBitvectorTypeWithSize(4), FormulaType.getBitvectorTypeWithSize(4));
     FunctionDeclaration<BitvectorFormula> b =
-        fmgr.declareUF("b", FormulaType.getBitvectorTypeWithSize(4),
-            FormulaType.getBitvectorTypeWithSize(4));
+        fmgr.declareUF(
+            "b", FormulaType.getBitvectorTypeWithSize(4), FormulaType.getBitvectorTypeWithSize(4));
 
     BitvectorFormula c = fmgr.callUF(a, Objects.requireNonNull(bvmgr).makeBitvector(4, 2));
     BitvectorFormula d = fmgr.callUF(b, Objects.requireNonNull(bvmgr).makeBitvector(4, 3));
@@ -279,8 +278,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
     clearGenerator();
     requireNoArgumentsInUFs();
     FunctionDeclaration<BitvectorFormula> a =
-        fmgr.declareUF(
-            "a", FormulaType.getBitvectorTypeWithSize(4));
+        fmgr.declareUF("a", FormulaType.getBitvectorTypeWithSize(4));
     FunctionDeclaration<BitvectorFormula> b =
         fmgr.declareUF("b", FormulaType.getBitvectorTypeWithSize(4));
 
@@ -335,11 +333,14 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
                     "test",
                     FormulaType.getArrayType(FormulaType.IntegerType, FormulaType.IntegerType),
                     FormulaType.IntegerType));
-    ArrayFormula<IntegerFormula, IntegerFormula> d = fmgr.callUF(b, Objects.requireNonNull(amgr)
-        .makeArray(
-            "test",
-            FormulaType.getArrayType(FormulaType.IntegerType, FormulaType.IntegerType),
-            FormulaType.IntegerType));
+    ArrayFormula<IntegerFormula, IntegerFormula> d =
+        fmgr.callUF(
+            b,
+            Objects.requireNonNull(amgr)
+                .makeArray(
+                    "test",
+                    FormulaType.getArrayType(FormulaType.IntegerType, FormulaType.IntegerType),
+                    FormulaType.IntegerType));
 
     BooleanFormula constraint = fmgr.callUF(constr, c, d);
 
@@ -365,8 +366,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
     clearGenerator();
     FunctionDeclaration<ArrayFormula<IntegerFormula, IntegerFormula>> a =
         fmgr.declareUF(
-            "a",
-            FormulaType.getArrayType(FormulaType.IntegerType, FormulaType.IntegerType));
+            "a", FormulaType.getArrayType(FormulaType.IntegerType, FormulaType.IntegerType));
     FunctionDeclaration<ArrayFormula<IntegerFormula, IntegerFormula>> b =
         fmgr.declareUF(
             "b",
@@ -433,9 +433,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
     String actualResult = String.valueOf(Generator.lines);
 
     String expectedResult =
-        "(declare-fun a () Bool)\n"
-            + "(declare-fun b () Bool)\n"
-            + "(assert (= a b))\n";
+        "(declare-fun a () Bool)\n" + "(declare-fun b () Bool)\n" + "(assert (= a b))\n";
 
     assertThat(actualResult).isEqualTo(expectedResult);
   }
@@ -454,7 +452,9 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
     String actualResult = String.valueOf(Generator.lines);
 
     String expectedResult =
-        "(declare-fun a (Int) Int)\n" + "(declare-fun b (Int) Int)\n" + "(assert (= (a 4) (b 9)))"
+        "(declare-fun a (Int) Int)\n"
+            + "(declare-fun b (Int) Int)\n"
+            + "(assert (= (a 4) (b 9)))"
             + "\n";
 
     assertThat(actualResult).isEqualTo(expectedResult);
@@ -496,11 +496,15 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
     String actualResult = String.valueOf(Generator.lines);
 
     String expectedResult =
-        "(declare-fun a (Real) Real)\n" + "(declare-fun b (Real) Real)\n" + "(assert (= (a 4) (b "
+        "(declare-fun a (Real) Real)\n"
+            + "(declare-fun b (Real) Real)\n"
+            + "(assert (= (a 4) (b "
             + "9)))\n";
 
     String expectedResultSMTInterpol =
-        "(declare-fun a (Real) Real)\n" + "(declare-fun b (Real) Real)\n" + "(assert (= (a 4.0) "
+        "(declare-fun a (Real) Real)\n"
+            + "(declare-fun b (Real) Real)\n"
+            + "(assert (= (a 4.0) "
             + "(b 9.0)))\n";
 
     Assert.assertTrue(
@@ -512,9 +516,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
     requireRationals();
     requireNoArgumentsInUFs();
     clearGenerator();
-    RationalFormula a =
-        fmgr.declareAndCallUF(
-            "a", FormulaType.RationalType);
+    RationalFormula a = fmgr.declareAndCallUF("a", FormulaType.RationalType);
     RationalFormula b = fmgr.declareAndCallUF("b", FormulaType.RationalType);
 
     BooleanFormula constraint = Objects.requireNonNull(rmgr).equal(a, b);
@@ -525,7 +527,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     String expectedResult =
         "(declare-fun a () Real)\n" + "(declare-fun b () Real)\n" + "(assert (= a b))\n";
-    assertThat(expectedResult).isEqualTo(actualResult);
+    assertThat(actualResult).isEqualTo(expectedResult);
   }
 
   @Test
@@ -538,7 +540,8 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
             FormulaType.getBitvectorTypeWithSize(4),
             Objects.requireNonNull(bvmgr).makeBitvector(4, 2));
     BitvectorFormula b =
-        fmgr.declareAndCallUF("b", FormulaType.getBitvectorTypeWithSize(4), bvmgr.makeBitvector(4, 2));
+        fmgr.declareAndCallUF(
+            "b", FormulaType.getBitvectorTypeWithSize(4), bvmgr.makeBitvector(4, 2));
 
     BooleanFormula constraint = bvmgr.equal(a, b);
 
@@ -559,12 +562,8 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
     requireBitvectors();
     requireNoArgumentsInUFs();
     clearGenerator();
-    BitvectorFormula a =
-        fmgr.declareAndCallUF(
-            "a",
-            FormulaType.getBitvectorTypeWithSize(4));
-    BitvectorFormula b =
-        fmgr.declareAndCallUF("b", FormulaType.getBitvectorTypeWithSize(4));
+    BitvectorFormula a = fmgr.declareAndCallUF("a", FormulaType.getBitvectorTypeWithSize(4));
+    BitvectorFormula b = fmgr.declareAndCallUF("b", FormulaType.getBitvectorTypeWithSize(4));
 
     BooleanFormula constraint = Objects.requireNonNull(bvmgr).equal(a, b);
 
@@ -596,8 +595,9 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
                     FormulaType.IntegerType));
     ArrayFormula<IntegerFormula, IntegerFormula> b =
         fmgr.declareAndCallUF(
-            "b", FormulaType.getArrayType(FormulaType.IntegerType, FormulaType.IntegerType), amgr
-            .makeArray(
+            "b",
+            FormulaType.getArrayType(FormulaType.IntegerType, FormulaType.IntegerType),
+            amgr.makeArray(
                 "test",
                 FormulaType.getArrayType(FormulaType.IntegerType, FormulaType.IntegerType),
                 FormulaType.IntegerType));
@@ -626,8 +626,7 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
     clearGenerator();
     ArrayFormula<IntegerFormula, IntegerFormula> a =
         fmgr.declareAndCallUF(
-            "a",
-            FormulaType.getArrayType(FormulaType.IntegerType, FormulaType.IntegerType));
+            "a", FormulaType.getArrayType(FormulaType.IntegerType, FormulaType.IntegerType));
     ArrayFormula<IntegerFormula, IntegerFormula> b =
         fmgr.declareAndCallUF(
             "b", FormulaType.getArrayType(FormulaType.IntegerType, FormulaType.IntegerType));
@@ -646,5 +645,4 @@ public class UFSMTLIB2GeneratorTest extends SolverBasedTest0.ParameterizedSolver
 
     assertThat(actualResult).isEqualTo(expectedResult);
   }
-
 }

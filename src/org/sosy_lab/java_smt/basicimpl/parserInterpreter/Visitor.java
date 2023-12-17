@@ -73,7 +73,6 @@ import org.sosy_lab.java_smt.basicimpl.parserInterpreter.smtlibv2Parser.Term_spe
 import org.sosy_lab.java_smt.basicimpl.parserInterpreter.smtlibv2Parser.Var_bindingContext;
 import scala.Tuple2;
 
-
 /**
  * Implements a method from smtlibv2BaseVisitor for each node in a parse tree that requires some
  * form of action in order to transform the parsed SMT-LIB2 into JavaSMT
@@ -86,15 +85,16 @@ public class Visitor extends smtlibv2BaseVisitor<Object> {
    * their variable name or value as key
    */
   public static final HashMap<String, ParserFormula> variables = new HashMap<>();
+
   /**
-   * saves all created Formulas that are part of a let statement as ParserFormula objects with
-   * their variable name or value as key
+   * saves all created Formulas that are part of a let statement as ParserFormula objects with their
+   * variable name or value as key
    */
   public static final HashMap<String, ParserFormula> letVariables = new HashMap<>();
-  /**
-   * saves each 'assert' statement interpreted as a BooleanFormula object as an entry
-   */
+
+  /** saves each 'assert' statement interpreted as a BooleanFormula object as an entry */
   public static final List<BooleanFormula> constraints = new ArrayList<>();
+
   private final FormulaManager fmgr;
   private final BooleanFormulaManager bmgr;
   private final @Nullable IntegerFormulaManager imgr;
@@ -112,9 +112,7 @@ public class Visitor extends smtlibv2BaseVisitor<Object> {
     return assignments;
   }
 
-  /**
-   * is set to 'true' if a node 'model' is encountered
-   */
+  /** is set to 'true' if a node 'model' is encountered */
   private boolean isModel = false;
 
   public Visitor(
@@ -278,13 +276,11 @@ public class Visitor extends smtlibv2BaseVisitor<Object> {
       return variables.get(operand).javaSmt;
     } else if (getNumericType(operand).equals("Integer")
         || getNumericType(operand).equals("Long")) {
-      variables.put(
-          operand, new ParserFormula(Objects.requireNonNull(imgr).makeNumber(operand)));
+      variables.put(operand, new ParserFormula(Objects.requireNonNull(imgr).makeNumber(operand)));
       return variables.get(operand).javaSmt;
     } else if (getNumericType(operand).equals("Double")
         || getNumericType(operand).equals("Float")) {
-      variables.put(
-          operand, new ParserFormula(Objects.requireNonNull(rmgr).makeNumber(operand)));
+      variables.put(operand, new ParserFormula(Objects.requireNonNull(rmgr).makeNumber(operand)));
       return variables.get(operand).javaSmt;
     } else if (operand.startsWith("#b")) {
       String binVal = Iterables.get(Splitter.on('b').split(operand), 1);
@@ -306,18 +302,18 @@ public class Visitor extends smtlibv2BaseVisitor<Object> {
     String operand = replaceReservedChars(ctx.getText());
     List<String> bitVec = (List<String>) visitChildren(ctx);
     if (letVariables.containsKey(operand)) {
-      if (!(letVariables.get(operand).type == null) && Objects.equals(
-          letVariables.get(operand).type, "UF")
+      if (!(letVariables.get(operand).type == null)
+          && Objects.equals(letVariables.get(operand).type, "UF")
           && letVariables.get(operand).inputParams == null) {
         return umgr.callUF(
             (FunctionDeclaration<Formula>) letVariables.get(operand).javaSmt, new ArrayList<>());
       }
       return letVariables.get(operand).javaSmt;
     } else if (variables.containsKey(operand)) {
-      if (!(variables.get(operand).type == null) && Objects.equals(variables.get(operand).type,
-          "UF")
-          && !(variables.get(operand).inputParams == null) && Objects.requireNonNull(
-          variables.get(operand).inputParams).isEmpty()) {
+      if (!(variables.get(operand).type == null)
+          && Objects.equals(variables.get(operand).type, "UF")
+          && !(variables.get(operand).inputParams == null)
+          && Objects.requireNonNull(variables.get(operand).inputParams).isEmpty()) {
         return umgr.callUF(
             (FunctionDeclaration<Formula>) variables.get(operand).javaSmt, new ArrayList<>());
       }
@@ -339,6 +335,7 @@ public class Visitor extends smtlibv2BaseVisitor<Object> {
 
   /**
    * gets the operands used in a nested term
+   *
    * @param ctx current MultitermContext
    * @param operands List of the operands transformed to Formula objects
    */
@@ -1026,11 +1023,11 @@ public class Visitor extends smtlibv2BaseVisitor<Object> {
       case "store":
         if (operands.size() == 3) {
           try {
-          return Objects.requireNonNull(amgr)
-              .store(
-                  (ArrayFormula<Formula, Formula>) operands.get(0),
-                  operands.get(1),
-                  operands.get(2));
+            return Objects.requireNonNull(amgr)
+                .store(
+                    (ArrayFormula<Formula, Formula>) operands.get(0),
+                    operands.get(1),
+                    operands.get(2));
           } catch (Exception e) {
             throw new ParserException("Operands for " + operator + " need to be of Array type");
           }
@@ -1174,7 +1171,6 @@ public class Visitor extends smtlibv2BaseVisitor<Object> {
       key = mapKey(returnTypes, variable);
     }
 
-
     Formula value = input;
     variables.put(variable, new ParserFormula(input));
 
@@ -1236,6 +1232,7 @@ public class Visitor extends smtlibv2BaseVisitor<Object> {
 
   /**
    * maps FormulaType to the corresponding SMT-LIB2 sort for the String representation of the model
+   *
    * @param type FormulaType that is needs to be translated to SMT-LIB2
    * @return String representation of FormulaType in SMT-LIB2
    */
@@ -1262,6 +1259,7 @@ public class Visitor extends smtlibv2BaseVisitor<Object> {
   /**
    * creates a Formula object to use as the key in ValueAssignments for model from the given
    * FormulaType
+   *
    * @param sorts FormulaType of the value in ValueAssignments
    * @param variable String representation of the key in ValueAssignments
    * @return Formula matching the given FormulaType 'sorts'
@@ -1291,6 +1289,7 @@ public class Visitor extends smtlibv2BaseVisitor<Object> {
   /**
    * Assembles a BooleanFormula for the ValueAssignment field 'formula' by applying
    * BooleanFormulaManager.equivalence() to key Formula and value Formula
+   *
    * @param key Variable name as Formula
    * @param value Variable value as Formula
    * @return Equivalence of key and value
@@ -1314,8 +1313,9 @@ public class Visitor extends smtlibv2BaseVisitor<Object> {
   }
 
   /**
-   * Checks if String contains forbidden characters and temporarily replaces them, can be undone with
-   * 'replaceReplacedChars()'.
+   * Checks if String contains forbidden characters and temporarily replaces them, can be undone
+   * with 'replaceReplacedChars()'.
+   *
    * @param variable String that is checked and modified if necessary
    * @return String with no forbidden characters
    */
@@ -1331,6 +1331,7 @@ public class Visitor extends smtlibv2BaseVisitor<Object> {
 
   /**
    * Reverses 'replaceReservedChars'
+   *
    * @param variable String that is checked for necessary char replacements
    * @return modified String
    */
@@ -1348,7 +1349,7 @@ public class Visitor extends smtlibv2BaseVisitor<Object> {
   public Object visitCmd_declareFun(Cmd_declareFunContext ctx) {
     String variable = replaceReservedChars(ctx.symbol().getText());
 
-    FormulaType<?> returnType = (FormulaType<?>) visit(ctx.sort(ctx.sort().size()-1));
+    FormulaType<?> returnType = (FormulaType<?>) visit(ctx.sort(ctx.sort().size() - 1));
 
     List<FormulaType<?>> inputParams = new ArrayList<>();
     if (ctx.sort().size() > 1) {
@@ -1357,9 +1358,7 @@ public class Visitor extends smtlibv2BaseVisitor<Object> {
       }
     }
 
-    ParserFormula temp =
-        new ParserFormula(
-            umgr.declareUF(variable, returnType, inputParams));
+    ParserFormula temp = new ParserFormula(umgr.declareUF(variable, returnType, inputParams));
     temp.setType("UF");
     temp.setReturnType(returnType);
     temp.setInputParams(inputParams);

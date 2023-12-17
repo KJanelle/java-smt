@@ -30,7 +30,7 @@ import org.sosy_lab.java_smt.api.FormulaType;
 import org.sosy_lab.java_smt.api.FormulaType.ArrayFormulaType;
 import org.sosy_lab.java_smt.api.FormulaType.BitvectorType;
 import org.sosy_lab.java_smt.api.FunctionDeclaration;
-import org.sosy_lab.java_smt.basicimpl.Generator.keyword;
+import org.sosy_lab.java_smt.basicimpl.Generator.Keyword;
 
 public class UFGenerator {
 
@@ -87,9 +87,17 @@ public class UFGenerator {
     inputParams.add(pName);
     inputParams.add(pReturnType);
     inputParams.add(pArgTypes);
-    Function<List<Object>, String> functionToString = inPlaceInputParams -> "(declare-fun " + inPlaceInputParams.get(0) + " (" + inPlaceInputParams.get(1) + ")" + inPlaceInputParams.get(2) + ")";
+    Function<List<Object>, String> functionToString =
+        inPlaceInputParams ->
+            "(declare-fun "
+                + inPlaceInputParams.get(0)
+                + " ("
+                + inPlaceInputParams.get(1)
+                + ")"
+                + inPlaceInputParams.get(2)
+                + ")";
     Generator.executedAggregator.add(
-        new FunctionEnvironment(result, inputParams, functionToString, keyword.SKIP));
+        new FunctionEnvironment(result, inputParams, functionToString, Keyword.SKIP));
   }
 
   protected static <T extends Formula> void logCallFun(
@@ -113,7 +121,7 @@ public class UFGenerator {
           return String.valueOf(out);
         };
     FunctionEnvironment newEntry =
-        new FunctionEnvironment(result, inputParams, functionToString, keyword.UFFUN);
+        new FunctionEnvironment(result, inputParams, functionToString, Keyword.UFFUN);
     newEntry.setUFName(funcType.getName());
     newEntry.setUFInputType(checkUFInputType(funcType.getArgumentTypes()));
     newEntry.setUFOutputType(checkUFOutputType(funcType.getType()));
@@ -141,7 +149,7 @@ public class UFGenerator {
           return String.valueOf(out);
         };
     FunctionEnvironment newEntry =
-        new FunctionEnvironment(result, inputParams, functionToString, keyword.UFFUN);
+        new FunctionEnvironment(result, inputParams, functionToString, Keyword.UFFUN);
     newEntry.setUFName(funcType.getName());
     newEntry.setUFInputType(checkUFInputType(funcType.getArgumentTypes()));
     newEntry.setUFOutputType(checkUFOutputType(funcType.getType()));

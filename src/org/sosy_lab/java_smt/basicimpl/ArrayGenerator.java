@@ -28,7 +28,7 @@ import org.sosy_lab.java_smt.api.Formula;
 import org.sosy_lab.java_smt.api.FormulaType;
 import org.sosy_lab.java_smt.api.FormulaType.ArrayFormulaType;
 import org.sosy_lab.java_smt.api.FormulaType.BitvectorType;
-import org.sosy_lab.java_smt.basicimpl.Generator.keyword;
+import org.sosy_lab.java_smt.basicimpl.Generator.Keyword;
 
 public class ArrayGenerator {
 
@@ -84,7 +84,7 @@ public class ArrayGenerator {
     Function<List<Object>, String> functionToString =
         inPlaceInputParams -> (String) inPlaceInputParams.get(0);
     FunctionEnvironment newEntry =
-        new FunctionEnvironment(result, inputParams, functionToString, keyword.ARRAY);
+        new FunctionEnvironment(result, inputParams, functionToString, Keyword.ARRAY);
     newEntry.setArrayIndexType(checkArrayIndexSort(pIndexType));
     newEntry.setArrayValueType(checkArrayElementSort(pElementType));
     Generator.executedAggregator.add(newEntry);
@@ -99,7 +99,7 @@ public class ArrayGenerator {
         inPlaceInputParams ->
             "(= " + inPlaceInputParams.get(0) + " " + inPlaceInputParams.get(1) + ")";
     Generator.executedAggregator.add(
-        new FunctionEnvironment(result, inputParams, functionToString, keyword.SKIP));
+        new FunctionEnvironment(result, inputParams, functionToString, Keyword.SKIP));
   }
 
   protected static void logSelect(Object result, ArrayFormula<?, ?> pArray, Formula pIndex) {
@@ -110,7 +110,7 @@ public class ArrayGenerator {
         inPlaceInputParams ->
             "(select " + inPlaceInputParams.get(0) + " " + inPlaceInputParams.get(1) + ")";
     Generator.executedAggregator.add(
-        new FunctionEnvironment(result, inputParams, functionToString, keyword.SKIP));
+        new FunctionEnvironment(result, inputParams, functionToString, Keyword.SKIP));
   }
 
   protected static void logStore(
@@ -129,6 +129,6 @@ public class ArrayGenerator {
                 + inPlaceInputParams.get(2)
                 + ")";
     Generator.executedAggregator.add(
-        new FunctionEnvironment(result, inputParams, functionToString, keyword.SKIP));
+        new FunctionEnvironment(result, inputParams, functionToString, Keyword.SKIP));
   }
 }
